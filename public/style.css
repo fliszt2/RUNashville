@@ -1,0 +1,76 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  background: #f5f7fa;
+  padding: 40px 0;
+  box-sizing: border-box;
+  font-family: Montserrat, "sans-serif";
+  color: #51565d;
+}
+
+input {
+  margin: 0 0 15px;
+  border: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  background: #f0f8ff;
+  width: 100%;
+}
+
+button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #8cb4da;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+a {
+  color:#7aa3f0;
+  text-decoration: none;
+}
+
+.login-container, .signup-container {
+  display: block;
+  width: 20%;
+  margin: 15% auto;
+  padding: 1%;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.login-body, .signup-body {
+  width: 80%;
+  margin: auto;
+  padding: 10%;
+  text-align: center;
+}
+
+.login-title, .signup-title {
+  font-size: larger;
+  padding: 2%;
+}
+
+.login-username, .signup-username {
+  font-size: large;
+}
+
+.sign-up, .log-in {
+  text-align: center;
+}
+
+.signup-container {
+  margin: 10% auto;
+}
