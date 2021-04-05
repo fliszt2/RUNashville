@@ -9,10 +9,11 @@ const Signup = class extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      username: '',
       name: '',
       lastname: '',
       password: '',
+      repassword: '',
+      address: '',
       email: '',
       toNextPage: false,
     };
@@ -24,7 +25,7 @@ const Signup = class extends React.PureComponent {
     const { target } = event;
     const { name } = target;
     let { value } = target;
-    if (name === 'password') {
+    if (name === 'password' || name === 'repassword') {
       value = SHA256(value).toString();
     }
     this.setState({
@@ -34,22 +35,26 @@ const Signup = class extends React.PureComponent {
 
   submitNewUser() {
     const {
-      username, name, lastname, password, email,
+      name, lastname, password, email, address, repassword,
     } = this.state;
     if (Validator(email)) {
-      const newUser = {
-        username, name, lastname, password, email, created_at: moment().format('YYYY/MM/DD'),
-      };
-      axios.post('/api/signup', newUser)
-        .then((result) => {
-          const { status } = result;
-          if (status === 201) {
-            this.setState({
-              toNextPage: true,
-            });
-          }
-          return null;
-        });
+      if (password === repassword) {
+        const newUser = {
+          name, lastname, address, password, email, created_at: moment().format('YYYY/MM/DD'),
+        };
+        axios.post('/api/signup', newUser)
+          .then((result) => {
+            const { status } = result;
+            if (status === 201) {
+              this.setState({
+                toNextPage: true,
+              });
+            }
+            return null;
+          });
+      } else {
+        alert('Password does not match');
+      }
     } else {
       alert('Email with invalid format');
     }
@@ -58,7 +63,7 @@ const Signup = class extends React.PureComponent {
   render() {
     const { toNextPage } = this.state;
     if (toNextPage) {
-      return <Redirect to="/login" />;
+      return <Redirect to="/" />;
     }
     return (
       <div className="signup-container">
@@ -66,27 +71,30 @@ const Signup = class extends React.PureComponent {
           <div className="signup-title">
             <span>Sign Up Here</span>
           </div>
-          <div className="signup-username">
-            <input className="input-username" onChange={this.handleChange} name="username" placeholder="username" />
-          </div>
           <div className="signup-name">
-            <input className="input-name" onChange={this.handleChange} name="name" placeholder="name" />
+            <input className="input-name" onChange={this.handleChange} name="name" placeholder="Name" />
           </div>
           <div className="signup-lastname">
-            <input className="input-lastname" onChange={this.handleChange} name="lastname" placeholder="last name" />
+            <input className="input-lastname" onChange={this.handleChange} name="lastname" placeholder="Last Name" />
+          </div>
+          <div className="signup-address">
+            <input className="input-address" onChange={this.handleChange} name="address" placeholder="Address" />
           </div>
           <div className="signup-mail">
-            <input className="input-mail" onChange={this.handleChange} name="email" placeholder="email" />
+            <input className="input-mail" onChange={this.handleChange} name="email" placeholder="Email" />
           </div>
           <div className="signup-password">
-            <input className="input-password" onChange={this.handleChange} type="password" name="password" placeholder="password" />
+            <input className="input-password" onChange={this.handleChange} type="password" name="password" placeholder="Password" />
+          </div>
+          <div className="signup-repassword">
+            <input className="input-repassword" onChange={this.handleChange} type="password" name="repassword" placeholder="Re-Password" />
           </div>
           <button type="submit" onClick={this.submitNewUser}>sign up</button>
         </div>
         <div className="log-in">
           <span>
             Have an account?
-            <a href="log-in"> Click here</a>
+            <a href="login"> Click here</a>
           </span>
         </div>
       </div>

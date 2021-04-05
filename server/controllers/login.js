@@ -5,15 +5,21 @@ const models = require('../models');
 
 module.exports = {
   post(req, res) {
-    const { username, password: introPW } = req.body;
-    models.login.getUser(username, (result) => {
-      const {
-        name, lastname, email, password, created_at,
-      } = result[0];
-      const checkPassword = SHA256(username + introPW + name + lastname + email
-        + moment(created_at).format('YYYY/MM/DD')).toString();
-      if (checkPassword === password) {
-        res.status(200).send('Logged In');
+    const { email, password: introPW } = req.body;
+    models.login.getUser(email, (result) => {
+      if (result.length !== 0) {
+        const {
+          name, lastname, password, created_at, address,
+        } = result[0];
+        const checkPassword = SHA256(introPW + name + lastname + address + email
+          + moment(created_at).format('YYYY/MM/DD')).toString();
+        if (checkPassword === password) {
+          res.status(200).send('Logged In');
+        } else {
+          res.status(401).send('Wrong Password');
+        }
+      } else {
+        res.status(404).send('Not Found');
       }
     });
   },

@@ -14,8 +14,9 @@ CREATE TABLE user_type (
 CREATE TABLE user (
   id INT AUTO_INCREMENT,
   name VARCHAR(30),
-  lastName VARCHAR(50),
+  last_name VARCHAR(50),
   password VARCHAR(100),
+  address VARCHAR(100),
   email VARCHAR(40),
   fk_user_type_id INT,
   banned BOOLEAN,
@@ -142,6 +143,8 @@ CREATE TABLE user_type_for_event_type (
   FOREIGN KEY (fk_user_type_id) REFERENCES user_type(id)
 );
 
+INSERT INTO user_type (name, description) VALUES ('Community Member', 'Just a regular user on the platform');
+INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, banned, created_at) VALUES ('Jodi', 'Jodi', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, '2021-04-05');
 /* INSERT INTO user (username, name, lastname, password, email, created_at) VALUES ('Jodi', 'Jodi', 'Jodi', '67eb8695094491a291bfe0d016e639dfc3475c3f80a59931c97246677aaeb711', 'Jodi', '2021-04-03');
 */
 /* MOCK USERNAME: Jodi

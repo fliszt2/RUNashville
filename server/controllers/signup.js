@@ -5,11 +5,11 @@ const models = require('../models');
 module.exports = {
   post(req, res) {
     const {
-      username, password, name, lastname, email, created_at,
+      password, name, lastname, email, created_at, address,
     } = req.body;
-    const hashedPW = SHA256(username + password + name + lastname + email
+    const hashedPW = SHA256(password + name + lastname + address + email
       + created_at).toString();
-    models.signup.newUser([username, hashedPW, name, lastname, email, created_at], () => {
+    models.signup.newUser([hashedPW, name, lastname, address, email, 1, false, created_at], () => {
       res.status(201).send('Created');
     });
   },
