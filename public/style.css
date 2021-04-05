@@ -74,3 +74,28 @@ a {
 .signup-container {
   margin: 10% auto;
 }
+
+/**************************************** MAIN PAGE EVENTS *************************************************/
+
+/* @media (max-width: 900px) {
+  .carousel {
+    width:auto;
+    height:auto;
+  }
+} */
+
+.carousel-img {
+  width:900px;
+  height:500px;
+  margin: auto;
+}
+
+.carousel-caption {
+  display: flex;
+  flex-direction: row;
+}
+
+/* img.jumbotron-img {
+  width: 800px;
+  height: 400px;
+} */
