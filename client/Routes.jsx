@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import RaceJumbotron from './components/Events/RaceJumbotron';
+import EventsCarousel from './components/Events/EventsCarousel';
 
 const Routes = () => (
   <Router>
@@ -19,6 +21,16 @@ const Routes = () => (
         exact
         render={() => (
           <Signup />
+        )}
+      />
+      <Route
+        path="/main"
+        exact
+        render={() => (
+          <>
+            <RaceJumbotron />
+            <EventsCarousel />
+          </>
         )}
       />
     </Switch>
