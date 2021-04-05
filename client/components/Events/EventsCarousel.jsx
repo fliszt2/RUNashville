@@ -1,21 +1,21 @@
 import React from 'react';
 import EventInfoCard from './EventInfoCard';
-import data from '../../resources/dummydata';
+// import data from '../../resources/dummydata';
 
 class EventsCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dailyRuns: data.dailyRuns,
+      events: this.props.events,
     };
   }
 
   render() {
-    const { dailyRuns } = this.state;
+    const { events } = this.state;
     return (
       <div className="events-carousel">
         <div className="events-carousel-track">
-          {dailyRuns.map((dailyRun) => <EventInfoCard dailyRun={dailyRun} key={dailyRun.id} />)}
+          {events.map((event) => <EventInfoCard event={event} key={event.id} />)}
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
-import data from '../../resources/dummydata';
+// import data from '../../resources/dummydata';
 // import EventInfoModal from './EventInfoModal.jsx';
 // import runnerImage from './images/leeds_runner.jpg';
 
@@ -9,7 +9,7 @@ class RaceJumbotron extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      races: data.races,
+      races: this.props.races,
     };
   }
 
