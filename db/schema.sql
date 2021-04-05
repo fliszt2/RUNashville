@@ -145,9 +145,8 @@ CREATE TABLE user_type_for_event_type (
 
 INSERT INTO user_type (name, description) VALUES ('Community Member', 'Just a regular user on the platform');
 INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, banned, created_at) VALUES ('Jodi', 'Jodi', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, '2021-04-05');
-/* INSERT INTO user (username, name, lastname, password, email, created_at) VALUES ('Jodi', 'Jodi', 'Jodi', '67eb8695094491a291bfe0d016e639dfc3475c3f80a59931c97246677aaeb711', 'Jodi', '2021-04-03');
-*/
-/* MOCK USERNAME: Jodi
+
+/* MOCK EMAIL: Jodi@21Jump.com
   MOCK PASSWORD: Jodi
 */
 
