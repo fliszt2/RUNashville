@@ -9,9 +9,9 @@ module.exports = {
     models.login.getUser(email, (result) => {
       if (result.length !== 0) {
         const {
-          name, lastname, password, created_at, address,
+          name, last_name, password, created_at, address,
         } = result[0];
-        const checkPassword = SHA256(introPW + name + lastname + address + email
+        const checkPassword = SHA256(introPW + name + last_name + address + email
           + moment(created_at).format('YYYY/MM/DD')).toString();
         if (checkPassword === password) {
           res.status(200).send('Logged In');
