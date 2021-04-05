@@ -6,3 +6,4 @@ package-lock.json
 
 ### webpack app.js generated
 /public/app.js
+/public/app.js~main
