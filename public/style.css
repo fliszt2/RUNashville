@@ -11,8 +11,11 @@
 
 body {
   font-size: 1.5rem;
-  box-sizing: border-box;
   color: hsl(0, 5%, 30%);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* To slightly de-emphasize less essential text, such as event descriptions */
