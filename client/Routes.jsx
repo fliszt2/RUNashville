@@ -29,7 +29,9 @@ const Routes = () => (
         render={() => (
           <>
             <RaceJumbotron />
+            <h4>Daily Runs</h4>
             <EventsCarousel />
+            <h4>Announcements and Other Events</h4>
           </>
         )}
       />

@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import data from '../../resources/dummydata';
+// import EventInfoModal from './EventInfoModal.jsx';
 // import runnerImage from './images/leeds_runner.jpg';
 
 class RaceJumbotron extends React.Component {
@@ -39,13 +40,13 @@ class RaceJumbotron extends React.Component {
       <div>
         <Carousel>
           {races.map((race) => (
-            <Carousel.Item className="carousel-img">
+            <Carousel.Item className="carousel-img" key={race.id}>
               <img
                 className="d-block w-100"
                 src="./images/leeds_runner.jpg"
                 alt="First slide"
               />
-              <Carousel.Caption>
+              <Carousel.Caption key={race.id}>
                 <div className="carousel-caption">
                   <div>
                     <h3>{race.name}</h3>
@@ -63,6 +64,7 @@ class RaceJumbotron extends React.Component {
             </Carousel.Item>
           ))}
         </Carousel>
+        {/* <EventInfoModal/> */}
       </div>
     );
   }
