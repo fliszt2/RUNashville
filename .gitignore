@@ -3,3 +3,9 @@ package-lock.json
 
 ### Node Modules
 /node_modules
+
+### webpack app.js generated
+/public/app.js
+/public/app.js~main
+
+config.js
