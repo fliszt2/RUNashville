@@ -202,28 +202,65 @@ a {
 }
 
 .carousel-caption {
-  display: flex;
-  /* width: 100%; */
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 4fr 2fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   justify-content: space-between;
+  column-gap: 25px;
 }
 
 .race-description {
   /* width: 50%; */
-  margin-right: auto;
+  /* margin-right: auto; */
+  grid-column: 1 / 5;
   text-align: left;
 }
 
 .race-details {
   /* width: 50%; */
+  /* margin-left: auto; */
+  grid-column: 5 / 7;
+  text-align: left;
+}
+
+.race-map {
+  grid-column: 7 / 8;
+}
+
+.race-map img {
+  width: 170px;
+  /* height: 180px; */
+}
+
+/* .carousel-img {
+  width: 900px;
+  height: 500px;
+  margin: auto;
+}
+
+.carousel-caption {
+  display: flex;
+  /* width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.race-description {
+  /* width: 50%;
+  margin-right: auto;
+  text-align: left;
+}
+
+.race-details {
+  /* width: 50%;
   margin-left: auto;
   text-align: left;
 }
 
 .race-map img {
   width: 140px;
-  /* height: 180px; */
-}
+  /* height: 180px;
+} */
 
 /************ EVENTS CAROUSELS **************/
 

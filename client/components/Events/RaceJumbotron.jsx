@@ -49,7 +49,7 @@ class RaceJumbotron extends React.Component {
               <Carousel.Caption key={race.id}>
                 <div className="carousel-caption">
                   <div className="race-description">
-                    <h2>{race.name}</h2>
+                    <h1>{race.name}</h1>
                     <div>
                       <span>Register at: {race.link}</span>
                     </div>
