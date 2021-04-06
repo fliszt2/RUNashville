@@ -1,8 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
+import EventInfoModal from './EventInfoModal';
 
 const CarouselItem = ({ race }) => (
+
+  // const [show, setShow] = React.useState(false);
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
   <Carousel.Item className="carousel-img">
     <img
       className="d-block w-100"
@@ -10,6 +17,7 @@ const CarouselItem = ({ race }) => (
       alt="First slide"
     />
     <Carousel.Caption>
+      <EventInfoModal/>
       <div className="carousel-caption">
         <div>
           <h3>{race.name}</h3>

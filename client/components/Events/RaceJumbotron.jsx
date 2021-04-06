@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import data from '../../resources/dummydata';
-// import EventInfoModal from './EventInfoModal.jsx';
+import EventInfoModal from './EventInfoModal.jsx';
 // import runnerImage from './images/leeds_runner.jpg';
 
 class RaceJumbotron extends React.Component {
@@ -36,6 +36,7 @@ class RaceJumbotron extends React.Component {
 
   render() {
     const { races } = this.state;
+
     return (
       <div>
         <Carousel>
@@ -64,7 +65,7 @@ class RaceJumbotron extends React.Component {
             </Carousel.Item>
           ))}
         </Carousel>
-        {/* <EventInfoModal/> */}
+        <EventInfoModal race={this.state.races[0]}/>
       </div>
     );
   }
