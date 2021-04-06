@@ -4,6 +4,8 @@
   font-family: 'Merriweather', 'Helvetica', 'Arial', serif;
   --green: hsl(120, 60%, 65%);
   --bg-white: hsl(28, 52%, 99%);
+  --white-grey: hsl(0, 0%, 95%);
+  --white: hsl(0, 0%, 98%);
   --black: hsl(0, 5%, 30%);
   --gentle-black: hsl(0, 5%, 45%);
   --border-grey: hsla(0, 0%, 50%, 20%);
@@ -34,8 +36,8 @@ input {
   padding: 15px;
   box-sizing: border-box;
   outline: 0;
-  background: hsl(0, 0%, 95%);
-  border: 1px solid hsla(0, 0%, 50%, 20%);
+  background: var(--white-grey);
+  border: 1px solid var(--border-grey);
   width: 100%;
   border-radius: 3px;
 }
@@ -46,8 +48,8 @@ select {
   padding: 15px;
   box-sizing: border-box;
   outline: 0;
-  background: hsl(0, 0%, 95%);
-  border: 1px solid hsla(0, 0%, 50%, 20%);
+  background: var(--white-grey);
+  border: 1px solid var(--border-grey);
   width: 100%;
   border-radius: 3px;
   text-transform: capitalize;
@@ -56,12 +58,12 @@ select {
 button {
   text-transform: uppercase;
   outline: 0;
-  background: hsl(120, 60%, 65%);
+  background: var(--green);
   border-radius: 3px;
   width: 100%;
-  border: 1px solid hsla(0, 0%, 50%, 20%);
+  border: 1px solid var(--border-grey);
   padding: 15px;
-  color: #FFFFFF;
+  color: var(--white);
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
@@ -73,14 +75,14 @@ textarea {
   padding: 15px;
   box-sizing: border-box;
   outline: 0;
-  background: hsl(0, 0%, 95%);
+  background: var(--white-grey);
   border: 1px solid hsla(0, 0%, 50%, 20%);
   width: 100%;
   border-radius: 3px;
 }
 
 a {
-  color: hsl(0, 0%, 40%);
+  color: var(--gentle-black);
   text-decoration: underline;
 }
 
@@ -104,7 +106,7 @@ a {
 .login-container,
 .signup-container {
   display: block;
-  width: 20%;
+  width: 25%;
   margin: 15% auto;
   padding: 1%;
   border-radius: 10px;
@@ -116,7 +118,7 @@ a {
 .signup-body {
   width: 80%;
   margin: auto;
-  padding: 10%;
+  padding: 5% 10%;
   text-align: center;
 }
 
@@ -128,6 +130,7 @@ a {
 
 .login-username,
 .signup-username {
+  margin-top: 1.5rem;
   font-size: large;
 }
 
@@ -153,7 +156,7 @@ a {
 .contentBox{
   width: 100%;
   min-height: 30vh;
-  border-color: black;
+  border-color: var(--black);
   border-width: 1px;
   border-style: solid;
   vertical-align: top;
@@ -162,7 +165,7 @@ a {
 #header-bar {
   width: 100%;
   height: 7.5vh;
-  background: hsl(120, 60%, 65%);
+  background: var(--green);
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
