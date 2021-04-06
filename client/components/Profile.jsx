@@ -7,6 +7,8 @@ const Profile = class extends React.PureComponent {
     super(props);
     this.state = {
       userProfile: 'Name',
+      banner: 'https://i.ytimg.com/vi/3CR_Z3hs8_Y/maxresdefault.jpg',
+      profilePic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
       userPosts: [
         {
           name: 'Mufasa',
@@ -41,7 +43,10 @@ const Profile = class extends React.PureComponent {
       <div>
         <HeaderBar></HeaderBar>
         <div className="allHeader">
-          <div className="headerImage"></div>
+          <div className='social-profile-banner'>
+            <img className='social-profile-banner-img' src={this.state.banner} />
+            <img className='social-profile-banner-profile-pic profile-pic-round' src={this.state.profilePic}/>
+          </div>
           <div className="profileCard">
             <div className="profileImage" />
             <div className="userName">{userProfile}</div>

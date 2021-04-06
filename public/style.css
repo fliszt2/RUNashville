@@ -183,6 +183,24 @@ a {
 .profileButton {
   width:fit-content;
 }
+
+.social-profile-banner {
+  display: flex;
+  justify-content: center;
+}
+.social-profile-banner-img {
+  height: 30vh;
+  width: 40vw;
+  object-fit: cover;
+}
+.social-profile-banner-profile-pic {
+  position: absolute;
+  left: 25vw;
+  top: 30vh;
+  height: 125px;
+  width: auto;
+}
+
 #social-feeds {
   display: flex;
   justify-content: center;
@@ -201,6 +219,7 @@ a {
 #center-column {
   flex-basis: 40%;
 }
+
 .side-column {
   flex-basis: 30%;
   display: inline-block;
