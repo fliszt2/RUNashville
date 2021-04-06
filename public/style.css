@@ -187,15 +187,17 @@ a {
 .social-profile-banner {
   display: flex;
   justify-content: center;
+
 }
 .social-profile-banner-img {
   height: 30vh;
-  width: 40vw;
+  width: 50vw;
   object-fit: cover;
+  background-position: center;
 }
 .social-profile-banner-profile-pic {
   position: absolute;
-  left: 25vw;
+  left: 20vw;
   top: 30vh;
   height: 125px;
   width: auto;
