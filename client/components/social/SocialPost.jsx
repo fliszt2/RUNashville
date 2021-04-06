@@ -19,12 +19,12 @@ const SocialPost = (props) => {
         </div>
         <div style={{float: 'right', 'align-self': 'center'}}>
           <div className='feed-event-info' style={{'margin-bottom': '0.5rem'}}>
-            <i class="fas fa-clock feed-icon"></i>
+            <i className="fas fa-clock feed-icon"></i>
             <span className='low-priority-text'>{props.date}</span>
           </div>
           <div>
             <div className='feed-event-info'>
-              <i class="fas fa-globe-americas feed-icon"></i>
+              <i className="fas fa-globe-americas feed-icon"></i>
               <span className='low-priority-text'>{props.location}</span>
             </div>
           </div>
@@ -35,9 +35,9 @@ const SocialPost = (props) => {
       <span>{props.post}</span>
       {userImage}
       <div className='social-post-reactions'>
-        <i class="fas fa-comment-dots feed-icon" style={{'cursor': 'pointer'}}></i>
-        <i class="fas fa-plus-circle feed-icon" style={{'cursor': 'pointer'}}></i>
-        <i class="fas fa-heartbeat feed-icon" style={{'cursor': 'pointer'}}></i>
+        <i className="fas fa-comment-dots feed-icon" style={{'cursor': 'pointer'}}></i>
+        <i className="fas fa-plus-circle feed-icon" style={{'cursor': 'pointer'}}></i>
+        <i className="fas fa-heartbeat feed-icon" style={{'cursor': 'pointer'}}></i>
         {/* {props.emotes.map((emote)=>{
           <img className='emote' src={emote}/>
         })} */}

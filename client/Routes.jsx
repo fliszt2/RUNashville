@@ -10,7 +10,7 @@ const Routes = () => (
   <Router>
     <Switch>
       <Route
-        path={['/', '/login']}
+        path="/login"
         exact
         render={() => (
           <Login />
@@ -31,7 +31,7 @@ const Routes = () => (
         )}
       />
       <Route
-        path="/main"
+        path={['/', '/main']}
         exact
         render={() => (
           <Main />
