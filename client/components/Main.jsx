@@ -1,12 +1,14 @@
 import React from 'react';
 import Profile from './social/Profile';
+import Modal from './Modal';
+import HeaderBar from './HeaderBar';
 
 const Main = class extends React.Component {
   constructor() {
     super();
     this.state = {
       userType: 'admin',
-      adminToggleOn: false,
+      adminToggleOn: true,
       isAdmin: true,
       isModalOpen: false,
     };
@@ -25,6 +27,7 @@ const Main = class extends React.Component {
   render() {
     return (
       <div>
+        <HeaderBar />
         <div className="with-sidebar">
           <div>
             {/* <!-- intermediary wrapper --> */}
@@ -46,6 +49,10 @@ const Main = class extends React.Component {
 
             <div className="not-sidebar">
               <Profile />
+            </div>
+            <div>
+              <button style={{ display: "inline" }} onClick={this.onModalOpen}>OPEN MODAL</button>
+              {this.state.isModalOpen ? (<Modal onModalOpen={this.onModalOpen} />) : null}
             </div>
           </div>
         </div>
