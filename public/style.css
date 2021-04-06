@@ -130,6 +130,7 @@ a {
 
 .profileButton {
   width:fit-content;
+
 }
 
 .thirdsColumn{
@@ -146,6 +147,13 @@ a {
   border-width: 1px;
   border-style: solid;
   vertical-align: top;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.boxTitle{
+  font-size: large;
+  padding: 5px 0px;
 }
 
 #header-bar {
@@ -178,10 +186,46 @@ a {
   font-size: 1.5rem;
 }
 
+.profileBody{
+  padding: 10px 0px;
+}
+
 .leftItem{
   float: left;
 }
 
 .rightItem{
   float: right;
+}
+
+.friendCardProfileImg{
+  display: inline-block;
+  width:20px;
+  height:20px;
+}
+
+.friendCardName{
+  display: inline-block;
+  width: fit-content;
+  vertical-align: top;
+  padding: 0px 5px;
+}
+
+.statLine{
+  padding: 5px 0px;
+}
+
+.statDescriptor{
+font-weight: bolder;
+display: inline-block;
+font-size: small;
+}
+
+.stat{
+display: inline-block;
+padding: 0px 5px;
+}
+
+.userBio{
+  font-size: small;
 }
