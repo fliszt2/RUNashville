@@ -112,6 +112,7 @@ CREATE TABLE difficulty_level (
 
 CREATE TABLE events (
   id INT AUTO_INCREMENT,
+  event_title VARCHAR(40),
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
   fk_leader_user_id INT,

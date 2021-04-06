@@ -1,7 +1,6 @@
 import React from 'react';
 import SocialFeed from './SocialFeed.jsx';
 import CreatePost from './CreatePost.jsx';
-import HeaderBar from '../HeaderBar';
 import friendCard from './friendCard';
 
 const Profile = class extends React.PureComponent {
@@ -74,7 +73,6 @@ const Profile = class extends React.PureComponent {
     } = userProfile;
     return (
       <div>
-        <HeaderBar />
         <div className="allHeader">
           <div className="social-profile-banner">
             <img className="social-profile-banner-img" src={headerImage} />
