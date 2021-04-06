@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './Profile';
+import Profile from './social/Profile';
 
 const Main = class extends React.Component {
   constructor() {

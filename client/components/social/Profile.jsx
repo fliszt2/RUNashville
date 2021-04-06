@@ -1,4 +1,6 @@
 import React from 'react';
+import SocialFeed from './SocialFeed.jsx';
+import CreatePost from './CreatePost.jsx';
 import HeaderBar from '../HeaderBar';
 import friendCard from './friendCard';
 
@@ -6,6 +8,31 @@ const Profile = class extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      userPosts: [
+        {
+          name: 'Mufasa',
+          date: 'April 20th, 2020',
+          location: 'The Mighty Jungle',
+          post: 'My son is a little turd, he will never be king because I will live forever LOL',
+          propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
+          image: 'https://i2-prod.mirror.co.uk/incoming/article13631520.ece/ALTERNATES/s615/0_The-Lion-King.jpg',
+          run: {
+            distance: 5,
+            time: '37.24',
+            pace: '7:43',
+            steps: 10376,
+            heartRate: 120,
+            calories: 548
+          }
+        },
+        {
+          name: 'Mufasa',
+          date: 'April 20th, 2020',
+          location: 'The Mighty Jungle',
+          post: 'My son is a little turd, he will never be king because I will live forever LOL',
+          propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA'
+        }
+      ],
       userProfile: {
         name: 'Test',
         stats: {
@@ -16,8 +43,8 @@ const Profile = class extends React.PureComponent {
           lifetimeRaces: 22,
           eventsAttended: 18,
         },
-        pic: '',
-        headerImage: '',
+        pic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
+        headerImage: 'https://i.ytimg.com/vi/3CR_Z3hs8_Y/maxresdefault.jpg',
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         friendsList: [
           {
@@ -47,22 +74,27 @@ const Profile = class extends React.PureComponent {
     } = userProfile;
     return (
       <div>
+        <HeaderBar></HeaderBar>
         <div className="allHeader">
-          <HeaderBar />
+          <div className='social-profile-banner'>
+            <img className='social-profile-banner-img' src={headerImage} />
+            <img className='social-profile-banner-profile-pic profile-pic-round' src={pic}/>
+          </div>
           <div className="profileCard">
-            <div className="profileImage">{pic}</div>
+            <div className="profileImage" />
             <div className="userName">{name}</div>
-            <button className="profileButton" type="button">
-              Follow {name}
+            <button className="profileButton">
+              Follow
+              {name}
             </button>
           </div>
         </div>
-        <div className="profileBody">
-          <div className="thirdsColumn">
+        <div id="social-feeds">
+          <div className="side-column">
             <div className="contentBox">
               <div className="boxTitle">
                 {name}
-                &apos;s Stats
+                's Stats
               </div>
               <div className="statistics">
                 <div className="statLine">
@@ -94,7 +126,7 @@ const Profile = class extends React.PureComponent {
             <div className="contentBox">
               <div className="boxTitle">
                 {name}
-                &apos;s Events
+                's Events
               </div>
               <div className="eventsFeed" />
             </div>
@@ -106,20 +138,18 @@ const Profile = class extends React.PureComponent {
               <div className="recentActivityFeed" />
             </div>
           </div>
-          <div className="thirdsColumn">
-
+          <div id="center-column">
+            <div>{name}'s Feed</div>
+            <div id="social-feed-buttons">
+              <button className="profileButton">+ New Post</button>
+              <button className="profileButton">+ Create Daily Run</button>
+            </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name}
-                &apos;s Feed
-              </div>
-              <button className="profileButton leftItem" type="button">+ New Post</button>
-              <button className="profileButton rightItem" type="button">+ Create Daily Run</button>
-              <div className="profileFeed" />
+              <SocialFeed posts={this.state.userPosts}></SocialFeed>
             </div>
           </div>
-          <div className="thirdsColumn">
-            <div className="contentBox">
+          <div className="side-column">
+          <div className="contentBox">
               <div className="boxTitle">
                 {name}
                 &apos;s Bio
