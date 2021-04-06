@@ -9,7 +9,7 @@ const data = {
       end_time: '',
       start_location: 'The Hill Top at West 25th St',
       end_location: '',
-      image_url: '',
+      image_url: 'http://nashvilleguru.com/officialwebsite/wp-content/uploads/2014/02/Running-Events-Nashville-Guru1.jpg',
       thumbnail_photo: '',
       difficulty_level: 'intermediate',
       running_distance: 13.5,
@@ -19,6 +19,7 @@ const data = {
       promoted: true,
       created_at: '',
       updated_at: '',
+      map_url: 'https://wpln.org/wp-content/uploads/sites/7/2019/05/harpeth_river_greenway_broad.png',
     },
     {
       id: 2,
@@ -29,7 +30,7 @@ const data = {
       end_time: '',
       start_location: '',
       end_location: '',
-      image_url: '',
+      image_url: 'https://static.rootsrated.com/image/upload/s--dXe39lOo--/t_rr_large_traditional/fap9zlflqlwwschunrhz.jpg',
       thumbnail_photo: '',
       difficulty_level: '',
       running_distance: 13.1,
@@ -39,6 +40,7 @@ const data = {
       promoted: true,
       created_at: '',
       updated_at: '',
+      map_url: 'https://wpln.org/wp-content/uploads/sites/7/2019/05/harpeth_river_greenway_broad.png',
     },
     {
       id: 3,
@@ -53,7 +55,7 @@ const data = {
       end_time: '',
       start_location: '',
       end_location: '',
-      image_url: '',
+      image_url: 'https://static.rootsrated.com/media/article/large_natural/31196-bowie-nature-park-gallery.jpg?1452728068',
       thumbnail_photo: '',
       difficulty_level: '',
       running_distance: 3.2,
@@ -63,6 +65,7 @@ const data = {
       promoted: true,
       created_at: '',
       updated_at: '',
+      map_url: 'https://wpln.org/wp-content/uploads/sites/7/2019/05/harpeth_river_greenway_broad.png',
 
     },
     {

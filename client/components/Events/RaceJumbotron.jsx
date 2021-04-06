@@ -1,13 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
-<<<<<<< HEAD
 import data from '../../resources/dummydata';
 import EventInfoModal from './EventInfoModal.jsx';
-=======
-// import data from '../../resources/dummydata';
-// import EventInfoModal from './EventInfoModal.jsx';
->>>>>>> 5ccc38d29d770aad822d0457194859ae530fb562
 // import runnerImage from './images/leeds_runner.jpg';
 
 class RaceJumbotron extends React.Component {
@@ -15,8 +10,21 @@ class RaceJumbotron extends React.Component {
     super(props);
     this.state = {
       races: this.props.races,
+      eventModal: false,
+      // isModalOpen: false,
     };
+    // this.onModalOpen = this.onModalOpen.bind(this);
   }
+
+   handleClose () {
+     this.setState({eventModal: false});
+   }
+   handleShow () {
+     this.setState({eventModal: true});
+   }
+
+  // onModalOpen() {
+  //   this.setState({ isModalOpen: !this.state.isModalOpen });
 
   // {
   //   name: 'Hilltop Half-Marathon',
@@ -40,12 +48,10 @@ class RaceJumbotron extends React.Component {
   // },
 
   render() {
-    const { races } = this.state;
-
     return (
       <div>
         <Carousel>
-          {races.map((race) => (
+          {this.state.races.map((race) => (
             <Carousel.Item className="carousel-img" key={race.id}>
               <img
                 className="d-block w-100"
@@ -76,10 +82,16 @@ class RaceJumbotron extends React.Component {
             </Carousel.Item>
           ))}
         </Carousel>
-        <EventInfoModal race={this.state.races[0]}/>
+        <h1 onClick={this.handleShow.bind(this)} >
+          Hilltop
+        </h1>
+        <EventInfoModal
+         event={this.state.races[0]}
+         show={this.state.eventModal}
+         handleClose={this.handleClose.bind(this)}/>
       </div>
     );
-  }
+  };
 }
 
 export default RaceJumbotron;

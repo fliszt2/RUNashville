@@ -140,7 +140,6 @@ a {
   margin: 10% auto;
 }
 
-<<<<<<< HEAD
 /**************************************** MAIN PAGE EVENTS *************************************************/
 
 /************ RACE JUMBOTRON **************/
@@ -181,8 +180,14 @@ a {
   /* border: .25px solid black; */
   flex-shrink: 0;
 }
-=======
->>>>>>> 5ccc38d29d770aad822d0457194859ae530fb562
+
+.thumbnail {
+  height: 180px;
+  aspect-ratio: auto 290 / 180;
+  width: 290px;
+}
+
+
 .profileButton {
   width:fit-content;
 }
