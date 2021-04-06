@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Main from './components/Main';
+import Main2 from './components/Main2';
 
 const Routes = () => (
   <Router>
@@ -26,7 +26,7 @@ const Routes = () => (
         path="/main"
         exact
         render={() => (
-          <Main />
+          <Main2 />
         )}
       />
     </Switch>

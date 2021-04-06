@@ -3,7 +3,7 @@ import RaceJumbotron from './Events/RaceJumbotron';
 import EventsCarousel from './Events/EventsCarousel';
 import data from '../resources/dummydata';
 
-class Main extends React.Component {
+class Main2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,4 +25,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default Main2;
