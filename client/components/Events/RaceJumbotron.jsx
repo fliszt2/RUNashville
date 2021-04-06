@@ -61,21 +61,29 @@ class RaceJumbotron extends React.Component {
               <Carousel.Caption key={race.id}>
                 <div className="carousel-caption">
                   <div className="race-description">
-                    <h2>{race.name}</h2>
+                    <h1>{race.name}</h1>
                     <div>
-                      <span>Register at: {race.link}</span>
+                      <span className="registration-text">Register at: <a href={race.link} target="blank">{race.link}</a></span>
                     </div>
-                    <div><span>{race.description}</span></div>
+                    <br></br>
+                    <div><span className="race-description-text">{race.description}</span></div>
                   </div>
                   <div className="race-details">
                     <div>
-                      <i style={{'color': 'var(--white)'}} className="fas fa-clock"></i>
-                      <span>&nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}</span>
+                      <span className="race-date-text">
+                        <i style={{'color': 'var(--white)'}} className="fas fa-clock"></i>
+                        &nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}
+                      </span>
                     </div>
                     <div>
-                      <i style={{'color': 'var(--white)'}} className="fas fa-globe-americas"></i>
-                      <span>&nbsp;{race.start_location}</span>
+                      <span className="race-location-text">
+                        <i style={{'color': 'var(--white)'}} className="fas fa-globe-americas"></i>
+                        &nbsp;{race.start_location}
+                      </span>
                     </div>
+                  </div>
+                  <div className="race-map">
+                    <img src="https://i2.wp.com/vincegray2014.com/wp-content/uploads/2020/01/printable-map-of-nashville-tn.jpg"></img>
                   </div>
                 </div>
               </Carousel.Caption>
