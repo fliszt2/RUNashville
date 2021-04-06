@@ -1,48 +1,38 @@
 import React from 'react';
+import RunDetails from './RunDetails.jsx';
 
-// Post:
-// {
-// Profile Pic
-// Name
-// Timestamp
-// Location
-// Post
-// Image
-// Comment
-// Emote
-// Heart
-// Array of emotes
-// Run info {
-// }
-// }
 const SocialPost = (props) => {
   let runDetails = <div></div>;
   if (props.run) {
-    runDetails = <RunDetails run={props.run}></RunDetails>
+    runDetails = <RunDetails name={props.name} run={props.run}></RunDetails>;
   }
   return (
     <div className="social-feed-post">
       <div className='social-feed-post-header'>
-        <img className='profile-pic-round' alt='Profile' src={props.propic} />
         <div className='social-feed-post-profile'>
-          <span style={{'margin-left': '5px'}}>{props.name}</span>
+          <img className='profile-pic-round' alt='Profile' src={props.propic} />
+          <span style={{'margin-left': '5px', 'align-self': 'flex-start'}}>{props.name}</span>
         </div>
-        <div style={{float: 'right'}}>
-          <span className='low-priority-text'>{props.date}</span>
-          <br></br>
+        <div style={{float: 'right', 'align-self': 'center'}}>
+          <div className='feed-event-info' style={{'margin-bottom': '0.5rem'}}>
+            <i class="fas fa-clock feed-icon"></i>
+            <span className='low-priority-text'>{props.date}</span>
+          </div>
           <div>
-            <i style={{'color': 'red'}} class="fas fa-globe-americas"></i>
-            <span className='low-priority-text'>{props.location}</span>
+            <div className='feed-event-info'>
+              <i class="fas fa-globe-americas feed-icon"></i>
+              <span className='low-priority-text'>{props.location}</span>
+            </div>
           </div>
         </div>
       </div>
       <br></br>
-      <span>{props.post}</span>
       {runDetails}
+      <span>{props.post}</span>
       <div className='social-post-reactions'>
-        <span>comment</span>
-        <span>emote</span>
-        <span>heart</span>
+        <i class="fas fa-comment-dots feed-icon"></i>
+        <i class="fas fa-plus-circle feed-icon"></i>
+        <i class="fas fa-heartbeat feed-icon"></i>
         {/* {props.emotes.map((emote)=>{
           <img className='emote' src={emote}/>
         })} */}

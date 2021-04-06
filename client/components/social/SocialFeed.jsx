@@ -6,7 +6,7 @@ const SocialFeed = (props) => {
     <div>
       {props.posts.map((post) => {
         return (
-        <SocialPost propic={post.propic} name={post.name} date={post.date} location={post.location} post={post.post}></SocialPost>
+        <SocialPost key={post.date + post.post} propic={post.propic} name={post.name} date={post.date} location={post.location} run={post.run} post={post.post}></SocialPost>
         );
       })}
     </div>

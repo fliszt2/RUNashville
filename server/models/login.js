@@ -1,9 +1,9 @@
 const db = require('../../db');
 
 module.exports = {
-  getUser(username, callback) {
-    const queryString = 'SELECT password, name, lastname, email, created_at FROM user WHERE username = ?';
-    db.connection.query(queryString, [username], (err, result) => {
+  getUser(email, callback) {
+    const queryString = 'SELECT password, name, last_name, address, created_at FROM user WHERE email = ?';
+    db.connection.query(queryString, [email], (err, result) => {
       if (err) {
         console.log(err);
       }
