@@ -7,7 +7,7 @@ const Login = class extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      username: '',
+      email: '',
       password: '',
       toNextPage: false,
     };
@@ -28,8 +28,8 @@ const Login = class extends React.PureComponent {
   }
 
   userLogin() {
-    const { username, password } = this.state;
-    const login = { username, password };
+    const { email, password } = this.state;
+    const login = { email, password };
     axios.post('/api/login', login)
       .then((result) => {
         const { status } = result;
@@ -38,6 +38,18 @@ const Login = class extends React.PureComponent {
             toNextPage: true,
           });
         }
+      }, (rejected) => {
+        const { response } = rejected;
+        const { status } = response;
+        if (status === 401) {
+          alert('wrong password');
+        }
+        if (status === 404) {
+          alert('user not found');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -52,8 +64,8 @@ const Login = class extends React.PureComponent {
           <div className="login-title">
             <span>Login Here</span>
           </div>
-          <div className="login-username">
-            <input className="input-username" onChange={this.handleChange} name="username" placeholder="username" />
+          <div className="login-email">
+            <input className="input-email" type="email" onChange={this.handleChange} name="email" placeholder="email" />
           </div>
           <div className="login-password">
             <input className="input-password" onChange={this.handleChange} type="password" name="password" placeholder="password" />
