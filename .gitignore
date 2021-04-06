@@ -4,11 +4,8 @@ package-lock.json
 ### Node Modules
 /node_modules
 
-<<<<<<< HEAD
-=======
 ### webpack app.js generated
 /public/app.js
 /public/app.js~main
 
->>>>>>> f57b7c44a769dc37aecaac248856623dba9d8ca8
 config.js

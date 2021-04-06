@@ -6,7 +6,7 @@ import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
 import Button from 'react-bootstrap/Button';
 
-const EventInfoModal = (props) => {
+const EventInfoModal = ({race}) => {
   const [show, setShow] = React.useState(false);
 
   const handleClose = () => setShow(false);
@@ -84,10 +84,6 @@ const EventInfoModal = (props) => {
           </div>
           <div></div>
         </div>
-
-      \
-
-
         <div>Details</div>
         <div></div>
        </Modal>

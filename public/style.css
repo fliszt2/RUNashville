@@ -140,7 +140,6 @@ a {
   margin: 10% auto;
 }
 
-<<<<<<< HEAD
 /**************************************** MAIN PAGE EVENTS *************************************************/
 
 /************ RACE JUMBOTRON **************/
@@ -181,7 +180,6 @@ a {
   /* border: .25px solid black; */
   flex-shrink: 0;
 }
-=======
 .profileButton {
   width:fit-content;
 }
@@ -334,4 +332,3 @@ a {
   display: flex;
   align-items: center;
 }
->>>>>>> f57b7c44a769dc37aecaac248856623dba9d8ca8
