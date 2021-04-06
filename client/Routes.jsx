@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import Main from './components/Main';
 
 const Routes = () => (
   <Router>
@@ -27,6 +28,13 @@ const Routes = () => (
         exact
         render={() => (
           <Profile />
+        )}
+      />
+      <Route
+        path="/main"
+        exact
+        render={() => (
+          <Main />
         )}
       />
     </Switch>
