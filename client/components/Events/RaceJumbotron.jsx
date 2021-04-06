@@ -1,15 +1,20 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
+<<<<<<< HEAD
 import data from '../../resources/dummydata';
 import EventInfoModal from './EventInfoModal.jsx';
+=======
+// import data from '../../resources/dummydata';
+// import EventInfoModal from './EventInfoModal.jsx';
+>>>>>>> 5ccc38d29d770aad822d0457194859ae530fb562
 // import runnerImage from './images/leeds_runner.jpg';
 
 class RaceJumbotron extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      races: data.races,
+      races: this.props.races,
     };
   }
 
@@ -49,16 +54,22 @@ class RaceJumbotron extends React.Component {
               />
               <Carousel.Caption key={race.id}>
                 <div className="carousel-caption">
-                  <div>
-                    <h3>{race.name}</h3>
+                  <div className="race-description">
+                    <h2>{race.name}</h2>
                     <div>
                       <span>Register at: {race.link}</span>
                     </div>
-                    <div>{race.description}</div>
+                    <div><span>{race.description}</span></div>
                   </div>
-                  <div>
-                    <div>{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}</div>
-                    <div>{race.start_location}</div>
+                  <div className="race-details">
+                    <div>
+                      <i style={{'color': 'var(--white)'}} className="fas fa-clock"></i>
+                      <span>&nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}</span>
+                    </div>
+                    <div>
+                      <i style={{'color': 'var(--white)'}} className="fas fa-globe-americas"></i>
+                      <span>&nbsp;{race.start_location}</span>
+                    </div>
                   </div>
                 </div>
               </Carousel.Caption>
