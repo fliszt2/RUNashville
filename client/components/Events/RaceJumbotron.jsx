@@ -53,11 +53,17 @@ class RaceJumbotron extends React.Component {
                     <div>
                       <span>Register at: {race.link}</span>
                     </div>
-                    <div>{race.description}</div>
+                    <div><span>{race.description}</span></div>
                   </div>
                   <div>
-                    <div>{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}</div>
-                    <div>{race.start_location}</div>
+                    <div>
+                      <i style={{'color': 'var(--white)'}} class="fas fa-clock"></i>
+                      <span>&nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}</span>
+                    </div>
+                    <div>
+                      <i style={{'color': 'var(--white)'}} class="fas fa-globe-americas"></i>
+                      <span>&nbsp;{race.start_location}</span>
+                    </div>
                   </div>
                 </div>
               </Carousel.Caption>

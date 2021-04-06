@@ -37,6 +37,14 @@ const Routes = () => (
         render={() => (
           <>
             <Main />
+          </>
+        )}
+      />
+      <Route
+        path="/main2"
+        exact
+        render={() => (
+          <>
             <Main2 />
           </>
         )}
