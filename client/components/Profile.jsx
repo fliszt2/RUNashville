@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderBar from './HeaderBar.jsx';
 import SocialFeed from './social/SocialFeed.jsx';
+import CreatePost from './social/CreatePost.jsx';
 
 const Profile = class extends React.PureComponent {
   constructor(props) {
