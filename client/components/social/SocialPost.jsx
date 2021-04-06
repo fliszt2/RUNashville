@@ -3,8 +3,12 @@ import RunDetails from './RunDetails.jsx';
 
 const SocialPost = (props) => {
   let runDetails = <div></div>;
+  let userImage = <div></div>;
   if (props.run) {
     runDetails = <RunDetails name={props.name} run={props.run}></RunDetails>;
+  }
+  if (props.image) {
+    userImage = <div className='social-post-thumbnail-container'><img className="social-post-thumbnail" src={props.image} alt="pic" /></div>;
   }
   return (
     <div className="social-feed-post">
@@ -29,14 +33,15 @@ const SocialPost = (props) => {
       <br></br>
       {runDetails}
       <span>{props.post}</span>
+      {userImage}
       <div className='social-post-reactions'>
-        <i class="fas fa-comment-dots feed-icon"></i>
-        <i class="fas fa-plus-circle feed-icon"></i>
-        <i class="fas fa-heartbeat feed-icon"></i>
+        <i class="fas fa-comment-dots feed-icon" style={{'cursor': 'pointer'}}></i>
+        <i class="fas fa-plus-circle feed-icon" style={{'cursor': 'pointer'}}></i>
+        <i class="fas fa-heartbeat feed-icon" style={{'cursor': 'pointer'}}></i>
         {/* {props.emotes.map((emote)=>{
           <img className='emote' src={emote}/>
         })} */}
-        <span style={{'float': 'right', 'text-decoration': 'underline'}} className='low-priority-text'>Report</span>
+        <span style={{'float': 'right', 'text-decoration': 'underline', 'cursor': 'pointer'}} className='low-priority-text'>Report</span>
       </div>
     </div>
   );

@@ -241,6 +241,17 @@ a {
   justify-content: space-between;
 }
 
+.social-post-thumbnail-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-post-thumbnail {
+  max-height: 100px;
+  width: auto;
+}
+
 .social-feed-post-profile {
   display: flex;
   align-items: center;
@@ -254,14 +265,6 @@ a {
 .feed-icon {
   margin-right: 1.5rem;
   color: var(--black);
-}
-
-.leftItem{
-  float: left;
-}
-
-.rightItem{
-  float: right;
 }
 
 /* MAIN JSX ==================================================================== */
