@@ -115,6 +115,7 @@ CREATE TABLE events (
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
   fk_leader_user_id INT,
+  name VARCHAR(50),
   official BOOLEAN,
   start_time DATETIME,
   end_time DATETIME,
@@ -145,6 +146,43 @@ CREATE TABLE user_type_for_event_type (
 
 INSERT INTO user_type (name, description) VALUES ('Community Member', 'Just a regular user on the platform');
 INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, banned, created_at) VALUES ('Jodi', 'Jodi', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, '2021-04-05');
+
+INSERT INTO user_type (name, description) VALUES ('Community Admin', 'Able to create official events and remove users/user posts');
+INSERT INTO user_type (name, description) VALUES ('Super Admin', 'Able to create official events and remove users/user posts');
+
+INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, banned, created_at), VALUES ('Jack', 'McClain', 'password', 'Nashville', 'jack@nashville.com', 3, false, '2021-04-05');
+/* name VARCHAR(30), last_name VARCHAR(50), password VARCHAR(100), address VARCHAR(100), email VARCHAR(40), fk_user_type_id INT, banned BOOLEAN, image_url VARCHAR(200), created_at TIMESTAMP, FOREIGN KEY (fk_user_type_id) REFERENCES user_type(id) */
+
+INSERT INTO event_type (name, description) VALUES ('race', 'The big race');
+INSERT INTO event_type (name, description) VALUES ('daily_run', 'Just a daily run');
+INSERT INTO event_type (name, description) VALUES ('other', 'This could be a volunteer event or something else');
+
+INSERT INTO difficulty_level (name, description) VALUES ('beginner', 'You know, kid stuff');
+INSERT INTO difficulty_level (name, description) VALUES ('intermediate', 'No pain, no gain');
+INSERT INTO difficulty_level (name, description) VALUES ('advanced', 'Now we are talking');
+
+INSERT INTO events (fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, name, official, start_time, end_time, start_location, end_location, image_url, thumbnail_photo, running-distance, link, attendees, promoted, created_at, updated_at) VALUES (1, 3, 2, 'Hilltop Half-Marathon', true, '2021-04-25T08:30:00', '2021-04-25T10:30:00', 'The Hill Top at West 25th St', 'The Hill Top at West 25th St', '', '', 8.5, '', 150, true, '2021-04-06T21:19:22.520Z', '2021-04-06T21:19:22.520Z');
+
+/* fk_event_type_id INT,
+  fk_difficulty_level_id INT,
+  fk_leader_user_id INT,
+  official BOOLEAN,
+  start_time DATETIME,
+  end_time DATETIME,
+  start_location VARCHAR(100),
+  end_location VARCHAR(100),
+  image_url VARCHAR(200),
+  thumbnail_photo VARCHAR(200),
+  running_distance DECIMAL(3,2),
+  link VARCHAR(200),
+  attendees INT,
+  promoted BOOLEAN,
+  created_at TIMESTAMP,
+  updated_at TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (fk_event_type_id) REFERENCES event_type(id),
+  FOREIGN KEY (fk_difficulty_level_id) REFERENCES difficulty_level(id),
+  FOREIGN KEY (fk_leader_user_id) REFERENCES user(id) */
 
 /* MOCK EMAIL: Jodi@21Jump.com
   MOCK PASSWORD: Jodi

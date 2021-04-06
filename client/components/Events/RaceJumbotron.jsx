@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
+import moment from 'moment';
 // import data from '../../resources/dummydata';
 // import EventInfoModal from './EventInfoModal.jsx';
 // import runnerImage from './images/leeds_runner.jpg';
@@ -51,7 +52,7 @@ class RaceJumbotron extends React.Component {
                   <div className="race-description">
                     <h1>{race.name}</h1>
                     <div>
-                      <span className="registration-text">Register at: <a href={race.link} target="blank">{race.link}</a></span>
+                      <span className="registration-text"><a href={race.link} target="blank">Click here to register!</a></span>
                     </div>
                     <br></br>
                     <div><span className="race-description-text">{race.description}</span></div>
@@ -60,7 +61,8 @@ class RaceJumbotron extends React.Component {
                     <div>
                       <span className="race-date-text">
                         <i style={{'color': 'var(--white)'}} className="fas fa-clock"></i>
-                        &nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}
+                        &nbsp;{moment(race.start_time).format('dddd, MMMM Do YYYY, h:mm a')}
+                        {/* &nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))} */}
                       </span>
                     </div>
                     <div>
