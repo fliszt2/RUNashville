@@ -209,14 +209,14 @@ a {
   display: flex;
   flex-wrap: wrap;
   margin: -0.5rem;
-  height: calc(100vh - 100px);
+  /* height: calc(100vh - 100px); */
 }
 
 .with-sidebar > * > * {
   /* ↓ applies to both elements */
   margin: 0.5rem;
   align-items: stretch;
-  height: calc(100vh - 100px);
+  /* height: calc(100vh - 100px); */
 }
 
 .sidebar {
@@ -244,6 +244,12 @@ a {
 }
 
 /* MODAL INFORMATION ==================================================================== */
+.fa-times-circle {
+  cursor: pointer;
+  color: hsl(120, 60%, 65%);
+  text-align: right;
+  float:right
+}
 .form-modal-wrapper {
   position: fixed;
   top: 0;
@@ -269,8 +275,8 @@ a {
   width: 65%;
   background-color: #f7f7f7;
   z-index: 101;
-  box-shadow: 0 8px 6px -6px  #D8315B;
-  border: #D8315B solid 1px;
+  box-shadow: 0 8px 6px -6px  hsl(120, 60%, 65%);;
+  border: #hsl(120, 60%, 65%); solid 1px;
   padding: 20px;
   box-sizing: border-box;
   overflow: auto;
