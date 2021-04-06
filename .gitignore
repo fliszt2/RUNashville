@@ -8,4 +8,5 @@ package-lock.json
 /public/app.js
 /public/app.js~main
 
-config.js
+### db connection info
+/db/index.js
