@@ -5,7 +5,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Main from './components/Main';
-import Main2 from './components/Main2';
+import Homepage from './components/Homepage';
 
 const Routes = () => (
   <Router>
@@ -35,18 +35,14 @@ const Routes = () => (
         path="/main"
         exact
         render={() => (
-          <>
-            <Main />
-          </>
+          <Main />
         )}
       />
       <Route
-        path="/main2"
+        path="/homepage"
         exact
         render={() => (
-          <>
-            <Main2 />
-          </>
+          <Homepage />
         )}
       />
     </Switch>
