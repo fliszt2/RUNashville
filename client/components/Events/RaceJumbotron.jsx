@@ -65,6 +65,9 @@ class RaceJumbotron extends React.Component {
                       <span>&nbsp;{race.start_location}</span>
                     </div>
                   </div>
+                  <div className="race-map">
+                    <img src="https://i2.wp.com/vincegray2014.com/wp-content/uploads/2020/01/printable-map-of-nashville-tn.jpg"></img>
+                  </div>
                 </div>
               </Carousel.Caption>
             </Carousel.Item>

@@ -196,8 +196,8 @@ a {
 /************ RACE JUMBOTRON **************/
 
 .carousel-img {
-  width:900px;
-  height:500px;
+  width: 900px;
+  height: 500px;
   margin: auto;
 }
 
@@ -211,11 +211,18 @@ a {
 .race-description {
   /* width: 50%; */
   margin-right: auto;
+  text-align: left;
 }
 
 .race-details {
   /* width: 50%; */
   margin-left: auto;
+  text-align: left;
+}
+
+.race-map img {
+  width: 140px;
+  /* height: 180px; */
 }
 
 /************ EVENTS CAROUSELS **************/
