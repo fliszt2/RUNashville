@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Profile from './components/social/Profile';
 import Admin from './components/admin/Admin';
 import HeaderBar from './components/HeaderBar';
+import Homepage from './components/Homepage';
 
 const Routes = () => (
 
@@ -39,6 +40,13 @@ const Routes = () => (
           exact
           render={() => (
             <Admin />
+          )}
+        />
+        <Route
+          path="/homepage"
+          exact
+          render={() => (
+            <Homepage />
           )}
         />
       </Switch>
