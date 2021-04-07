@@ -154,11 +154,11 @@ CREATE TABLE user_type_for_event_type (
 INSERT INTO user_type (name_user_type, description_user_type) VALUES ('Community Member', 'Just a regular user on the platform');
 INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, created_at) VALUES ('Jodi', 'Jodi', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, '2021-04-05');
 
-INSERT INTO user_type (name, description) VALUES ('Community Admin', 'Able to create official events and remove users/user posts');
-INSERT INTO user_type (name, description) VALUES ('Super Admin', 'Able to create official events and remove users/user posts');
+INSERT INTO user_type (name_user_type, description_user_type) VALUES ('Community Admin', 'Able to create official events and remove users/user posts');
+INSERT INTO user_type (name_user_type, description_user_type) VALUES ('Super Admin', 'Able to create official events and remove users/user posts');
 
-INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, banned, created_at) VALUES ('Jack', 'McClane', 'password', 'Nashville', 'jack@nashville.com', 3, false, '2021-04-05');
-INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, banned, created_at) VALUES ('Hans', 'Gruber', 'password', 'Nashville', 'hans@nashville.com', 2, false, '2021-04-05');
+INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, created_at) VALUES ('Jack', 'McClane', 'password', 'Nashville', 'jack@nashville.com', 3, false, '2021-04-05');
+INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, created_at) VALUES ('Hans', 'Gruber', 'password', 'Nashville', 'hans@nashville.com', 2, false, '2021-04-05');
 
 INSERT INTO event_type (name_event_type, description_event_type) VALUES ('race', 'The big race');
 INSERT INTO event_type (name_event_type, description_event_type) VALUES ('daily_run', 'Just a daily run');
