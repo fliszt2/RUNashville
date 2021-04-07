@@ -37,4 +37,13 @@ module.exports = {
       callback(result);
     });
   },
+  getUsersBanned(callback) {
+    const queryString = 'SELECT u.name, u.last_name, u.address, u.email, u.image_url, u.banned, u.created_at, ut.name FROM user AS u LEFT JOIN user_type AS ut ON u.fk_user_type_id = ut.id WHERE u.banned = true';
+    db.connection.query(queryString, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
 };
