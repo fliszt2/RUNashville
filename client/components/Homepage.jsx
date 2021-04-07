@@ -33,12 +33,24 @@ class Homepage extends React.Component {
         <RaceJumbotron races={data.events.filter((event) => event.event_type === 'race')} />
 
         <div>
-              <button style={{ display: "inline" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
+          <button style={{ display: "inline", width: "300px" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
 
-            </div>
-        <h4 className="events-header">Daily Runs</h4>
+        </div>
+        <div className="mytextdiv">
+          <div className="mytexttitle">
+            Daily Runs
+          </div>
+          <div className="divider"></div>
+        </div>
+        {/* <h4 classNameName="events-header">Daily Runs</h4> */}
         <EventsCarousel events={data.events.filter((event) => event.event_type === 'daily_run')} />
-        <h4 className="events-header">Announcements and Other Events</h4>
+        <div className="mytextdiv">
+          <div className="mytexttitle">
+          Announcements and Other Events
+          </div>
+          <div className="divider"></div>
+        </div>
+        {/* <h4 className="events-header">Announcements and Other Events</h4> */}
         <EventsCarousel events={data.events.filter((event) => event.event_type === 'other')} />
         {this.state.isModalOpen ? (<AddEventForm onModalOpen={this.onModalOpen} />) : null}
       </>
@@ -46,7 +58,5 @@ class Homepage extends React.Component {
   }
 }
 
-{/* <button style={{ display: "inline" }} onClick={this.onModalOpen}>OPEN MODAL</button>
-{this.state.isModalOpen ? (<Modal onModalOpen={this.onModalOpen} />) : null} */}
 
 export default Homepage;

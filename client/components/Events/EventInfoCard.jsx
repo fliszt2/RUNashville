@@ -36,13 +36,13 @@ class EventInfoCard extends React.Component {
       var difficultyStyle;
       if (event.difficulty_level === 'beginner') {
         difficultyLevel = 'Beginner';
-        difficultyStyle = 'difficulty-beginner';
+        difficultyStyle = 'difficulty-beginner-small';
       } else if (event.difficulty_level === 'intermediate') {
         difficultyLevel = 'Intermediate';
-        difficultyStyle = 'difficulty-intermediate';
+        difficultyStyle = 'difficulty-intermediate-small';
       } else {
         difficultyLevel = 'Advanced';
-        difficultyStyle = 'difficulty-advanced';
+        difficultyStyle = 'difficulty-advanced-small';
       }
 
       // <div>

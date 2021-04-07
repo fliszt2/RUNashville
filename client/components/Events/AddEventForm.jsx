@@ -9,10 +9,10 @@ class AddEventForm extends React.Component {
       event_type: 'Select',
       link: 'http://www.example-url.com',
       start_time: 'MMDDYYYY',
-      start_location:'Address, Street, City, Zip',
+      start_location:'',
       map_url: '',
-      description: 'Text goes here...',
-      image_url: 'Add image url here',
+      description: '',
+      image_url: '',
       running_distance: null,
       difficulty_level: '',
 
@@ -29,6 +29,11 @@ class AddEventForm extends React.Component {
 
     this.setState({ [name]: value });
   }
+
+  createMap(){
+    const url = 'https://onthegomap.com/#/create';
+    window.open(url, '_blank');
+}
 
   handleSubmit(event) {
 
@@ -58,7 +63,7 @@ class AddEventForm extends React.Component {
 
       <div  className="form-modal-wrapper">
         <div className="form-modal-backdrop" onClick={this.props.onModalOpen} />
-        <div className="form-modal-box">
+        <div className="form-modal-box" style={{fontSize: "1.6rem"}}>
           <i className="far fa-times-circle fa-2x" onClick={this.props.onModalOpen}></i>
           <br></br>
           <form>
@@ -87,23 +92,24 @@ class AddEventForm extends React.Component {
             <br />
             <label>
               Event Address:
-              <input name="start_location" type="text" value={this.state.start_location} onChange={this.handleInputChange} />
+              <input name="start_location" type="text" placeholder="Address, Street, City, Zip" value={this.state.start_location} onChange={this.handleInputChange} />
             </label>
             <br />
             <label>
               Add Map:
-              <input name="start_location" type="text" value={this.state.start_location} onChange={this.handleInputChange} />
+              <button onClick={this.createMap.bind(this)}>Create a map</button>
+              <input name="map_url" type="text" placeholder="paste map url here" value={this.state.map_url} onChange={this.handleInputChange} />
             </label>
             <br />
             <label>
               Event Description:
-              <textarea name="description" type="textarea" rows={5}
+              <textarea name="description" type="textarea" placeholder="Text goes here..." rows={5}
           cols={5} value={this.state.description} onChange={this.handleInputChange} />
             </label>
             <br />
             <label>
               Banner Image:
-              <input name="image_url" type="text" value={this.state.image_url} onChange={this.handleInputChange} />
+              <input name="image_url" type="text" placeholder="Add image url here" value={this.state.image_url} onChange={this.handleInputChange} />
             </label>
             <br />
             <label>

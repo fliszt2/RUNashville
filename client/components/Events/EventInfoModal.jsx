@@ -81,159 +81,102 @@ import moment from 'moment';
 
 
 const EventInfoModal = ({event, onModalOpen}) => {
+
+  var difficultyLevel;
+  var difficultyStyle;
+  if (event.difficulty_level === 'beginner') {
+    difficultyLevel = 'Beginner';
+    difficultyStyle = 'difficulty-beginner-big';
+  } else if (event.difficulty_level === 'intermediate') {
+    difficultyLevel = 'Intermediate';
+    difficultyStyle = 'difficulty-intermediate-big';
+  } else {
+    difficultyLevel = 'Advanced';
+    difficultyStyle = 'difficulty-advanced-big';
+  }
+
   return (
 
     <div className="form-modal-wrapper">
     <div className="form-modal-backdrop" onClick={onModalOpen} />
-    <div className="form-modal-box">
-      <i className="far fa-times-circle fa-2x" onClick={onModalOpen}></i>
-      <br></br>
-      <div style={{display: "flex", flexDirection: "row"}}>
+    <div className="form-modal-box" style={{width: "1200px"}}>
+    <i className="far fa-times-circle fa-2x" onClick={onModalOpen}></i>
+      <div style={{display: "flex", flexDirection: "row", marginTop: "0px"}}>
           {/* left column */}
-          <div style={{flexGrow: 1}}>
-          <div class="mytextdiv">
-            <div class="mytexttitle">
+          <div style={{flexBasis: "50%", marginRight: "10px"}}>
+          <div className="mytextdiv">
+            <div className="mytexttitle">
               {event.name}
             </div>
-            <div class="divider"></div>
+            <div className="divider"></div>
           </div>
-            <img className="thumbnail" src={event.thumbnail_photo}></img>
-            <div class="mytextdiv">
-            <div class="mytexttitle">
+            {/* <img className="thumbnail" src={event.thumbnail_photo}></img>
+            <div className="mytextdiv">
+            <div className="mytexttitle">
               Route
             </div>
-            <div class="divider"></div>
-          </div>
-            <img className="thumbnail" src={event.map_url}></img>
+            <div className="divider"></div>
+          </div> */}
+            <img className="thumbnail" src={event.map_url}></img>&nbsp;
           </div>
           {/* right column */}
-          <div style={{flexGrow: 1}}>
-          <div class="mytextdiv">
-            <div class="mytexttitle">
+          <div style={{flexBasis: "50%", marginLeft: "10px", fontSize: "1.6rem", lineHeight: "3rem"}}>
+          <div className="mytextdiv">
+            <div className="mytexttitle">
               Details
             </div>
-            <div class="divider"></div>
+            <div className="divider"></div>
           </div>
             <div>
-              <i style={{'color': 'var(--black)'}} className="fas fa-clock"></i>
-               When:
+              <i style={{'color': 'var(--black)'}} className="fas fa-clock"></i>&nbsp;
+               When:&nbsp;
 
               <span> {moment(event.start_time).format('dddd, MMMM Do YYYY, h:mm a')}</span>
             </div>
             <div>
-              <i style={{'color': 'var(--black)'}} className="fas fa-globe-americas"></i>
-              Where:
+              <i style={{'color': 'var(--black)'}} className="fas fa-globe-americas"></i>&nbsp;
+              Where:&nbsp;
 
               <span> {event.start_location}</span>
             </div>
             {/* is meetup a different place */}
-            <div>
-              Length:
+            {event.event_type === 'other' ? (
+              <>
+              </>
+            ) : (
+                <>
+                  <div>  <i style={{ 'color': 'var(--black)' }} className="fas fa-running"></i>&nbsp;
+              Length:&nbsp;
               <span> {event.running_distance}</span>
-            </div>
-            <div>Level:
-              <span> {event.difficulty_level}</span>
-            </div>
-            <div>Host:
+                  </div>
+                  <div>Level:&nbsp;
+                <span className={difficultyStyle}>&nbsp;{difficultyLevel}&nbsp;</span>
+                  </div>
+                </>
+            )}
 
+            <div><i style={{ 'color': 'var(--black)' }} className="fas fa-user-circle"></i>&nbsp;
+              Host:&nbsp;
               <span>{event.leader}</span>
             </div>
-            <div>Description:
+            <div>Description:&nbsp;
               <span> {event.description}</span>
             </div>
-            <div class="mytextdiv">
-            <div class="mytexttitle">
+            {/* <div className="mytextdiv">
+              <div className="mytexttitle">
               Attending
             </div>
-            <div class="divider"></div>
-          </div>
+            <div className="divider"></div>
+            </div>
             <button style={{width: "100px"}}>RSVP </button>
             <div>8
               <span> of your friends are attending</span>
             </div>
-            <FriendList/>
-
+            <FriendList/> */}
           </div>
         </div>
-
-
-
     </div>
   </div>
-
-
-    // <>
-    //   <Modal show={show} onHide={handleClose}>
-    //     <div style={{display: "flex", flexDirection: "row"}}>
-    //       {/* left column */}
-    //       <div style={{flexGrow: 1}}>
-    //       <div class="mytextdiv">
-    //         <div class="mytexttitle">
-    //           {event.name}
-    //         </div>
-    //         <div class="divider"></div>
-    //       </div>
-    //         <img className="thumbnail" src={event.thumbnail_photo}></img>
-    //         <div class="mytextdiv">
-    //         <div class="mytexttitle">
-    //           Route
-    //         </div>
-    //         <div class="divider"></div>
-    //       </div>
-    //         <img className="thumbnail" src={event.map_url}></img>
-    //       </div>
-    //       {/* right column */}
-    //       <div style={{flexGrow: 1}}>
-    //       <div class="mytextdiv">
-    //         <div class="mytexttitle">
-    //           Details
-    //         </div>
-    //         <div class="divider"></div>
-    //       </div>
-    //         <div>
-    //           <i style={{'color': 'var(--black)'}} className="fas fa-clock"></i>
-    //            When:
-
-    //           <span> {moment(event.start_time).format('dddd, MMMM Do YYYY, h:mm a')}</span>
-    //         </div>
-    //         <div>
-    //           <i style={{'color': 'var(--black)'}} className="fas fa-globe-americas"></i>
-    //           Where:
-
-    //           <span> {event.start_location}</span>
-    //         </div>
-    //         {/* is meetup a different place */}
-    //         <div>
-    //           Length:
-    //           <span> {event.running_distance}</span>
-    //         </div>
-    //         <div>Level:
-    //           <span> {event.difficulty_level}</span>
-    //         </div>
-    //         <div>Host:
-
-    //           <span>{event.leader}</span>
-    //         </div>
-    //         <div>Description:
-    //           <span> {event.description}</span>
-    //         </div>
-    //         <div class="mytextdiv">
-    //         <div class="mytexttitle">
-    //           Attending
-    //         </div>
-    //         <div class="divider"></div>
-    //       </div>
-    //         <button style={{width: "100px"}}>RSVP </button>
-    //         <div>8
-    //           <span> of your friends are attending</span>
-    //         </div>
-    //         <FriendList/>
-
-    //       </div>
-    //     </div>
-
-    //    </Modal>
-    // </>
   );
 };
 
