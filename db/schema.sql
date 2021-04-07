@@ -6,17 +6,17 @@ USE runashville;
 
 CREATE TABLE user_type (
   id INT AUTO_INCREMENT,
-  name VARCHAR(20),
-  description TEXT,
+  name_user_type VARCHAR(20),
+  description_user_type TEXT,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE user (
   id INT AUTO_INCREMENT,
-  name VARCHAR(30),
+  name_user VARCHAR(30),
   last_name VARCHAR(50),
-  password VARCHAR(100),
-  address VARCHAR(100),
+  password_user VARCHAR(100),
+  address_user VARCHAR(100),
   email VARCHAR(40),
   fk_user_type_id INT,
   banned BOOLEAN,
@@ -33,7 +33,7 @@ CREATE TABLE friends (
   fk_source_user_id INT,
   fk_target_user_id INT,
   created_at TIMESTAMP,
-  status BOOLEAN,
+  status_friends BOOLEAN,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_source_user_id) REFERENCES user(id),
   FOREIGN KEY (fk_target_user_id) REFERENCES user(id)
@@ -43,10 +43,10 @@ CREATE TABLE post (
   id INT AUTO_INCREMENT,
   fk_user_id INT,
   image_url VARCHAR(200),
-  message TEXT,
+  message_post TEXT,
   reported BOOLEAN,
   show_post BOOLEAN,
-  location VARCHAR(200),
+  location_post VARCHAR(200),
   created_at TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_user_id) REFERENCES user(id)
