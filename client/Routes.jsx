@@ -4,9 +4,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from './components/social/Profile';
-import Main from './components/Main';
+import Admin from './components/admin/Admin';
+import HeaderBar from './components/HeaderBar';
 
 const Routes = () => (
+
+  <div>
+   <HeaderBar />
   <Router>
     <Switch>
       <Route
@@ -31,14 +35,15 @@ const Routes = () => (
         )}
       />
       <Route
-        path={['/', '/main']}
+        path="/admin"
         exact
         render={() => (
-          <Main />
+          <Admin />
         )}
       />
     </Switch>
   </Router>
+  </div>
 );
 
 ReactDOM.render(<Routes />, document.getElementById('app'));

@@ -152,5 +152,5 @@ INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, ba
 */
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root -p < db/schema.sql
+ *    mysql -u root < db/schema.sql
  *  to create the database and the tables.*/
