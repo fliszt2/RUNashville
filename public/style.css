@@ -264,7 +264,7 @@ a {
   text-align: left;
   min-height: 10vh;
   max-height: 20vh;
-  overflow: auto;
+  overflow: hidden;
   /* line-height: 250%; */
 }
 
@@ -342,14 +342,48 @@ a {
   flex-shrink: 0;
 }
 
-/* .event-info-card-photo {
+.event-card-details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+/* .daily-run-description {
+  font-size: 1.2rem;
+  color: hsl(0, 5%, 45%);
 } */
+
+.difficulty-beginner {
+  font-size: 0.9rem;
+  color: hsl(0, 0%, 5%);
+  background-color: hsla(120, 60%, 65%);
+}
+
+.difficulty-intermediate {
+  font-size: 0.9rem;
+  color: hsl(0, 0%, 4%);
+  background-color: rgb(252, 216, 58);
+}
+
+.difficulty-advanced {
+  font-size: 0.9rem;
+  color: hsl(0, 0%, 6%);
+  background-color: rgb(247, 87, 38);
+}
+
+.event-title {
+  font-size: 1.5em;
+}
+
+.event-description {
+  font-size: 1.2rem;
+  color: hsl(0, 5%, 45%);
+}
 
 /* Main Page styling */
 
 /* Social Page styling*/
-.leftItem{
+.leftItem {
   float: left;
 }
 

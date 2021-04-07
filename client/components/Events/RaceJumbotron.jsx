@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import data from '../../resources/dummydata';
 import EventInfoModal from './EventInfoModal.jsx';
+import moment from 'moment';
+// import data from '../../resources/dummydata';
+// import EventInfoModal from './EventInfoModal.jsx';
 // import runnerImage from './images/leeds_runner.jpg';
 
 class RaceJumbotron extends React.Component {
@@ -22,6 +25,8 @@ class RaceJumbotron extends React.Component {
    handleShow () {
      this.setState({eventModal: true});
    }
+
+
 
   // onModalOpen() {
   //   this.setState({ isModalOpen: !this.state.isModalOpen });
@@ -53,7 +58,7 @@ class RaceJumbotron extends React.Component {
         <Carousel>
           {this.state.races.map((race) => (
             <Carousel.Item className="carousel-img" key={race.id}>
-              <img
+              <img onClick={this.handleShow.bind(this)}
                 className="d-block w-100"
                 src="./images/leeds_runner.jpg"
                 alt="First slide"
@@ -61,9 +66,9 @@ class RaceJumbotron extends React.Component {
               <Carousel.Caption key={race.id}>
                 <div className="carousel-caption">
                   <div className="race-description">
-                    <h1>{race.name}</h1>
+                    <h1 onClick={this.handleShow.bind(this)} >{race.name}</h1>
                     <div>
-                      <span className="registration-text">Register at: <a href={race.link} target="blank">{race.link}</a></span>
+                      <span className="registration-text"><a href={race.link} target="blank">Click here to register!</a></span>
                     </div>
                     <br></br>
                     <div><span className="race-description-text">{race.description}</span></div>
@@ -72,7 +77,8 @@ class RaceJumbotron extends React.Component {
                     <div>
                       <span className="race-date-text">
                         <i style={{'color': 'var(--white)'}} className="fas fa-clock"></i>
-                        &nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))}
+                        &nbsp;{moment(race.start_time).format('dddd, MMMM Do YYYY, h:mm a')}
+                        {/* &nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))} */}
                       </span>
                     </div>
                     <div>
@@ -87,16 +93,13 @@ class RaceJumbotron extends React.Component {
                   </div>
                 </div>
               </Carousel.Caption>
+              <EventInfoModal
+                event={race}
+                show={this.state.eventModal}
+                handleClose={this.handleClose.bind(this)}/>
             </Carousel.Item>
           ))}
         </Carousel>
-        <h1 onClick={this.handleShow.bind(this)} >
-          Hilltop
-        </h1>
-        <EventInfoModal
-         event={this.state.races[0]}
-         show={this.state.eventModal}
-         handleClose={this.handleClose.bind(this)}/>
       </div>
     );
   };

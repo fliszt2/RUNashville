@@ -84,36 +84,9 @@ const EventInfoModal = ({event, handleClose, show}) => {
 
 
 
-  // {
-  //   name: 'Hilltop Half-Marathon',
-  //   description: 'Test your endurance in the hills of Nashville',
-  //   event_type: '',
-  //   start_time: '',
-  //   end_time: '',
-  //   start_location: '',
-  //   end_location: '',
-  //   image_url: '',
-  //   thumbnail_photo: '',
-  //   difficulty_level: 'intermediate',
-  //   running_distance: 13.5,
-  //   leader: '',
-  //   link: '',
-  //   attendees: '',
-  //   promoted: true,
-  //   created_at: '',
-  //   updated_at: '',
-  //   numAttending: 532,
-  //   map_url: ''
-  // },
 
   return (
     <>
-      {/* <h1
-      onClick={handleShow}
-      >
-        <div>Hilltop</div>
-      </h1> */}
-
       <Modal show={show} onHide={handleClose}>
         <div style={{display: "flex", flexDirection: "row"}}>
           {/* left column */}
