@@ -9,7 +9,6 @@ const Profile = class extends React.PureComponent {
     this.state = {
       userPosts: [
         {
-          name: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -25,7 +24,6 @@ const Profile = class extends React.PureComponent {
           },
         },
         {
-          name: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -33,7 +31,8 @@ const Profile = class extends React.PureComponent {
         },
       ],
       userProfile: {
-        name: 'Test',
+        name: 'Mufasa',
+        lastName: 'Mufasa-Mufasa',
         stats: {
           avgMilePace: '10:03',
           recordMilePace: '9:34',
@@ -69,23 +68,14 @@ const Profile = class extends React.PureComponent {
   render() {
     const { userProfile } = this.state;
     const {
-      name, stats, pic, headerImage, bio, friendsList,
+      name, lastName, stats, pic, headerImage, bio, friendsList,
     } = userProfile;
     return (
       <div>
-        <div className="allHeader">
-          <div className="social-profile-banner">
-            <img className="social-profile-banner-img" src={headerImage} />
-            <img className="social-profile-banner-profile-pic profile-pic-round" src={pic} />
-          </div>
-          <div className="profileCard">
-            <div className="profileImage" />
-            <div className="userName">{name}</div>
-            <button className="profileButton">
-              Follow
-              {name}
-            </button>
-          </div>
+        <div className="social-profile-banner">
+          <img className="social-profile-banner-img" src={headerImage} />
+          <img className="social-profile-banner-profile-pic profile-pic-round" src={pic} />
+          <span className='social-profile-banner-name'>{name} {lastName}</span>
         </div>
         <div id="social-feeds">
           <div className="side-column">
@@ -142,15 +132,16 @@ const Profile = class extends React.PureComponent {
               's Feed
             </div>
             <div id="social-feed-buttons">
-              <button className="profileButton">+ New Post</button>
-              <button className="profileButton">+ Create Daily Run</button>
+              <button className="social-button">+ New Post</button>
+              <button className="social-button">+ Create Run</button>
             </div>
             <div className="contentBox">
-              <SocialFeed posts={this.state.userPosts} />
+              <SocialFeed name={name} lastName={lastName} posts={this.state.userPosts} />
             </div>
           </div>
           <div className="side-column">
             <div className="contentBox">
+              <button className="social-follow-button">Follow {name}</button>
               <div className="boxTitle">
                 {name}
                 &apos;s Bio
