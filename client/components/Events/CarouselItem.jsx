@@ -4,36 +4,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import EventInfoModal from './EventInfoModal';
 
 const CarouselItem = ({ race }) => (
-
-  // const [show, setShow] = React.useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
-
-
-
-  // {
-  //   name: 'Hilltop Half-Marathon',
-  //   description: 'Test your endurance in the hills of Nashville',
-  //   event_type: '',
-  //   start_time: '',
-  //   end_time: '',
-  //   start_location: '',
-  //   end_location: '',
-  //   image_url: '',
-  //   thumbnail_photo: '',
-  //   difficulty_level: 'intermediate',
-  //   running_distance: 13.5,
-  //   leader: '',
-  //   link: '',
-  //   attendees: '',
-  //   promoted: true,
-  //   created_at: '',
-  //   updated_at: '',
-  //   numAttending: 532,
-  // },
-
   <Carousel.Item className="carousel-img">
     <img
       className="d-block w-100"

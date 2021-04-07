@@ -26,19 +26,22 @@ class Homepage extends React.Component {
     return (
       <>
         <RaceJumbotron races={data.events.filter((event) => event.event_type === 'race')} />
-        <div
-          onClick={this.handleAddEvent.bind(this)}>TEMP ADD EVENT BUTTON
-          </div>
-          <AddEventForm
-            show={this.state.addEvent}
-            handleSubmitEvent={this.handleSubmitEvent.bind(this)}/>
-        <h4>Daily Runs</h4>
+        <div onClick={this.handleAddEvent.bind(this)}>
+          TEMP ADD EVENT BUTTON
+        </div>
+        <AddEventForm
+          show={this.state.addEvent}
+          handleSubmitEvent={this.handleSubmitEvent.bind(this)}/>
+        <h4 className="events-header">Daily Runs</h4>
         <EventsCarousel events={data.events.filter((event) => event.event_type === 'daily_run')} />
-        <h4>Announcements and Other Events</h4>
+        <h4 className="events-header">Announcements and Other Events</h4>
         <EventsCarousel events={data.events.filter((event) => event.event_type === 'other')} />
       </>
     );
   }
 }
+
+{/* <button style={{ display: "inline" }} onClick={this.onModalOpen}>OPEN MODAL</button>
+{this.state.isModalOpen ? (<Modal onModalOpen={this.onModalOpen} />) : null} */}
 
 export default Homepage;

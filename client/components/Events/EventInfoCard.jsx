@@ -32,19 +32,21 @@ const EventInfoCard = ({ event }) => {
       <>
         <div className="event-info-card">
           <img className="event-info-card-photo" height="180" width="290" src="./images/nashville.jpeg" alt="photo"></img>
+          <br></br>
+          <br></br>
           <span className="event-title">{event.name}</span>
           <br></br>
           <div className="event-card-details-container">
             <span className="low-priority-text">
               <i style={{ 'color': 'var(--black)' }} className="fas fa-clock"></i>
-              &nbsp;{moment(event.start_time).format('dddd, MMMM Do YYYY, h:mm a')}
+              &nbsp;{moment(event.start_time).format('ddd, MMMM Do YYYY, h:mm a')}
               {/* &nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(event.start_time))} */}
             </span>
             <span className="low-priority-text">
               <i style={{ 'color': 'var(--black)' }} className="fas fa-running"></i>
               &nbsp;{event.running_distance}
             </span>
-            <span className={difficultyStyle}>&nbsp;&nbsp;{difficultyLevel}&nbsp;&nbsp;</span>
+            <span className={difficultyStyle}>&nbsp;{difficultyLevel}&nbsp;</span>
           </div>
           <br></br>
           <span className="event-description">{event.description}</span>
@@ -58,10 +60,8 @@ const EventInfoCard = ({ event }) => {
               </span>
             </div>
             <div>
-              <span className="low-priority-text">
-                <i style={{ 'color': 'var(--black)' }} className="fas fa-user-circle fa-2x"></i>
-                &nbsp;Hosted by: {event.leader}
-              </span>
+              <span className="event-card-icon"><i style={{ 'color': 'var(--black)' }} className="fas fa-user-circle fa-2x"></i></span>
+              <span className="low-priority-text">&nbsp;Hosted by: {event.leader}</span>
             </div>
           </div>
         </div>
@@ -73,6 +73,8 @@ const EventInfoCard = ({ event }) => {
       <>
         <div className="event-info-card">
           <img className="event-info-card-photo" height="180" width="290" src="./images/nashville.jpeg" alt="photo"></img>
+          <br></br>
+          <br></br>
           <span className="event-title">{event.name}</span>
           <br></br>
           <br></br>

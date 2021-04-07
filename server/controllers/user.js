@@ -37,4 +37,13 @@ module.exports = {
       }
     });
   },
+  getBannedUsers(req, res) {
+    models.user.getUsersBanned((result) => {
+      if (result.length !== 0) {
+        res.status(200).json(result);
+      } else {
+        res.status(404).send('User Not Found');
+      }
+    });
+  },
 };

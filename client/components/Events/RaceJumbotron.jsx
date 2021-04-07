@@ -14,9 +14,8 @@ class RaceJumbotron extends React.Component {
     this.state = {
       races: this.props.races,
       eventModal: false,
-      // isModalOpen: false,
+
     };
-    // this.onModalOpen = this.onModalOpen.bind(this);
   }
 
    handleClose () {
@@ -26,31 +25,6 @@ class RaceJumbotron extends React.Component {
      this.setState({eventModal: true});
    }
 
-
-
-  // onModalOpen() {
-  //   this.setState({ isModalOpen: !this.state.isModalOpen });
-
-  // {
-  //   name: 'Hilltop Half-Marathon',
-  //   description: 'Test your endurance in the hills of Nashville',
-  //   event_type: '',
-  //   start_time: '',
-  //   end_time: '',
-  //   start_location: '',
-  //   end_location: '',
-  //   image_url: '',
-  //   thumbnail_photo: '',
-  //   difficulty_level: 'intermediate',
-  //   running_distance: 13.5,
-  //   leader: '',
-  //   link: '',
-  //   attendees: '',
-  //   promoted: true,
-  //   created_at: '',
-  //   updated_at: '',
-  //   numAttending: 532,
-  // },
 
   render() {
     return (
