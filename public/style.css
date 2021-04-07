@@ -290,7 +290,7 @@ a {
 .events-carousel {
   height: 420px;
   overflow: hidden;
-  width: 75%;
+  width: 59%;
 }
 
 .events-carousel-track {
@@ -298,6 +298,17 @@ a {
   height: 100%;
   transition: ease-in-out 0.55s;
 }
+
+.events-carousel-next-button {
+  height: 15%;
+  align-self: center;
+}
+
+.hide-next-button {
+  display: none;
+}
+
+/************ EVENTS CARDS **************/
 
 .event-info-card {
   display: inline-block;
