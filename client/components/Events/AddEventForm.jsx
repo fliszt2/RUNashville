@@ -18,27 +18,6 @@ class AddEventForm extends React.Component {
 
     };
 
-    // {
-    //   id: 5,
-    //   event_type: 'daily_run',
-    //   name: 'Centennial Park, West End Ave Entrance',
-    //   description: 'Join us for a lesiurely early morning 5k along the lake in beautiful Centennial Park',
-    //   start_time: '2021-04-05T10:30:00.000Z',
-    //   end_time: '',
-    //   start_location: '2500 West End Ave',
-    //   end_location: '',
-    //   image_url: '',
-    //   thumbnail_photo: '',
-    //   difficulty_level: 'advanced',
-    //   running_distance: 13.5,
-    //   leader: 'Jack McClain',
-    //   link: 'https://www.runnash.com/races/music-city-july-4th-virtual-5k/',
-    //   attendees: 532,
-    //   promoted: true,
-    //   created_at: '',
-    //   updated_at: '',
-    // },
-
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -54,23 +33,23 @@ class AddEventForm extends React.Component {
   handleSubmit(event) {
 
     event.preventDefault();
-    var body = {
-      "formName1": this.state.formName1,
-      "formName2": this.state.formName2
-    };
-    return axios.post('/endpoint', body)
-      .then(() => {
-        alert('Record has been Added!');
-      })
-      .then(() => {
-        this.setState({
-          formName1: '',
-          formName2: ''
-        })
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    // var body = {
+    //   "formName1": this.state.formName1,
+    //   "formName2": this.state.formName2
+    // };
+    // return axios.post('/endpoint', body)
+    //   .then(() => {
+    //     alert('Record has been Added!');
+    //   })
+    //   .then(() => {
+    //     this.setState({
+    //       formName1: '',
+    //       formName2: ''
+    //     })
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   })
   }
 
   render() {
@@ -112,7 +91,7 @@ class AddEventForm extends React.Component {
             </label>
             <br />
             <label>
-              Upload Map:
+              Add Map:
               <input name="start_location" type="text" value={this.state.start_location} onChange={this.handleInputChange} />
             </label>
             <br />

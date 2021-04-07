@@ -81,52 +81,68 @@ import moment from 'moment';
 
 
 const EventInfoModal = ({event, handleClose, show}) => {
-
-
-
-
   return (
     <>
       <Modal show={show} onHide={handleClose}>
         <div style={{display: "flex", flexDirection: "row"}}>
           {/* left column */}
           <div style={{flexGrow: 1}}>
-            <h3>Name</h3>
+          <div class="mytextdiv">
+            <div class="mytexttitle">
+              {event.name}
+            </div>
+            <div class="divider"></div>
+          </div>
             <img className="thumbnail" src={event.thumbnail_photo}></img>
-            <h3>Route</h3>
+            <div class="mytextdiv">
+            <div class="mytexttitle">
+              Route
+            </div>
+            <div class="divider"></div>
+          </div>
             <img className="thumbnail" src={event.map_url}></img>
           </div>
           {/* right column */}
           <div style={{flexGrow: 1}}>
-            <h3>Details</h3>
+          <div class="mytextdiv">
+            <div class="mytexttitle">
+              Details
+            </div>
+            <div class="divider"></div>
+          </div>
             <div>
               <i style={{'color': 'var(--black)'}} className="fas fa-clock"></i>
-              When:
+               When:
 
-              <span>{moment(event.start_time).format('dddd, MMMM Do YYYY, h:mm a')}</span>
+              <span> {moment(event.start_time).format('dddd, MMMM Do YYYY, h:mm a')}</span>
             </div>
             <div>
               <i style={{'color': 'var(--black)'}} className="fas fa-globe-americas"></i>
-             Where:
+              Where:
 
-              <span>{event.start_location}</span>
+              <span> {event.start_location}</span>
             </div>
             {/* is meetup a different place */}
             <div>
               Length:
-              <span>{event.running_distance}</span>
+              <span> {event.running_distance}</span>
             </div>
             <div>Level:
-              <span>{event.difficulty_level}</span>
+              <span> {event.difficulty_level}</span>
             </div>
             <div>Host:
 
               <span>{event.leader}</span>
             </div>
             <div>Description:
-              <span>{event.description}</span>
+              <span> {event.description}</span>
             </div>
-            <h3>Attending</h3>
+            <div class="mytextdiv">
+            <div class="mytexttitle">
+              Attending
+            </div>
+            <div class="divider"></div>
+          </div>
             <button style={{width: "100px"}}>RSVP </button>
             <div>8
               <span> of your friends are attending</span>

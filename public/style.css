@@ -104,6 +104,25 @@ a {
   background-repeat: no-repeat;
 }
 
+.mytextdiv {
+  display:flex;
+  flex-direction:row;
+   align-items: center;
+   margin-top: 20px;
+   margin-bottom: 10px;
+}
+.mytexttitle {
+  flex-grow: 0;
+  font-size: 20px;
+  color: hsl(120, 60%, 65%);
+}
+.divider {
+  flex-grow: 1;
+  height: 2px;
+  background-color: hsl(120, 60%, 65%);
+  border-radius: 5px;
+}
+
 .login-container,
 .signup-container {
   display: block;
@@ -144,7 +163,6 @@ a {
   margin: 10% auto;
 }
 
-<<<<<<< HEAD
 /**************************************** MAIN PAGE EVENTS *************************************************/
 
 /************ RACE JUMBOTRON **************/
@@ -203,8 +221,6 @@ a {
   vertical-align: top;
 }
 
-=======
->>>>>>> b874607076a934a3d56c454c3986118b3af70b41
 .contentBox{
   width: 100%;
   min-height: 25vh;
