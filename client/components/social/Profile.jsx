@@ -1,7 +1,6 @@
 import React from 'react';
 import SocialFeed from './SocialFeed.jsx';
 import CreatePost from './CreatePost.jsx';
-import HeaderBar from '../HeaderBar';
 import friendCard from './friendCard';
 
 const Profile = class extends React.PureComponent {
@@ -22,16 +21,16 @@ const Profile = class extends React.PureComponent {
             pace: '7:43',
             steps: 10376,
             heartRate: 120,
-            calories: 548
-          }
+            calories: 548,
+          },
         },
         {
           name: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
-          propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA'
-        }
+          propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
+        },
       ],
       userProfile: {
         name: 'Test',
@@ -74,11 +73,10 @@ const Profile = class extends React.PureComponent {
     } = userProfile;
     return (
       <div>
-        <HeaderBar></HeaderBar>
         <div className="allHeader">
-          <div className='social-profile-banner'>
-            <img className='social-profile-banner-img' src={headerImage} />
-            <img className='social-profile-banner-profile-pic profile-pic-round' src={pic}/>
+          <div className="social-profile-banner">
+            <img className="social-profile-banner-img" src={headerImage} />
+            <img className="social-profile-banner-profile-pic profile-pic-round" src={pic} />
           </div>
           <div className="profileCard">
             <div className="profileImage" />
@@ -139,17 +137,20 @@ const Profile = class extends React.PureComponent {
             </div>
           </div>
           <div id="center-column">
-            <div>{name}'s Feed</div>
+            <div>
+              {name}
+              's Feed
+            </div>
             <div id="social-feed-buttons">
               <button className="profileButton">+ New Post</button>
               <button className="profileButton">+ Create Daily Run</button>
             </div>
             <div className="contentBox">
-              <SocialFeed posts={this.state.userPosts}></SocialFeed>
+              <SocialFeed posts={this.state.userPosts} />
             </div>
           </div>
           <div className="side-column">
-          <div className="contentBox">
+            <div className="contentBox">
               <div className="boxTitle">
                 {name}
                 &apos;s Bio

@@ -44,10 +44,10 @@ class CreatePost extends React.Component {
                 <div className='add-social-post-options'>
                     <input type='checkbox' name='addRun'></input>
                     <label for='addRun'>Add Run Details</label>
-                    <i class="fas fa-globe-americas feed-icon" name='location'></i>
+                    <i className="fas fa-globe-americas feed-icon" name='location'></i>
                     <span>Add Location</span>
                 </div>
-                <i class="fas fa-camera"></i>
+                <i className="fas fa-camera"></i>
                 {runPane}
                 <textarea name='message'></textarea>
                 <button>Submit</button>
