@@ -34,9 +34,6 @@ class EventsCarousel extends React.Component {
   }
 }
 
-// <div>
-// <h1 onClick={this.onModalOpen} >{race.name}</h1>
-// {this.state.isModalOpen ? (<EventInfoModal event={race} onModalOpen={this.onModalOpen} />) : null}
-// </div>
+
 
 export default EventsCarousel;

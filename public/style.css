@@ -298,6 +298,11 @@ a {
   /* cursor: pointer; */
 }
 
+.carousel-caption {
+  left: 5% !important;
+  right: 5% !important;
+}
+
 .carousel-text {
   display: grid;
   grid-template-columns: 4fr 2fr 1fr;

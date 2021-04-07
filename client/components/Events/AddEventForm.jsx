@@ -56,7 +56,7 @@ class AddEventForm extends React.Component {
     return (
 
 
-      <div style={{zIndex: 2}} className="form-modal-wrapper">
+      <div  className="form-modal-wrapper">
         <div className="form-modal-backdrop" onClick={this.props.onModalOpen} />
         <div className="form-modal-box">
           <i className="far fa-times-circle fa-2x" onClick={this.props.onModalOpen}></i>
