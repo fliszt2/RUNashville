@@ -37,21 +37,6 @@ const Profile = class extends React.PureComponent {
       userProfile: {
       },
       friendsList: [
-        {
-          id: 1,
-          name_user: 'Timothy Blumpkin',
-          photo: '',
-        },
-        {
-          id: 2,
-          name_user: 'Delvin Dunklesnap',
-          photo: '',
-        },
-        {
-          id: 3,
-          name_user: 'Chadrick Chaplips',
-          photo: '',
-        },
       ],
       stats: {
         avgMilePace: '10:03',
@@ -66,7 +51,7 @@ const Profile = class extends React.PureComponent {
     this.updateDisplayedProfile = this.updateDisplayedProfile.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { currentUserID } = this.state;
     this.updateDisplayedProfile(currentUserID);
   }
