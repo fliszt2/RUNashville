@@ -45,6 +45,7 @@ CREATE TABLE post (
   image_url VARCHAR(200),
   message TEXT,
   reported BOOLEAN,
+  show_post BOOLEAN,
   location VARCHAR(200),
   created_at TIMESTAMP,
   PRIMARY KEY (id),
@@ -71,7 +72,7 @@ CREATE TABLE comments (
   id INT AUTO_INCREMENT,
   fk_post_id INT,
   fk_user_id INT,
-  message TEXT,
+  message_comments TEXT,
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
   PRIMARY KEY (id),
@@ -81,8 +82,8 @@ CREATE TABLE comments (
 
 CREATE TABLE reactions (
   id INT AUTO_INCREMENT,
-  name VARCHAR(20),
-  description TEXT,
+  name_reactions VARCHAR(20),
+  description_reactions TEXT,
   icon varchar(200),
   PRIMARY KEY (id)
 );
@@ -101,22 +102,24 @@ CREATE TABLE reactions_on_post (
 
 CREATE TABLE event_type (
   id INT AUTO_INCREMENT,
-  name VARCHAR(50),
-  description TEXT,
+  name_event_type VARCHAR(50),
+  description_event_type TEXT,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE difficulty_level (
   id INT AUTO_INCREMENT,
-  name VARCHAR(30),
-  description TEXT,
+  name_difficulty_level VARCHAR(30),
+  description_difficulty_level TEXT,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE events (
   id INT AUTO_INCREMENT,
   event_title VARCHAR(40),
-  description TEXT,
+  description_events TEXT,
+  reported BOOLEAN,
+  show_events BOOLEAN,
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
   fk_leader_user_id INT,
