@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import SocialFeed from './SocialFeed.jsx';
-import CreatePost from './CreatePost.jsx';
+import SocialFeed from './SocialFeed';
+import CreatePost from './CreatePost';
 import friendCard from './friendCard';
 
 const Profile = class extends React.PureComponent {
