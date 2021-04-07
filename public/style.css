@@ -401,6 +401,7 @@ a {
   color: white;
   align-items: center;
   text-align: center;
+  height: 100vh;
 }
 .sidebarText {
   font-size: 14px;
@@ -456,4 +457,25 @@ a {
   box-sizing: border-box;
   overflow: auto;
   margin-top: -30px;
+}
+/* TITLE SECTION =============================================================================== */
+
+.mytextdiv {
+  display:flex;
+  flex-direction:row;
+   align-items: center;
+   margin-top: 20px;
+   margin-bottom: 10px;
+}
+.mytexttitle {
+  flex-grow: 0;
+  font-size: 20px;
+  color: hsl(120, 60%, 65%);
+}
+
+.divider {
+  flex-grow: 1;
+  height: 2px;
+  background-color: hsl(120, 60%, 65%);
+  border-radius: 5px;
 }

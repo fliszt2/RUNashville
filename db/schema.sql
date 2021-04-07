@@ -179,5 +179,5 @@ INSERT INTO stats (fk_post_id, distance, time_hour, time_minutes, time_seconds, 
 */
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root -p < db/schema.sql
+ *    mysql -u root < db/schema.sql
  *  to create the database and the tables.*/
