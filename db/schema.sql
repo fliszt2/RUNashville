@@ -21,6 +21,8 @@ CREATE TABLE user (
   fk_user_type_id INT,
   banned BOOLEAN,
   image_url VARCHAR(200),
+  banner_url VARCHAR(200),
+  bio_description TEXT,
   created_at TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_user_type_id) REFERENCES user_type(id)
@@ -43,6 +45,7 @@ CREATE TABLE post (
   image_url VARCHAR(200),
   message TEXT,
   reported BOOLEAN,
+  location VARCHAR(200),
   created_at TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_user_id) REFERENCES user(id)
