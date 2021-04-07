@@ -2,6 +2,7 @@ import React from 'react';
 import SocialFeed from './SocialFeed.jsx';
 import CreatePost from './CreatePost.jsx';
 import friendCard from './friendCard';
+import SectionTitle from '../SectionTitle.jsx'
 
 const Profile = class extends React.PureComponent {
   constructor(props) {
@@ -80,10 +81,7 @@ const Profile = class extends React.PureComponent {
         <div id="social-feeds">
           <div className="side-column">
             <div className="contentBox">
-              <div className="boxTitle">
-                {name}
-                's Stats
-              </div>
+              <SectionTitle text={`${name}'s Stats`}></SectionTitle>
               <div className="statistics">
                 <div className="statLine">
                   <div className="statDescriptor">AVERAGE MILE PACE: </div>
@@ -112,29 +110,20 @@ const Profile = class extends React.PureComponent {
               </div>
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name}
-                's Events
-              </div>
+              <SectionTitle text={`${name}'s Events`}></SectionTitle>
               <div className="eventsFeed" />
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name}
-                &apos;s Recent Activities
-              </div>
+              <SectionTitle text={`${name}'s Recent Activities`}></SectionTitle>
               <div className="recentActivityFeed" />
             </div>
           </div>
           <div id="center-column">
-            <div>
-              {name}
-              's Feed
-            </div>
             <div id="social-feed-buttons">
               <button className="social-button">+ New Post</button>
               <button className="social-button">+ Create Run</button>
             </div>
+            <SectionTitle text={`${name}'s Feed`}></SectionTitle>
             <div className="contentBox">
               <SocialFeed name={name} lastName={lastName} posts={this.state.userPosts} />
             </div>
@@ -142,26 +131,17 @@ const Profile = class extends React.PureComponent {
           <div className="side-column">
             <div className="contentBox">
               <button className="social-follow-button">Follow {name}</button>
-              <div className="boxTitle">
-                {name}
-                &apos;s Bio
-              </div>
+              <SectionTitle text={`${name}'s Bio`}></SectionTitle>
               <div className="userBio">{bio}</div>
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name}
-                &apos;s Friends
-              </div>
+              <SectionTitle text={`${name}'s Friends`}></SectionTitle>
               <div className="friendsList">
                 {friendsList.map((friend) => friendCard(friend))}
               </div>
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name}
-                &apos;s Friends Updates
-              </div>
+              <SectionTitle text={`${name}'s Friends Feed`}></SectionTitle>
               <div className="friendFeed" />
             </div>
           </div>

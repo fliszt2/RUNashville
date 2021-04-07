@@ -193,6 +193,28 @@ a {
   padding: 10px 0px;
 }
 
+.section-title {
+  display:flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-title-text {
+  flex-grow: 0;
+  font-size: 1.8rem;
+  color: var(--black);
+}
+
+.section-title-divider {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--black);
+  border-radius: 5px;
+  margin-left: 1rem;
+}
 /* Admin styling*/
 
 /* Events styling */
@@ -239,7 +261,7 @@ a {
 .contentBox{
   width: 100%;
   min-height: 30vh;
-  border-color: var(--black);
+  border-color: var(--bg-white);
   border-width: 1px;
   border-style: solid;
   vertical-align: top;
@@ -258,6 +280,7 @@ a {
 #social-feed-buttons {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 .social-run-details-pane {
@@ -307,9 +330,8 @@ a {
 .social-follow-button {
   position: relative;
   float: right;
-  margin: -10px -10px 0 0;
+  margin: -0.5rem -1rem 0 1rem;
   padding: 8px 4px;
-
 }
 
 .feed-event-info {
