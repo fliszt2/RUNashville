@@ -38,7 +38,7 @@ module.exports = {
     });
   },
   getBannedUsers(req, res) {
-    models.user.getUsersBanned((result) => {
+    models.user.getBannedUsers((result) => {
       if (result.length !== 0) {
         res.status(200).json(result);
       } else {
