@@ -9,33 +9,38 @@ class Homepage extends React.Component {
     super(props);
     this.state = {
       data: data,
-      addEvent: false,
+      isModalOpen: false,
     };
+
+    this.onModalOpen = this.onModalOpen.bind(this);
   }
 //click handlingfunctions for AddEventForm. These will get moved!
-  handleAddEvent() {
-    this.setState({addEvent: true});
-  }
 
   handleSubmitEvent() {
     this.setState({addEvent: false});
   }
+
+
+  onModalOpen() {
+    this.setState({ isModalOpen: !this.state.isModalOpen });
+  }
+
 
   render() {
     const { data } = this.state;
     return (
       <>
         <RaceJumbotron races={data.events.filter((event) => event.event_type === 'race')} />
-        <div onClick={this.handleAddEvent.bind(this)}>
-          TEMP ADD EVENT BUTTON
-        </div>
-        <AddEventForm
-          show={this.state.addEvent}
-          handleSubmitEvent={this.handleSubmitEvent.bind(this)}/>
+
+        <div>
+              <button style={{ display: "inline" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
+
+            </div>
         <h4 className="events-header">Daily Runs</h4>
         <EventsCarousel events={data.events.filter((event) => event.event_type === 'daily_run')} />
         <h4 className="events-header">Announcements and Other Events</h4>
         <EventsCarousel events={data.events.filter((event) => event.event_type === 'other')} />
+        {this.state.isModalOpen ? (<AddEventForm onModalOpen={this.onModalOpen} />) : null}
       </>
     );
   }

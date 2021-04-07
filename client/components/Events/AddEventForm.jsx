@@ -54,9 +54,9 @@ class AddEventForm extends React.Component {
 
   render() {
     return (
-      <Modal show={this.props.show} onHide={this.props.handleSubmitEvent}>
 
-      <div className="form-modal-wrapper">
+
+      <div style={{zIndex: 2}} className="form-modal-wrapper">
         <div className="form-modal-backdrop" onClick={this.props.onModalOpen} />
         <div className="form-modal-box">
           <i className="far fa-times-circle fa-2x" onClick={this.props.onModalOpen}></i>
@@ -123,7 +123,7 @@ class AddEventForm extends React.Component {
           </form>
         </div>
       </div>
-      </Modal>
+
 
     );
   }

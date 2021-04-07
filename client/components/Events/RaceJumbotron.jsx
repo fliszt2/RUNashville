@@ -13,34 +13,44 @@ class RaceJumbotron extends React.Component {
     super(props);
     this.state = {
       races: this.props.races,
-      eventModal: false,
+      // eventModal: false,
+      isModalOpen: false,
 
     };
+    this.onModalOpen = this.onModalOpen.bind(this);
   }
 
-   handleClose () {
-     this.setState({eventModal: false});
-   }
-   handleShow () {
-     this.setState({eventModal: true});
-   }
+  onModalOpen() {
+    this.setState({ isModalOpen: !this.state.isModalOpen });
+  }
+  //  handleClose () {
+  //    this.setState({eventModal: false});
+  //  }
+  //  handleShow () {
+  //    this.setState({eventModal: true});
+  //  }
 
 
   render() {
     return (
-      <div>
+      <div className = "move-to-back">
         <Carousel>
           {this.state.races.map((race) => (
             <Carousel.Item className="carousel-img" key={race.id}>
-              <img onClick={this.handleShow.bind(this)}
+              <img
                 className="d-block w-100"
                 src="./images/leeds_runner.jpg"
                 alt="First slide"
+                // onClick={this.onModalOpen}
               />
               <Carousel.Caption key={race.id}>
                 <div className="carousel-caption">
                   <div className="race-description">
-                    <h1 onClick={this.handleShow.bind(this)} >{race.name}</h1>
+                    <div>
+                      <h1 onClick={this.onModalOpen} className="clickable-header">{race.name}</h1>
+                      {this.state.isModalOpen ? (<EventInfoModal event={race} onModalOpen={this.onModalOpen} />) : null}
+                    </div>
+
                     <div>
                       <span className="registration-text"><a href={race.link} target="blank">Click here to register!</a></span>
                     </div>
@@ -67,10 +77,10 @@ class RaceJumbotron extends React.Component {
                   </div>
                 </div>
               </Carousel.Caption>
-              <EventInfoModal
+              {/* <EventInfoModal
                 event={race}
                 show={this.state.eventModal}
-                handleClose={this.handleClose.bind(this)}/>
+                handleClose={this.handleClose.bind(this)}/> */}
             </Carousel.Item>
           ))}
         </Carousel>

@@ -80,11 +80,15 @@ import moment from 'moment';
 
 
 
-const EventInfoModal = ({event, handleClose, show}) => {
+const EventInfoModal = ({event, onModalOpen}) => {
   return (
-    <>
-      <Modal show={show} onHide={handleClose}>
-        <div style={{display: "flex", flexDirection: "row"}}>
+
+    <div className="form-modal-wrapper">
+    <div className="form-modal-backdrop" onClick={onModalOpen} />
+    <div className="form-modal-box">
+      <i className="far fa-times-circle fa-2x" onClick={onModalOpen}></i>
+      <br></br>
+      <div style={{display: "flex", flexDirection: "row"}}>
           {/* left column */}
           <div style={{flexGrow: 1}}>
           <div class="mytextdiv">
@@ -152,8 +156,84 @@ const EventInfoModal = ({event, handleClose, show}) => {
           </div>
         </div>
 
-       </Modal>
-    </>
+
+
+    </div>
+  </div>
+
+
+    // <>
+    //   <Modal show={show} onHide={handleClose}>
+    //     <div style={{display: "flex", flexDirection: "row"}}>
+    //       {/* left column */}
+    //       <div style={{flexGrow: 1}}>
+    //       <div class="mytextdiv">
+    //         <div class="mytexttitle">
+    //           {event.name}
+    //         </div>
+    //         <div class="divider"></div>
+    //       </div>
+    //         <img className="thumbnail" src={event.thumbnail_photo}></img>
+    //         <div class="mytextdiv">
+    //         <div class="mytexttitle">
+    //           Route
+    //         </div>
+    //         <div class="divider"></div>
+    //       </div>
+    //         <img className="thumbnail" src={event.map_url}></img>
+    //       </div>
+    //       {/* right column */}
+    //       <div style={{flexGrow: 1}}>
+    //       <div class="mytextdiv">
+    //         <div class="mytexttitle">
+    //           Details
+    //         </div>
+    //         <div class="divider"></div>
+    //       </div>
+    //         <div>
+    //           <i style={{'color': 'var(--black)'}} className="fas fa-clock"></i>
+    //            When:
+
+    //           <span> {moment(event.start_time).format('dddd, MMMM Do YYYY, h:mm a')}</span>
+    //         </div>
+    //         <div>
+    //           <i style={{'color': 'var(--black)'}} className="fas fa-globe-americas"></i>
+    //           Where:
+
+    //           <span> {event.start_location}</span>
+    //         </div>
+    //         {/* is meetup a different place */}
+    //         <div>
+    //           Length:
+    //           <span> {event.running_distance}</span>
+    //         </div>
+    //         <div>Level:
+    //           <span> {event.difficulty_level}</span>
+    //         </div>
+    //         <div>Host:
+
+    //           <span>{event.leader}</span>
+    //         </div>
+    //         <div>Description:
+    //           <span> {event.description}</span>
+    //         </div>
+    //         <div class="mytextdiv">
+    //         <div class="mytexttitle">
+    //           Attending
+    //         </div>
+    //         <div class="divider"></div>
+    //       </div>
+    //         <button style={{width: "100px"}}>RSVP </button>
+    //         <div>8
+    //           <span> of your friends are attending</span>
+    //         </div>
+    //         <FriendList/>
+
+    //       </div>
+    //     </div>
+
+    //    </Modal>
+    // </>
   );
 };
 

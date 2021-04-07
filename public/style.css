@@ -279,10 +279,28 @@ a {
 
 /************ RACE JUMBOTRON **************/
 
+.move-to-back {
+  z-index: -1;
+}
+
+.clickable-header {
+  cursor: pointer;
+}
+
+.clickable-image {
+  cursor: pointer;
+}
+
+.clickable-header:hover {
+  /* color: var(--white-grey); */
+  text-decoration: underline;
+}
+
 .carousel-img {
   width: 900px;
   height: 500px;
   margin: auto;
+  /* cursor: pointer; */
 }
 
 .carousel-caption {
@@ -349,10 +367,12 @@ a {
   min-height: 10vh;
   max-height: 10vh;
   overflow: hidden;
+
 }
 
 .race-map img {
   width: 170px;
+  z-index: -1;
 }
 
 /************ EVENTS CAROUSELS **************/

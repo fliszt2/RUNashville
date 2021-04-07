@@ -1,5 +1,6 @@
 import React from 'react';
 import EventInfoCard from './EventInfoCard';
+import EventInfoModal from './EventInfoModal';
 // import data from '../../resources/dummydata';
 
 class EventsCarousel extends React.Component {
@@ -9,8 +10,14 @@ class EventsCarousel extends React.Component {
       events: this.props.events.slice(0, 3),
       hiddenEventsRight: this.props.events.slice(3),
       showNextButton: this.props.events.length > 3 ? true : false,
+      // isModalOpen: false,
     };
+    // this.onModalOpen = this.onModalOpen.bind(this);
   }
+
+  // onModalOpen() {
+  //   this.setState({ isModalOpen: !this.state.isModalOpen });
+  // }
 
   render() {
     const { events } = this.state;
@@ -26,5 +33,10 @@ class EventsCarousel extends React.Component {
     );
   }
 }
+
+// <div>
+// <h1 onClick={this.onModalOpen} >{race.name}</h1>
+// {this.state.isModalOpen ? (<EventInfoModal event={race} onModalOpen={this.onModalOpen} />) : null}
+// </div>
 
 export default EventsCarousel;
