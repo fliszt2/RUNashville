@@ -38,7 +38,7 @@ const Profile = class extends React.PureComponent {
       },
       friendsList: [
       ],
-      stats: {
+      milestones: {
         avgMilePace: '10:03',
         recordMilePace: '9:34',
         monthMiles: 25.2,
@@ -75,7 +75,7 @@ const Profile = class extends React.PureComponent {
   }
 
   render() {
-    const { userProfile, friendsList, stats } = this.state;
+    const { userProfile, friendsList, milestones } = this.state;
     const {
       name_user, last_name, image_url, banner_url, bio_description,
     } = userProfile;
@@ -104,27 +104,27 @@ const Profile = class extends React.PureComponent {
               <div className="statistics">
                 <div className="statLine">
                   <div className="statDescriptor">AVERAGE MILE PACE: </div>
-                  <div className="stat">{stats.avgMilePace}</div>
+                  <div className="stat">{milestones.avgMilePace}</div>
                 </div>
                 <div className="statLine">
                   <div className="statDescriptor">RECORD MILE PACE: </div>
-                  <div className="stat">{stats.recordMilePace}</div>
+                  <div className="stat">{milestones.recordMilePace}</div>
                 </div>
                 <div className="statLine">
                   <div className="statDescriptor">THIS MONTH&apos;S MILES: </div>
-                  <div className="stat">{stats.monthMiles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+                  <div className="stat">{milestones.monthMiles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
                 </div>
                 <div className="statLine">
                   <div className="statDescriptor">LIFETIME MILES: </div>
-                  <div className="stat">{stats.lifetimeMiles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+                  <div className="stat">{milestones.lifetimeMiles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
                 </div>
                 <div className="statLine">
                   <div className="statDescriptor">LIFETIME RACES: </div>
-                  <div className="stat">{stats.lifetimeRaces.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+                  <div className="stat">{milestones.lifetimeRaces.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
                 </div>
                 <div className="statLine">
                   <div className="statDescriptor">EVENTS ATTENDED: </div>
-                  <div className="stat">{stats.eventsAttended.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+                  <div className="stat">{milestones.eventsAttended.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
                 </div>
               </div>
             </div>
