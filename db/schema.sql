@@ -164,6 +164,15 @@ INSERT INTO friends (fk_source_user_id, fk_target_user_id, status_friends) VALUE
 INSERT INTO friends (fk_source_user_id, fk_target_user_id, status_friends) VALUES (1, 3, true);
 INSERT INTO friends (fk_source_user_id, fk_target_user_id, status_friends) VALUES (2, 3, true);
 
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, 'https://simplifaster.com/wp-content/uploads/2017/01/Seaside-Runner.jpg','I am such a fast runner, look how fast I can go wheeeee', false, true, 'Nashville');
+
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, null,'Gotta go fast', false, true, 'Shelby Bottom');
+
+INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 1, 'cool story bro');
+INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 2, 'WOWOW');
+
+INSERT INTO stats (fk_post_id, distance, time_hour, time_minutes, time_seconds, pace, heart_rate, steps, calories_burned) VALUES (2, 5.12, 1, 30, 15, 7.30, 120, 5151, 5.12);
+
 /* MOCK EMAIL: Jodi@21Jump.com
   MOCK PASSWORD: Jodi
 */

@@ -49,7 +49,7 @@ class CreatePost extends React.Component {
                 </div>
                 <i className="fas fa-camera"></i>
                 {runPane}
-                <textarea name='message'></textarea>
+                <textarea name='message' placeholder='Tell us how you feel!'></textarea>
                 <button>Submit</button>
             </div>
         );

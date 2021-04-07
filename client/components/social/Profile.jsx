@@ -3,6 +3,7 @@ import axios from 'axios';
 import SocialFeed from './SocialFeed';
 import CreatePost from './CreatePost';
 import friendCard from './friendCard';
+import SectionTitle from '../SectionTitle';
 
 const Profile = class extends React.PureComponent {
   constructor(props) {
@@ -11,7 +12,6 @@ const Profile = class extends React.PureComponent {
       currentUserID: 1,
       userPosts: [
         {
-          name_user: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -27,7 +27,6 @@ const Profile = class extends React.PureComponent {
           },
         },
         {
-          name_user: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -81,26 +80,15 @@ const Profile = class extends React.PureComponent {
     } = userProfile;
     return (
       <div>
-        <div className="allHeader">
-          <div className="social-profile-banner">
-            <img className="social-profile-banner-img" src={banner_url} />
-            <img className="social-profile-banner-profile-pic profile-pic-round" src={image_url} />
-          </div>
-          <div className="profileCard">
-            <div className="profileImage" />
-            <div className="userName">{name_user + ' ' + last_name}</div>
-            <button className="profileButton">
-              {'Follow ' + name_user}
-            </button>
-          </div>
+        <div className="social-profile-banner">
+          <img className="social-profile-banner-img" src={banner_url} />
+          <img className="social-profile-banner-profile-pic profile-pic-round" src={image_url} />
+          <span className='social-profile-banner-name'>{name_user} {last_name}</span>
         </div>
         <div id="social-feeds">
           <div className="side-column">
             <div className="contentBox">
-              <div className="boxTitle">
-                {name_user}
-                's Stats
-              </div>
+              <SectionTitle text={`${name_user}'s Stats`}></SectionTitle>
               <div className="statistics">
                 <div className="statLine">
                   <div className="statDescriptor">AVERAGE MILE PACE: </div>
@@ -129,55 +117,38 @@ const Profile = class extends React.PureComponent {
               </div>
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name_user}
-                's Events
-              </div>
+              <SectionTitle text={`${name_user}'s Events`}></SectionTitle>
               <div className="eventsFeed" />
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name_user}
-                &apos;s Recent Activities
-              </div>
+              <SectionTitle text={`${name_user}'s Recent Activities`}></SectionTitle>
               <div className="recentActivityFeed" />
             </div>
           </div>
           <div id="center-column">
-            <div>
-              {name_user}
-              's Feed
-            </div>
             <div id="social-feed-buttons">
-              <button className="profileButton">+ New Post</button>
-              <button className="profileButton">+ Create Daily Run</button>
+              <button className="social-button">+ New Post</button>
+              <button className="social-button">+ Create Run</button>
             </div>
+            <SectionTitle text={`${name_user}'s Feed`}></SectionTitle>
             <div className="contentBox">
-              <SocialFeed posts={this.state.userPosts} />
+              <SocialFeed name={name_user} lastName={last_name} posts={this.state.userPosts} />
             </div>
           </div>
           <div className="side-column">
             <div className="contentBox">
-              <div className="boxTitle">
-                {name_user}
-                &apos;s Bio
-              </div>
+              <button className="social-follow-button">Follow {name_user}</button>
+              <SectionTitle text={`${name_user}'s Bio`}></SectionTitle>
               <div className="userBio">{bio_description}</div>
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name_user}
-                &apos;s Friends
-              </div>
+              <SectionTitle text={`${name_user}'s Friends`}></SectionTitle>
               <div className="friendsList">
                 {friendsList.map((friend) => (friendCard(friend, this.updateDisplayedProfile)))}
               </div>
             </div>
             <div className="contentBox">
-              <div className="boxTitle">
-                {name_user}
-                &apos;s Friends Updates
-              </div>
+              <SectionTitle text={`${name_user}'s Friends Feed`}></SectionTitle>
               <div className="friendFeed" />
             </div>
           </div>
