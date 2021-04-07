@@ -23,6 +23,7 @@ CREATE TABLE user (
   image_url VARCHAR(200),
   banner_url VARCHAR(200),
   bio_description TEXT,
+  approved BOOLEAN,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_user_type_id) REFERENCES user_type(id)
