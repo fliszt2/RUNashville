@@ -112,6 +112,7 @@ CREATE TABLE difficulty_level (
 
 CREATE TABLE events (
   id INT AUTO_INCREMENT,
+  event_title VARCHAR(40),
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
   fk_leader_user_id INT,
@@ -151,5 +152,5 @@ INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, ba
 */
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root -p < db/schema.sql
+ *    mysql -u root < db/schema.sql
  *  to create the database and the tables.*/

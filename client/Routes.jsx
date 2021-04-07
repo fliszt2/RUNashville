@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Profile from './components/Profile';
-import Main from './components/Main';
+import Profile from './components/social/Profile';
+import Admin from './components/admin/Admin';
+import HeaderBar from './components/HeaderBar';
 
 const Routes = () => (
+
+  <div>
+   <HeaderBar />
   <Router>
     <Switch>
       <Route
-        path={['/', '/login']}
+        path="/login"
         exact
         render={() => (
           <Login />
@@ -31,14 +35,15 @@ const Routes = () => (
         )}
       />
       <Route
-        path="/main"
+        path="/admin"
         exact
         render={() => (
-          <Main />
+          <Admin />
         )}
       />
     </Switch>
   </Router>
+  </div>
 );
 
 ReactDOM.render(<Routes />, document.getElementById('app'));
