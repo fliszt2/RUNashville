@@ -46,7 +46,67 @@ module.exports = {
       callback(result);
     });
   },
-  putUpdateUserProfilePicture(pic, callback) {
-    // const queryString = ''
+  putUpdateUserProfilePicture(data, callback) {
+    const queryString = 'UPDATE user SET image_url = ? WHERE id = ?';
+    db.connection.query(queryString, data, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
+  putUpdateUserBannerPicture(data, callback) {
+    const queryString = 'UPDATE user SET banner_url = ? WHERE id = ?';
+    db.connection.query(queryString, data, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
+  putUpdateUserPassword(data, callback) {
+    const queryString = 'UPDATE user SET password = ? WHERE id = ?';
+    db.connection.query(queryString, data, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
+  putUpdateUserName(data, callback) {
+    const queryString = 'UPDATE user SET name_user = ? WHERE id = ?';
+    db.connection.query(queryString, data, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
+  putUpdateUserLastName(data, callback) {
+    const queryString = 'UPDATE user SET last_name = ? WHERE id = ?';
+    db.connection.query(queryString, data, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
+  putUpdateUserAddress(data, callback) {
+    const queryString = 'UPDATE user SET address_user = ? WHERE id = ?';
+    db.connection.query(queryString, data, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
+  putUpdateUserBanned(data, callback) {
+    const queryString = 'UPDATE user SET banned = ? WHERE id = ?';
+    db.connection.query(queryString, data, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
   },
 };
