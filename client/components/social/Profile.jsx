@@ -12,6 +12,8 @@ const Profile = class extends React.PureComponent {
       currentUserID: 1,
       userPosts: [
         {
+          name: 'Mufasa',
+          last_name: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -27,6 +29,8 @@ const Profile = class extends React.PureComponent {
           },
         },
         {
+          name: 'Mufasa',
+          last_name: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -132,7 +136,7 @@ const Profile = class extends React.PureComponent {
             </div>
             <SectionTitle text={`${name_user}'s Feed`}></SectionTitle>
             <div className="contentBox">
-              <SocialFeed name={name_user} lastName={last_name} posts={this.state.userPosts} />
+              <SocialFeed posts={this.state.userPosts} />
             </div>
           </div>
           <div className="side-column">
