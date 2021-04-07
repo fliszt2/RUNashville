@@ -176,11 +176,6 @@ a {
   margin: auto;
 }
 
-.carousel-caption {
-  display: flex;
-  flex-direction: row;
-}
-
 /************ EVENTS CAROUSELS **************/
 
 .events-carousel {
@@ -303,12 +298,14 @@ a {
   /* cursor: pointer; */
 }
 
-.carousel-caption {
+.carousel-text {
   display: grid;
   grid-template-columns: 4fr 2fr 1fr;
   /* grid-template-rows: 1fr 1fr; */
   justify-content: space-between;
   column-gap: 25px;
+  display: flex;
+  flex-direction: row;
 }
 
 .race-description {

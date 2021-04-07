@@ -44,7 +44,8 @@ class RaceJumbotron extends React.Component {
                 // onClick={this.onModalOpen}
               />
               <Carousel.Caption key={race.id}>
-                <div className="carousel-caption">
+                {/* <div className="carousel-caption"> */}
+                  <div className="carousel-text">
                   <div className="race-description">
                     <div>
                       <h1 onClick={this.onModalOpen} className="clickable-header">{race.name}</h1>

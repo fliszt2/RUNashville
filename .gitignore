@@ -10,3 +10,6 @@ package-lock.json
 
 ### db connection info
 /db/index.js
+
+/client/resources/.DS_Store
+/public/.DS_Store
