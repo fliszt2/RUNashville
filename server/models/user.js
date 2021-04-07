@@ -46,4 +46,7 @@ module.exports = {
       callback(result);
     });
   },
+  putUpdateUserProfilePicture(pic, callback) {
+    // const queryString = ''
+  },
 };
