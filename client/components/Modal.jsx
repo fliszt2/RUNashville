@@ -26,7 +26,7 @@ class Modal extends React.Component {
     event.preventDefault();
     var body = {
       "formName1": this.state.formName1,
-      "formName2": this.state.formName2
+      "formName2": this.state.formName2,
     };
     return axios.post('/endpoint', body)
       .then(() => {
@@ -35,12 +35,12 @@ class Modal extends React.Component {
       .then(() => {
         this.setState({
           formName1: '',
-          formName2: ''
-        })
+          formName2: '',
+        });
       })
       .catch(err => {
         console.log(err);
-      })
+      });
   }
 
   render() {
