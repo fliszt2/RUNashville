@@ -12,7 +12,7 @@ const RunDetails = (props) => {
       <br></br>
       <div className='social-run-details-row'>
         <span>Steps: {props.run.steps}</span>
-        <span>Heart Rate: {props.run.heart} bpm</span>
+        <span>Heart Rate: {props.run.heartRate} bpm</span>
         <span>Calories: {props.run.calories}</span>
       </div>
     </div>

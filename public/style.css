@@ -1,7 +1,7 @@
 :root {
   font-size: 10px;
-  background:hsl(28, 52%, 99%);
-  font-family: 'Merriweather', 'Helvetica', 'Arial', serif;
+  background: hsl(28, 52%, 99%);
+  font-family: "Merriweather", "Helvetica", "Arial", serif;
   --green: hsl(120, 60%, 60%);
   --bg-white: hsl(28, 52%, 99%);
   --bg-supplemental: hsl(46, 40%, 92%);
@@ -61,7 +61,7 @@ button {
   outline: 0;
   background: var(--green);
   border-radius: 3px;
-  width: 100%;
+  width: fit-content;
   border: 1px solid var(--border-grey);
   padding: 15px;
   color: var(--white);
@@ -144,7 +144,7 @@ a {
   margin: 10% auto;
 }
 
-.contentBox{
+.contentBox {
   width: 100%;
   min-height: 25vh;
   border-color: black;
@@ -155,11 +155,10 @@ a {
   box-sizing: border-box;
 }
 
-.boxTitle{
+.boxTitle {
   font-size: large;
   padding: 5px 0px;
 }
-
 #header-bar {
   height: 7.5vh;
   background: var(--green);
@@ -189,10 +188,32 @@ a {
   font-size: 2.25rem;
 }
 
-.profileBody{
+.profileBody {
   padding: 10px 0px;
 }
 
+.section-title {
+  display:flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-title-text {
+  flex-grow: 0;
+  font-size: 1.8rem;
+  color: var(--black);
+}
+
+.section-title-divider {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--black);
+  border-radius: 5px;
+  margin-left: 1rem;
+}
 /* Admin styling*/
 
 /* Events styling */
@@ -200,13 +221,10 @@ a {
 /* Main Page styling */
 
 /* Social Page styling*/
-.profileButton {
-  width:fit-content;
-}
-
 .social-profile-banner {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
 }
 .social-profile-banner-img {
@@ -215,12 +233,22 @@ a {
   object-fit: cover;
   background-position: center;
 }
+
 .social-profile-banner-profile-pic {
-  position: absolute;
-  left: 20vw;
-  top: 30vh;
+  margin-top: -6.5vh;
   height: 125px;
-  width: auto;
+  width: 125px;
+}
+
+.social-profile-banner-name {
+  margin-top: 0.4rem;
+  font-size: 1.8rem;
+}
+
+.social-button {
+  width: 12.5rem;
+  text-align: left;
+  padding: 1rem 0 1rem 1rem;
 }
 
 #social-feeds {
@@ -229,10 +257,10 @@ a {
   padding: 0 2.5%;
 }
 
-.contentBox{
+.contentBox {
   width: 100%;
   min-height: 30vh;
-  border-color: var(--black);
+  border-color: var(--bg-white);
   border-width: 1px;
   border-style: solid;
   vertical-align: top;
@@ -251,6 +279,7 @@ a {
 #social-feed-buttons {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 .social-run-details-pane {
@@ -278,7 +307,6 @@ a {
 
 .social-feed-post-header {
   display: flex;
-  margin-top: -5px;
   justify-content: space-between;
 }
 
@@ -298,6 +326,13 @@ a {
   align-items: center;
 }
 
+.social-follow-button {
+  position: relative;
+  float: right;
+  margin: -0.5rem -1rem 0 1rem;
+  padding: 8px 4px;
+}
+
 .feed-event-info {
   display: flex;
   align-items: center;
@@ -308,35 +343,39 @@ a {
   color: var(--black);
 }
 
-.friendCardProfileImg{
-  display: inline-block;
-  width:20px;
-  height:20px;
+.friendCard:hover{
+  cursor:pointer;
 }
 
-.friendCardName{
+.friendCardProfileImg {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.friendCardName {
   display: inline-block;
   width: fit-content;
   vertical-align: top;
   padding: 0px 5px;
 }
 
-.statLine{
+.statLine {
   padding: 5px 0px;
 }
 
-.statDescriptor{
-font-weight: bolder;
-display: inline-block;
-font-size: small;
+.statDescriptor {
+  font-weight: bolder;
+  display: inline-block;
+  font-size: small;
 }
 
-.stat{
-display: inline-block;
-padding: 0px 5px;
+.stat {
+  display: inline-block;
+  padding: 0px 5px;
 }
 
-.userBio{
+.userBio {
   font-size: small;
 }
 /* MAIN JSX ==================================================================== */
@@ -359,7 +398,7 @@ padding: 0px 5px;
   flex-basis: 10rem;
   flex-grow: 1;
   background-color: darkgray;
-  color:white;
+  color: white;
   align-items: center;
   text-align: center;
 }
@@ -376,7 +415,7 @@ padding: 0px 5px;
   min-width: calc(50% - 1rem);
 }
 .future {
-  color:lightgray;
+  color: lightgray;
 }
 
 /* MODAL INFORMATION ==================================================================== */
@@ -411,8 +450,8 @@ padding: 0px 5px;
   width: 65%;
   background-color: #f7f7f7;
   z-index: 101;
-  box-shadow: 0 8px 6px -6px  hsl(120, 60%, 65%);;
-  border: #hsl(120, 60%, 65%); solid 1px;
+  box-shadow: 0 8px 6px -6px  hsl(120, 60%, 65%);
+  border: hsl(120, 60%, 65%) solid 1px;
   padding: 20px;
   box-sizing: border-box;
   overflow: auto;
