@@ -23,7 +23,7 @@ CREATE TABLE user (
   image_url VARCHAR(200),
   banner_url VARCHAR(200),
   bio_description TEXT,
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_user_type_id) REFERENCES user_type(id)
 );
@@ -32,7 +32,7 @@ CREATE TABLE friends (
   id INT AUTO_INCREMENT,
   fk_source_user_id INT,
   fk_target_user_id INT,
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status_friends BOOLEAN,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_source_user_id) REFERENCES user(id),
@@ -47,7 +47,7 @@ CREATE TABLE post (
   reported BOOLEAN,
   show_post BOOLEAN,
   location_post VARCHAR(200),
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_user_id) REFERENCES user(id)
 );
@@ -63,7 +63,7 @@ CREATE TABLE stats (
   heart_rate INT,
   steps INT,
   calories_burned DECIMAL (3,2),
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_post_id) REFERENCES post(id)
 );
@@ -73,8 +73,8 @@ CREATE TABLE comments (
   fk_post_id INT,
   fk_user_id INT,
   message_comments TEXT,
-  created_at TIMESTAMP,
-  updated_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_post_id) REFERENCES post(id),
   FOREIGN KEY (fk_user_id) REFERENCES user(id)
@@ -93,7 +93,7 @@ CREATE TABLE reactions_on_post (
   fk_post_id INT,
   fk_user_id INT,
   fk_reaction_id INT,
-  created_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_post_id) REFERENCES post(id),
   FOREIGN KEY (fk_user_id) REFERENCES user(id),
@@ -134,8 +134,8 @@ CREATE TABLE events (
   link VARCHAR(200),
   attendees INT,
   promoted BOOLEAN,
-  created_at TIMESTAMP,
-  updated_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_event_type_id) REFERENCES event_type(id),
   FOREIGN KEY (fk_difficulty_level_id) REFERENCES difficulty_level(id),
@@ -151,8 +151,8 @@ CREATE TABLE user_type_for_event_type (
   FOREIGN KEY (fk_user_type_id) REFERENCES user_type(id)
 );
 
-INSERT INTO user_type (name, description) VALUES ('Community Member', 'Just a regular user on the platform');
-INSERT INTO user (name, last_name, password, address, email, fk_user_type_id, banned, created_at) VALUES ('Jodi', 'Jodi', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, '2021-04-05');
+INSERT INTO user_type (name_user_type, description_user_type) VALUES ('Community Member', 'Just a regular user on the platform');
+INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, created_at) VALUES ('Jodi', 'Jodi', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, '2021-04-05');
 
 /* MOCK EMAIL: Jodi@21Jump.com
   MOCK PASSWORD: Jodi
