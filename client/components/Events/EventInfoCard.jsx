@@ -32,6 +32,8 @@ const EventInfoCard = ({ event }) => {
       <>
         <div className="event-info-card">
           <img className="event-info-card-photo" height="180" width="290" src="./images/nashville.jpeg" alt="photo"></img>
+          <br></br>
+          <br></br>
           <span className="event-title">{event.name}</span>
           <br></br>
           <div className="event-card-details-container">
@@ -71,6 +73,8 @@ const EventInfoCard = ({ event }) => {
       <>
         <div className="event-info-card">
           <img className="event-info-card-photo" height="180" width="290" src="./images/nashville.jpeg" alt="photo"></img>
+          <br></br>
+          <br></br>
           <span className="event-title">{event.name}</span>
           <br></br>
           <br></br>
