@@ -10,6 +10,8 @@
   --black: hsl(0, 5%, 30%);
   --gentle-black: hsl(0, 5%, 45%);
   --border-grey: hsla(0, 0%, 50%, 20%);
+  --red: rgb(247, 87, 38);
+  --yellow: rgb(252, 216, 58);
 }
 
 body {
@@ -312,19 +314,19 @@ a {
 .difficulty-beginner {
   font-size: 0.9rem;
   color: hsl(0, 0%, 5%);
-  background-color: hsla(120, 60%, 65%);
+  background-color: var(--green);
 }
 
 .difficulty-intermediate {
   font-size: 0.9rem;
   color: hsl(0, 0%, 4%);
-  background-color: rgb(252, 216, 58);
+  background-color: var(--yellow);
 }
 
 .difficulty-advanced {
   font-size: 0.9rem;
   color: hsl(0, 0%, 6%);
-  background-color: rgb(247, 87, 38);
+  background-color: var(--red);
 }
 
 .event-title {
@@ -334,6 +336,10 @@ a {
 .event-description {
   font-size: 1.2rem;
   color: hsl(0, 5%, 45%);
+}
+
+.event-card-icon {
+  font-size: .65rem;
 }
 
 /* Main Page styling */
