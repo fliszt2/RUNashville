@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import SocialFeed from './SocialFeed.jsx';
 import CreatePost from './CreatePost.jsx';
 import friendCard from './friendCard';
@@ -7,9 +8,10 @@ const Profile = class extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      currentUserID: 1,
       userPosts: [
         {
-          name: 'Mufasa',
+          name_user: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -25,7 +27,7 @@ const Profile = class extends React.PureComponent {
           },
         },
         {
-          name: 'Mufasa',
+          name_user: 'Mufasa',
           date: 'April 20th, 2020',
           location: 'The Mighty Jungle',
           post: 'My son is a little turd, he will never be king because I will live forever LOL',
@@ -33,57 +35,77 @@ const Profile = class extends React.PureComponent {
         },
       ],
       userProfile: {
-        name: 'Test',
-        stats: {
-          avgMilePace: '10:03',
-          recordMilePace: '9:34',
-          monthMiles: 25.2,
-          lifetimeMiles: 40008.3,
-          lifetimeRaces: 22,
-          eventsAttended: 18,
+      },
+      friendsList: [
+        {
+          id: 1,
+          name_user: 'Timothy Blumpkin',
+          photo: '',
         },
-        pic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
-        headerImage: 'https://i.ytimg.com/vi/3CR_Z3hs8_Y/maxresdefault.jpg',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        friendsList: [
-          {
-            id: '001',
-            name: 'Timothy Blumpkin',
-            photo: '',
-          },
-          {
-            id: '002',
-            name: 'Delvin Dunklesnap',
-            photo: '',
-          },
-          {
-            id: '003',
-            name: 'Chadrick Chaplips',
-            photo: '',
-          },
-        ],
+        {
+          id: 2,
+          name_user: 'Delvin Dunklesnap',
+          photo: '',
+        },
+        {
+          id: 3,
+          name_user: 'Chadrick Chaplips',
+          photo: '',
+        },
+      ],
+      stats: {
+        avgMilePace: '10:03',
+        recordMilePace: '9:34',
+        monthMiles: 25.2,
+        lifetimeMiles: 40008.3,
+        lifetimeRaces: 22,
+        eventsAttended: 18,
       },
     };
+
+    this.updateDisplayedProfile = this.updateDisplayedProfile.bind(this);
+  }
+
+  componentWillMount() {
+    const { currentUserID } = this.state;
+    this.updateDisplayedProfile(currentUserID);
+  }
+
+  updateDisplayedProfile(userID) {
+    console.log(userID);
+    this.setState({ currentUserID: userID }, () => {
+      axios.get(`/api/user/${this.state.currentUserID}`)
+        .then((newProfile) => {
+          axios.get(`/api/friends/${this.state.currentUserID}`)
+            .then((newFriends) => {
+              console.log(newProfile);
+              console.log(newFriends);
+              this.setState({
+                userProfile: newProfile.data[0],
+                friendsList: newFriends.data,
+              });
+            });
+        });
+    });
   }
 
   render() {
-    const { userProfile } = this.state;
+    const { userProfile, friendsList, stats } = this.state;
     const {
-      name, stats, pic, headerImage, bio, friendsList,
+      name_user, last_name, image_url, banner_url, bio_description,
     } = userProfile;
     return (
       <div>
         <div className="allHeader">
           <div className="social-profile-banner">
-            <img className="social-profile-banner-img" src={headerImage} />
-            <img className="social-profile-banner-profile-pic profile-pic-round" src={pic} />
+            <img className="social-profile-banner-img" src={banner_url} />
+            <img className="social-profile-banner-profile-pic profile-pic-round" src={image_url} />
           </div>
           <div className="profileCard">
             <div className="profileImage" />
-            <div className="userName">{name}</div>
+            <div className="userName">{name_user + ' ' + last_name}</div>
             <button className="profileButton">
-              Follow
-              {name}
+              {'Follow ' + name_user}
             </button>
           </div>
         </div>
@@ -91,7 +113,7 @@ const Profile = class extends React.PureComponent {
           <div className="side-column">
             <div className="contentBox">
               <div className="boxTitle">
-                {name}
+                {name_user}
                 's Stats
               </div>
               <div className="statistics">
@@ -123,14 +145,14 @@ const Profile = class extends React.PureComponent {
             </div>
             <div className="contentBox">
               <div className="boxTitle">
-                {name}
+                {name_user}
                 's Events
               </div>
               <div className="eventsFeed" />
             </div>
             <div className="contentBox">
               <div className="boxTitle">
-                {name}
+                {name_user}
                 &apos;s Recent Activities
               </div>
               <div className="recentActivityFeed" />
@@ -138,7 +160,7 @@ const Profile = class extends React.PureComponent {
           </div>
           <div id="center-column">
             <div>
-              {name}
+              {name_user}
               's Feed
             </div>
             <div id="social-feed-buttons">
@@ -152,23 +174,23 @@ const Profile = class extends React.PureComponent {
           <div className="side-column">
             <div className="contentBox">
               <div className="boxTitle">
-                {name}
+                {name_user}
                 &apos;s Bio
               </div>
-              <div className="userBio">{bio}</div>
+              <div className="userBio">{bio_description}</div>
             </div>
             <div className="contentBox">
               <div className="boxTitle">
-                {name}
+                {name_user}
                 &apos;s Friends
               </div>
               <div className="friendsList">
-                {friendsList.map((friend) => friendCard(friend))}
+                {friendsList.map((friend) => (friendCard(friend, this.updateDisplayedProfile)))}
               </div>
             </div>
             <div className="contentBox">
               <div className="boxTitle">
-                {name}
+                {name_user}
                 &apos;s Friends Updates
               </div>
               <div className="friendFeed" />

@@ -306,6 +306,10 @@ a {
   color: var(--black);
 }
 
+.friendCard:hover{
+  cursor:pointer;
+}
+
 .friendCardProfileImg {
   display: inline-block;
   width: 20px;
