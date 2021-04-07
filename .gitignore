@@ -13,3 +13,4 @@ package-lock.json
 
 /client/resources/.DS_Store
 /public/.DS_Store
+.DS_Store
