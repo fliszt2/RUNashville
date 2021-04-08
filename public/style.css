@@ -1,7 +1,7 @@
 :root {
-  font-size: 10px;
+  font-size: 10px !important;
   background: hsl(28, 52%, 99%);
-  font-family: "Merriweather", "Helvetica", "Arial", serif;
+  font-family: "Merriweather", "Helvetica", "Arial", serif !important;
   --green: hsl(120, 60%, 60%);
   --bg-white: hsl(28, 52%, 99%);
   --bg-supplemental: hsl(46, 40%, 92%);
@@ -16,7 +16,8 @@
 }
 
 body {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
+  font-family: "Merriweather", "Helvetica", "Arial", serif !important;
   color: hsl(0, 5%, 30%);
   height: 100%;
   width: 100%;
