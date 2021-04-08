@@ -15,5 +15,6 @@ router.get('/post/:id/reported', controller.post.getUserReportedPosts);
 router.get('/post/:postId/stats', controller.post.getUserPostStats);
 router.get('/post/:postId/comments', controller.post.getUserPostComments);
 router.get('/posts/repoted', controller.post.getAllReportedPost);
+router.get('/events', controller.events.getAllEvents);
 
 module.exports = router;
