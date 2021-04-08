@@ -2,7 +2,7 @@ const models = require('../models');
 
 module.exports = {
   getUserPost(req, res) {
-    models.post.getUserPost(req.body.id, (result) => {
+    models.post.getUserPost(req.query.id, (result) => {
       if (result.length !== 0) {
         res.status(200).send(result);
       } else {
@@ -11,7 +11,7 @@ module.exports = {
     });
   },
   getUserReportedPosts(req, res) {
-    models.post.getUserReportedPost(req.body.id, (result) => {
+    models.post.getUserReportedPost(req.params.id, (result) => {
       if (result.length !== 0) {
         res.status(200).send(result);
       } else {
@@ -20,7 +20,7 @@ module.exports = {
     });
   },
   getUserPostStats(req, res) {
-    models.post.getPostStats(req.body.pid, (result) => {
+    models.post.getPostStats(req.params.postId, (result) => {
       if (result.length !== 0) {
         res.status(200).send(result);
       } else {
@@ -29,7 +29,7 @@ module.exports = {
     });
   },
   getUserPostComments(req, res) {
-    models.post.getPostComments(req.body.pid, (result) => {
+    models.post.getPostComments(req.params.postId, (result) => {
       if (result.length !== 0) {
         res.status(200).send(result);
       } else {
@@ -38,7 +38,16 @@ module.exports = {
     });
   },
   getUserPostReactions(req, res) {
-    models.post.getPostReactions(req.body.pid, (result) => {
+    models.post.getPostReactions(req.query.id, (result) => {
+      if (result.length !== 0) {
+        res.status(200).send(result);
+      } else {
+        res.status(404).send('Not Found');
+      }
+    });
+  },
+  getAllReportedPost(req, res) {
+    models.post.getAllReportedPost((result) => {
       if (result.length !== 0) {
         res.status(200).send(result);
       } else {
