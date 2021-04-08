@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import SocialFeed from './SocialFeed';
-import CreatePost from './CreatePost';
+import CreatePostModal from './CreatePostModal';
 import friendCard from './friendCard';
 import SectionTitle from '../SectionTitle';
+import AddEventForm from '../Events/AddEventForm.jsx';
 
 const Profile = class extends React.PureComponent {
   constructor(props) {
@@ -49,6 +50,8 @@ const Profile = class extends React.PureComponent {
         lifetimeRaces: 22,
         eventsAttended: 18,
       },
+      createPostActive: false,
+      addEventActive: false
     };
 
     this.updateDisplayedProfile = this.updateDisplayedProfile.bind(this);
@@ -77,11 +80,28 @@ const Profile = class extends React.PureComponent {
     });
   }
 
+  activateCreatePost(){
+    console.log('yo');
+    this.setState({createPostActive: true});
+  }
+
+  activateAddEvent(){
+    this.setState({addEventActive: true});
+  }
+
   render() {
     const { userProfile, friendsList, milestones } = this.state;
     const {
       name_user, last_name, image_url, banner_url, bio_description,
     } = userProfile;
+    let addEvent = <div></div>;
+    let createPost = <div></div>;
+    if(this.state.addEventActive){
+      addEvent = <AddEventForm></AddEventForm>;
+    }
+    if(this.state.createPostActive){
+      createPost = <CreatePostModal></CreatePostModal>;
+    }
     return (
       <div>
         <div className="social-profile-banner">
@@ -131,8 +151,8 @@ const Profile = class extends React.PureComponent {
           </div>
           <div id="center-column">
             <div id="social-feed-buttons">
-              <button className="social-button">+ New Post</button>
-              <button className="social-button">+ Create Run</button>
+              <button className="social-button" onClick={()=>{this.activateCreatePost()}}>+ New Post</button>
+              <button className="social-button" onClick={()=>{this.activateAddEvent.bind(this)}}>+ Create Run</button>
             </div>
             <SectionTitle text={`${name_user}'s Feed`}></SectionTitle>
             <div className="contentBox">
