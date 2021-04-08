@@ -36,13 +36,13 @@ class EventInfoCard extends React.Component {
       var difficultyStyle;
       if (event.difficulty_level === 'beginner') {
         difficultyLevel = 'Beginner';
-        difficultyStyle = 'difficulty-beginner';
+        difficultyStyle = 'difficulty-beginner-small';
       } else if (event.difficulty_level === 'intermediate') {
         difficultyLevel = 'Intermediate';
-        difficultyStyle = 'difficulty-intermediate';
+        difficultyStyle = 'difficulty-intermediate-small';
       } else {
         difficultyLevel = 'Advanced';
-        difficultyStyle = 'difficulty-advanced';
+        difficultyStyle = 'difficulty-advanced-small';
       }
 
       // <div>
@@ -53,7 +53,7 @@ class EventInfoCard extends React.Component {
       return (
         <>
           <div className="event-info-card">
-            <img onClick={this.onModalOpen}  className="event-info-card-photo clickable-image" height="180" width="290" src="./images/nashville.jpeg" alt="photo"></img>
+            <img onClick={this.onModalOpen}  className="event-info-card-photo clickable-image" height="180" width="290" src={event.thumbnail_photo} alt="photo"></img>
             <br></br>
             <br></br>
             <span onClick={this.onModalOpen}  className="clickable-header event-title">{event.name}</span>
@@ -95,7 +95,7 @@ class EventInfoCard extends React.Component {
       return (
         <>
           <div className="event-info-card">
-            <img onClick={this.onModalOpen} className="event-info-card-photo clickable-image" height="180" width="290" src="./images/nashville.jpeg" alt="photo"></img>
+            <img onClick={this.onModalOpen} className="event-info-card-photo clickable-image" height="180" width="290" src={event.thumbnail_photo} alt="photo"></img>
             <br></br>
             <br></br>
             <span onClick={this.onModalOpen} className="event-title clickable-header">{event.name}</span>
