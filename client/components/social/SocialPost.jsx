@@ -15,7 +15,10 @@ const SocialPost = (props) => {
       <div className='social-feed-post-header'>
         <div className='social-feed-post-profile'>
           <img className='profile-pic-round' alt='Profile' src={props.propic} />
-          <span style={{'margin-left': '5px', 'align-self': 'flex-start'}}>{props.name}</span>
+          <div style={{'margin-left': '5px', 'align-self': 'flex-start'}}>
+            <span>{props.name} </span>
+            <span>{props.lastName}</span>
+          </div>
         </div>
         <div style={{float: 'right', 'align-self': 'center'}}>
           <div className='feed-event-info' style={{'margin-bottom': '0.5rem'}}>
