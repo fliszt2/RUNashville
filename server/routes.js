@@ -10,6 +10,10 @@ router.get('/users/banned', controller.user.getBannedUsers);
 router.get('/users', controller.user.getAll);
 router.put('/users/ban', controller.user.putUpdateBanManyUsers);
 router.put('/user', controller.user.putUpdateUserInfo);
-// router.get('/post', controller.)
+router.get('/post', controller.post.getUserPost);
+router.get('/post/:id/reported', controller.post.getUserReportedPosts);
+router.get('/post/:postId/stats', controller.post.getUserPostStats);
+router.get('/post/:postId/comments', controller.post.getUserPostComments);
+router.get('/posts/repoted', controller.post.getAllReportedPost);
 
 module.exports = router;
