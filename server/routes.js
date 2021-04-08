@@ -6,7 +6,10 @@ router.post('/signup', controller.signup.post);
 router.get('/user/:id/type', controller.user.getType);
 router.get('/user/:id', controller.user.getDetails);
 router.get('/friends/:uid', controller.user.getFriends);
+router.get('/users/banned', controller.user.getBannedUsers);
 router.get('/users', controller.user.getAll);
+router.put('/users/ban', controller.user.putUpdateBanManyUsers);
+router.put('/user', controller.user.putUpdateUserInfo);
 // router.get('/post', controller.)
 
 module.exports = router;

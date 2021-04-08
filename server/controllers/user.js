@@ -54,7 +54,7 @@ module.exports = {
         userId: id,
       }
     */
-    const { update, value, userId } = req.params;
+    const { update, value, userId } = req.body;
     const data = [value, userId];
     if (update === 'banned') {
       models.user.putUpdateUserBanned(data, (err, result) => {
