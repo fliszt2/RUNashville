@@ -120,7 +120,7 @@ CREATE TABLE events (
   event_title VARCHAR(40),
   description_events TEXT,
   reported BOOLEAN,
-  show_events BOOLEAN,
+  show_events BOOLEAN DEFAULT true,
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
   fk_leader_user_id INT,
