@@ -121,12 +121,12 @@ module.exports = {
     let i = 0;
     userId.forEach((uid) => {
       const data = [uid, value];
-      models.user.putUpdateUserBanned(data, (err, result) => {
+      models.user.putUpdateUserBanned(data, (err) => {
         if (count === i) {
           if (err) {
             res.status(404).send('User Not Found');
           } else {
-            res.status(204).send(result);
+            res.status(204).send('Updated Ban Status');
           }
         } else {
           i += 1;
