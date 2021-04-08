@@ -16,5 +16,7 @@ router.get('/post/:postId/stats', controller.post.getUserPostStats);
 router.get('/post/:postId/comments', controller.post.getUserPostComments);
 router.get('/posts/repoted', controller.post.getAllReportedPost);
 router.get('/events', controller.events.getAllEvents);
+router.get('/events/promoted', controller.events.getAllPromotedEvents);
+router.get('/events/hidden', controller.events.getHiddenEvents);
 
 module.exports = router;
