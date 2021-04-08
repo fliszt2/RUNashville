@@ -104,9 +104,9 @@ module.exports = {
     const queryString = 'UPDATE user SET banned = ? WHERE id = ?';
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        console.log(err);
+        callback(err, null);
       }
-      callback(result);
+      callback(null, result);
     });
   },
 };

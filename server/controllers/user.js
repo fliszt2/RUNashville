@@ -57,56 +57,56 @@ module.exports = {
     const { update, value, userId } = req.params;
     const data = [value, userId];
     if (update === 'banned') {
-      models.user.putUpdateUserBanned(data, (result) => {
-        if (result.length !== 0) {
-          res.status(204).json(result);
-        } else {
+      models.user.putUpdateUserBanned(data, (err, result) => {
+        if (err) {
           res.status(404).send('User Not Found');
+        } else {
+          res.status(204).send(result);
         }
       });
     }
     if (update === 'name') {
-      models.user.putUpdateUserName(data, (result) => {
-        if (result.length !== 0) {
-          res.status(204).json(result);
-        } else {
+      models.user.putUpdateUserName(data, (err, result) => {
+        if (err) {
           res.status(404).send('User Not Found');
+        } else {
+          res.status(204).send(result);
         }
       });
     }
     if (update === 'profile_picture') {
-      models.user.putUpdateUserProfilePicture(data, (result) => {
-        if (result.length !== 0) {
-          res.status(204).json(result);
-        } else {
+      models.user.putUpdateUserProfilePicture(data, (err, result) => {
+        if (err) {
           res.status(404).send('User Not Found');
+        } else {
+          res.status(204).send(result);
         }
       });
     }
     if (update === 'profile_banner') {
-      models.user.putUpdateUserBannerPicture(data, (result) => {
-        if (result.length !== 0) {
-          res.status(204).json(result);
-        } else {
+      models.user.putUpdateUserBannerPicture(data, (err, result) => {
+        if (err) {
           res.status(404).send('User Not Found');
+        } else {
+          res.status(204).send(result);
         }
       });
     }
     if (update === 'last_name') {
-      models.user.putUpdateUserLastName(data, (result) => {
-        if (result.length !== 0) {
-          res.status(204).json(result);
-        } else {
+      models.user.putUpdateUserLastName(data, (err, result) => {
+        if (err) {
           res.status(404).send('User Not Found');
+        } else {
+          res.status(204).send(result);
         }
       });
     }
     if (update === 'address_user') {
-      models.user.putUpdateUserAddress(data, (result) => {
-        if (result.length !== 0) {
-          res.status(204).json(result);
-        } else {
+      models.user.putUpdateUserAddress(data, (err, result) => {
+        if (err) {
           res.status(404).send('User Not Found');
+        } else {
+          res.status(204).send(result);
         }
       });
     }
