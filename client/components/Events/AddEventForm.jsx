@@ -39,8 +39,8 @@ class AddEventForm extends React.Component {
     event.preventDefault();
     // if any field is empty, alert
     const { event_name, event_type, link, start_time, start_date, start_location, map_url, description, image_url, running_distance, difficulty_level } = this.state;
-    start_date = start_date.toUTCString();
-    console.log('start_date:', start_date);
+    // start_date = start_date.toUTCString();
+    // console.log('typeof start_date:', typeof start_date);
     const stateValues = [event_name, event_type, link, start_time, start_date, start_location, map_url, description, image_url, running_distance, difficulty_level];
 
     for (let value of stateValues) {
@@ -48,9 +48,10 @@ class AddEventForm extends React.Component {
         value = '';
       }
       let valueAsString = value.toString();
-      if (valueAsString.length === 0 || valueAsString === 'Select') {
+      if (valueAsString.length === 0 || valueAsString === 'Select' || valueAsString === 'MMDDYYYY') {
         return alert('Please fill in all fields.');
       }
+      // also check that running distance is a number??
     }
 
     const data = {
@@ -83,6 +84,7 @@ class AddEventForm extends React.Component {
           running_distance: null,
           difficulty_level: 'beginner',
         });
+        // also close the modal
       })
       .catch((err) => {
         console.log(err);
