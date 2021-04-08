@@ -33,24 +33,24 @@ class RaceJumbotron extends React.Component {
 
   render() {
     return (
-      <div className = "move-to-back">
+      <div className="move-to-back">
         <Carousel>
           {this.state.races.map((race) => (
             <Carousel.Item className="carousel-img gradient" key={race.id}>
-                <img
-                style={{filter: "brightness(40%)"}}
-                  className="d-block w-100 "
-                  src={race.image_url}
-                  alt="First slide"
-                />
+              <img
+                style={{ filter: "brightness(40%)" }}
+                className="d-block w-100 "
+                src={race.image_url}
+                alt="First slide"
+              />
+              {this.state.isModalOpen ? (<EventInfoModal event={race} onModalOpen={this.onModalOpen} />) : null}
               <Carousel.Caption key={race.id}>
                 {/* <div className="carousel-caption"> */}
-                  <div className="carousel-text ">
-                        {this.state.isModalOpen ? (<EventInfoModal event={race} onModalOpen={this.onModalOpen} />) : null}
-                    <div className="race-description">
-                      <div>
-                        <h1 onClick={this.onModalOpen} className="clickable-header">{race.name}</h1>
-                      </div>
+                <div className="carousel-text ">
+                  <div className="race-description">
+                    <div>
+                      <h1 onClick={this.onModalOpen} className="clickable-header">{race.name}</h1>
+                    </div>
                     <div >
                       <span className="registration-text"><a href={race.link} target="blank">Click here to register!</a></span>
                     </div>
@@ -61,14 +61,14 @@ class RaceJumbotron extends React.Component {
                     <div className="race-details">
                       <div>
                         <span className="race-date-text">
-                          <i style={{'color': 'var(--white)'}} className="fas fa-clock"></i>
+                          <i style={{ 'color': 'var(--white)' }} className="fas fa-clock"></i>
                           &nbsp;{moment(race.start_time).format('dddd, MMMM Do YYYY, h:mm a')}
                           {/* &nbsp;{new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(race.start_time))} */}
                         </span>
                       </div>
                       <div>
                         <span className="race-location-text">
-                          <i style={{'color': 'var(--white)'}} className="fas fa-globe-americas"></i>
+                          <i style={{ 'color': 'var(--white)' }} className="fas fa-globe-americas"></i>
                           &nbsp;{race.start_location}
                         </span>
                       </div>
