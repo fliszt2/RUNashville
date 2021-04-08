@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Event (props) {
+function Event(props) {
 
   return (
     <div>
