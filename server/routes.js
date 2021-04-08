@@ -18,5 +18,6 @@ router.get('/posts/repoted', controller.post.getAllReportedPost);
 router.get('/events', controller.events.getAllEvents);
 router.get('/events/promoted', controller.events.getAllPromotedEvents);
 router.get('/events/hidden', controller.events.getHiddenEvents);
+router.get('/events/:id', controller.events.getEventsCreatedByUser);
 
 module.exports = router;
