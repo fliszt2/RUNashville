@@ -1,14 +1,17 @@
 import React from 'react';
 import RaceJumbotron from './Events/RaceJumbotron';
 import EventsCarousel from './Events/EventsCarousel';
-import data from '../resources/dummydata';
 import AddEventForm from './Events/AddEventForm';
+import SocialFeed from './social/SocialFeed';
+import data from '../resources/dummydata';
+import feedData from '../resources/dummyFeedData';
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: data,
+      eventData: data,
+      feedData: feedData.posts,
       isModalOpen: false,
     };
 
@@ -27,26 +30,49 @@ class Homepage extends React.Component {
 
 
   render() {
-    const { data } = this.state;
+    const { eventData, feedData } = this.state;
     return (
       <>
-        <RaceJumbotron races={data.events.filter((event) => event.event_type === 'race')} />
+        <RaceJumbotron races={eventData.events.filter((event) => event.event_type === 'race')} />
 
         <div>
-              <button style={{ display: "inline" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
+          <button style={{ display: "inline", width: "300px" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
 
+        </div>
+        <div className="homepage-body">
+          <div className="events">
+          <div className="mytextdiv">
+            <div className="mytexttitle">
+              Daily Runs
+            </div>&nbsp;
+            <div className="divider"></div>
+          </div>
+          {/* <h4 classNameName="events-header">Daily Runs</h4> */}
+            <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'daily_run')} />
+            <div className="mytextdiv">
+              <div className="mytexttitle">
+              Announcements and Other Events
+              </div>&nbsp;
+              <div className="divider"></div>
             </div>
-        <h4 className="events-header">Daily Runs</h4>
-        <EventsCarousel events={data.events.filter((event) => event.event_type === 'daily_run')} />
-        <h4 className="events-header">Announcements and Other Events</h4>
-        <EventsCarousel events={data.events.filter((event) => event.event_type === 'other')} />
-        {this.state.isModalOpen ? (<AddEventForm onModalOpen={this.onModalOpen} />) : null}
+            {/* <h4 className="events-header">Announcements and Other Events</h4> */}
+            <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'other')} />
+            {this.state.isModalOpen ? (<AddEventForm onModalOpen={this.onModalOpen} />) : null}
+          </div>
+          <div className="homepage-social-feed">
+          <div className="mytextdiv">
+            <div className="mytexttitle">
+              Latest Posts
+            </div>&nbsp;
+            <div className="divider"></div>
+          </div>
+            <SocialFeed posts={feedData} />
+          </div>
+        </div>
       </>
     );
   }
 }
 
-{/* <button style={{ display: "inline" }} onClick={this.onModalOpen}>OPEN MODAL</button>
-{this.state.isModalOpen ? (<Modal onModalOpen={this.onModalOpen} />) : null} */}
 
 export default Homepage;
