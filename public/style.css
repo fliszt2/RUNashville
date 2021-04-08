@@ -10,6 +10,7 @@
   --black: hsl(0, 5%, 30%);
   --jet-black: hsl(0, 4%, 5%);
   --gentle-black: hsl(0, 5%, 45%);
+  --bright-grey: hsl(0, 1%, 76%);
   --border-grey: hsla(0, 0%, 50%, 20%);
   --red: rgb(247, 87, 38);
   --yellow: rgb(252, 216, 58);
@@ -441,22 +442,25 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .race-date-text {
   font-size: 1.5em;
-  color: var(--white);
+  color: var(--bright-grey);
 }
 
 .race-location-text {
   font-size: 1.25em;
-  color: var(--white);
+  color: var(--bright-grey);
 }
 
 .registration-text a {
-  text-decoration: underline;
-  color: var(--gentle-black);
+  /* text-decoration: underline; */
+  /* color: var(--white); */
+  color: var(--bright-grey);
 }
 
 .registration-text a:hover {
   text-decoration: underline;
-  color: var(--white-grey);
+  color: var(--bright-grey);
+  /* font-style: italic; */
+  /* color: var(--white-grey); */
 }
 
 .race-map {
