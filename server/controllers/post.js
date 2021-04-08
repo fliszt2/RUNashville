@@ -19,6 +19,15 @@ module.exports = {
       }
     });
   },
+  getAllReportedPosts(req, res) {
+    models.post.getAllReportedPosts((result) => {
+      if (result.length !== 0) {
+        res.status(200).send(result);
+      } else {
+        res.status(404).send('Not Found');
+      }
+    });
+  },
   getUserPostStats(req, res) {
     models.post.getPostStats(req.body.pid, (result) => {
       if (result.length !== 0) {
