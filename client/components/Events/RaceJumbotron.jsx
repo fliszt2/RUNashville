@@ -36,20 +36,20 @@ class RaceJumbotron extends React.Component {
       <div className = "move-to-back">
         <Carousel>
           {this.state.races.map((race) => (
-            <Carousel.Item className="carousel-img" key={race.id}>
-              <img
-                className="d-block w-100"
-                src="./images/leeds_runner.jpeg"
-                alt="First slide"
-                // onClick={this.onModalOpen}
-              />
+            <Carousel.Item className="carousel-img gradient" key={race.id}>
+                <img
+                style={{filter: "brightness(40%)"}}
+                  className="d-block w-100 "
+                  src={race.image_url}
+                  alt="First slide"
+                />
               <Carousel.Caption key={race.id}>
                 {/* <div className="carousel-caption"> */}
-                  <div className="carousel-text">
+                  <div className="carousel-text ">
+                        {this.state.isModalOpen ? (<EventInfoModal event={race} onModalOpen={this.onModalOpen} />) : null}
                     <div className="race-description">
                       <div>
                         <h1 onClick={this.onModalOpen} className="clickable-header">{race.name}</h1>
-                        {this.state.isModalOpen ? (<EventInfoModal event={race} onModalOpen={this.onModalOpen} />) : null}
                       </div>
                     <div >
                       <span className="registration-text"><a href={race.link} target="blank">Click here to register!</a></span>
@@ -79,12 +79,9 @@ class RaceJumbotron extends React.Component {
                   </div>
                 </div>
               </Carousel.Caption>
-              {/* <EventInfoModal
-                event={race}
-                show={this.state.eventModal}
-                handleClose={this.handleClose.bind(this)}/> */}
             </Carousel.Item>
           ))}
+
         </Carousel>
       </div>
     );
