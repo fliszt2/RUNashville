@@ -28,4 +28,14 @@ module.exports = {
       }
     });
   },
+  getEventsCreatedByUser(req, res) {
+    const { id } = req.params;
+    models.events.getEventsCreatedByUser(id, (result) => {
+      if (result.length !== 0) {
+        res.status(200).send(result);
+      } else {
+        res.status(404).send('No Events Found');
+      }
+    });
+  },
 };
