@@ -43,7 +43,7 @@ const Routes = () => (
           )}
         />
         <Route
-          path="/homepage"
+          path={['/', '/homepage']}
           exact
           render={() => (
             <Homepage />
