@@ -1,7 +1,7 @@
 :root {
-  font-size: 10px;
+  font-size: 10px !important;
   background: hsl(28, 52%, 99%);
-  font-family: "Merriweather", "Helvetica", "Arial", serif;
+  font-family: "Merriweather", "Helvetica", "Arial", serif !important;
   --green: hsl(120, 60%, 60%);
   --bg-white: hsl(28, 52%, 99%);
   --bg-supplemental: hsl(46, 40%, 92%);
@@ -16,7 +16,8 @@
 }
 
 body {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
+  font-family: "Merriweather", "Helvetica", "Arial", serif !important;
   color: hsl(0, 5%, 30%);
   height: 100%;
   width: 100%;
@@ -28,6 +29,10 @@ body {
 .low-priority-text {
   font-size: 1.2rem;
   color: hsl(0, 5%, 45%);
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 img {
@@ -74,6 +79,7 @@ button {
 }
 
 textarea {
+  font-family: "Merriweather", "Helvetica", "Arial", serif;
   margin: 0 0 15px;
   border: 0;
   padding: 15px;
@@ -660,6 +666,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .social-run-details-pane {
   background: var(--bg-supplemental);
+  border: 1px solid var(--border-grey);
   border-radius: 3px;
   padding: 10px;
   font-size: 1.2rem;
@@ -703,7 +710,6 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .social-follow-button {
-  position: relative;
   float: right;
   margin: -0.5rem -1rem 0 1rem;
   padding: 8px 4px;
@@ -715,7 +721,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .feed-icon {
-  margin-right: 1.5rem;
+  margin-right: 1rem;
   color: var(--black);
 }
 
@@ -753,6 +759,27 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .userBio {
   font-size: small;
+}
+
+.social-form-checkbox {
+  display: inline-block;
+  width: 15px;
+  margin: 1rem 1rem 0 0;
+}
+
+.add-social-post-options {
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+
+.social-camera-button {
+  background-color: var(--bg-supplemental);
+  width: fit-content;
+  padding: 0.8rem;
+  border: 1px solid var(--black);
+  border-radius: 3px;
+  margin-bottom: 1rem;
 }
 /* MAIN JSX ==================================================================== */
 /* ↓ targets the intermediary wrapper */

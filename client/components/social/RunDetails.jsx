@@ -3,7 +3,7 @@ import React from 'react';
 const RunDetails = (props) => {
   return(
     <div className='social-run-details-pane'>
-      <div style={{'text-decoration': 'underline', 'margin-bottom': '0.4rem'}}>{props.name}'s Run</div>
+      <div style={{'textDecoration': 'underline', 'marginBottom': '0.4rem'}}>{props.name}'s Run</div>
       <div className='social-run-details-row'>
         <span>Distance: {props.run.distance} mi.</span>
         <span>Time: {props.run.time} min</span>
