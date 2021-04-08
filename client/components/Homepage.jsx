@@ -6,6 +6,7 @@ import SocialFeed from './social/SocialFeed';
 import data from '../resources/dummydata';
 import feedData from '../resources/dummyFeedData';
 import SectionTitle from './SectionTitle';
+import axios from 'axios';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -14,8 +15,9 @@ class Homepage extends React.Component {
       eventData: data,
       feedData: feedData.posts,
       isModalOpen: false,
+      apiData: '',
     };
-
+    this.fetchEvents = this.fetchEvents.bind(this);
     this.onModalOpen = this.onModalOpen.bind(this);
   }
 //click handlingfunctions for AddEventForm. These will get moved!
@@ -24,11 +26,22 @@ class Homepage extends React.Component {
     this.setState({addEvent: false});
   }
 
+  componentDidMount() {
+    this.fetchEvents();
+  }
 
   onModalOpen() {
     this.setState({ isModalOpen: !this.state.isModalOpen });
   }
 
+  fetchEvents() {
+    axios.get('/api/events')
+      .then((apiData) => {
+        console.log('apiData.data:', apiData.data);
+        this.setState({ apiData: apiData.data });
+      })
+      .catch((err) => console.log(err));
+  }
 
   render() {
     const { eventData, feedData } = this.state;
@@ -46,7 +59,7 @@ class Homepage extends React.Component {
             <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'daily_run')} />
             <SectionTitle text="Announcements and Other Events" />
             <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'other')} />
-            {this.state.isModalOpen ? (<AddEventForm onModalOpen={this.onModalOpen} />) : null}
+            {this.state.isModalOpen ? (<AddEventForm fetchEvents={this.fetchEvents} onModalOpen={this.onModalOpen} />) : null}
           </div>
           <div className="homepage-social-feed">
             <SectionTitle text="Latest Posts" />

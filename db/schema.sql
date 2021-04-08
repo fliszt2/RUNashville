@@ -133,6 +133,7 @@ CREATE TABLE events (
   thumbnail_photo VARCHAR(200),
   running_distance DECIMAL(3,2),
   link VARCHAR(200),
+  map_url TEXT,
   attendees INT,
   promoted BOOLEAN,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
