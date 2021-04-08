@@ -50,7 +50,7 @@ module.exports = {
     const queryString = 'UPDATE user SET image_url = ? WHERE id = ?';
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        console.log(err);
+        callback(err, null);
       }
       callback(result);
     });
@@ -59,7 +59,7 @@ module.exports = {
     const queryString = 'UPDATE user SET banner_url = ? WHERE id = ?';
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        console.log(err);
+        callback(err, null);
       }
       callback(result);
     });
@@ -68,7 +68,7 @@ module.exports = {
     const queryString = 'UPDATE user SET password = ? WHERE id = ?';
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        console.log(err);
+        callback(err, null);
       }
       callback(result);
     });
@@ -77,7 +77,7 @@ module.exports = {
     const queryString = 'UPDATE user SET name_user = ? WHERE id = ?';
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        console.log(err);
+        callback(err, null);
       }
       callback(result);
     });
@@ -86,7 +86,7 @@ module.exports = {
     const queryString = 'UPDATE user SET last_name = ? WHERE id = ?';
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        console.log(err);
+        callback(err, null);
       }
       callback(result);
     });
@@ -95,7 +95,7 @@ module.exports = {
     const queryString = 'UPDATE user SET address_user = ? WHERE id = ?';
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        console.log(err);
+        callback(err, null);
       }
       callback(result);
     });

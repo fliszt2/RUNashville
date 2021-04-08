@@ -111,4 +111,27 @@ module.exports = {
       });
     }
   },
+  putUpdateBanManyUsers(req, res) {
+    /*
+      userId: [id1,id2,id3],
+      value: true
+    */
+    const { userId, value } = req.params;
+    const count = userId.length;
+    let i = 0;
+    userId.forEach((uid) => {
+      const data = [uid, value];
+      models.user.putUpdateUserBanned(data, (err, result) => {
+        if (count === i) {
+          if (err) {
+            res.status(404).send('User Not Found');
+          } else {
+            res.status(204).send(result);
+          }
+        } else {
+          i += 1;
+        }
+      });
+    });
+  },
 };
