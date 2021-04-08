@@ -139,14 +139,6 @@ const Profile = class extends React.PureComponent {
                     <div className="stat">{milestones.eventsAttended.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
                   </div>
                 </div>
-                <div className="contentBox">
-                  <SectionTitle text={`${name_user}'s Events`}></SectionTitle>
-                  <div className="eventsFeed" />
-                </div>
-                <div className="contentBox">
-                  <SectionTitle text={`${name_user}'s Recent Activities`}></SectionTitle>
-                  <div className="recentActivityFeed" />
-                </div>
               </div>
               <div className="contentBox">
                 <SectionTitle text={`${name_user}'s Events`}></SectionTitle>
@@ -179,22 +171,9 @@ const Profile = class extends React.PureComponent {
                   {friendsList.map((friend) => (friendCard(friend, this.updateDisplayedProfile)))}
                 </div>
               </div>
-              <div className="side-column">
-                <div className="contentBox">
-                  <button className="social-follow-button">Follow {name_user}</button>
-                  <SectionTitle text={`${name_user}'s Bio`}></SectionTitle>
-                  <div className="userBio">{bio_description}</div>
-                </div>
-                <div className="contentBox">
-                  <SectionTitle text={`${name_user}'s Friends`}></SectionTitle>
-                  <div className="friendsList">
-                    {friendsList.map((friend) => (friendCard(friend, this.updateDisplayedProfile)))}
-                  </div>
-                </div>
-                <div className="contentBox">
-                  <SectionTitle text={`${name_user}'s Friends Feed`}></SectionTitle>
-                  <div className="friendFeed" />
-                </div>
+              <div className="contentBox">
+                <SectionTitle text={`${name_user}'s Friends Feed`}></SectionTitle>
+                <div className="friendFeed" />
               </div>
             </div>
           </div>
