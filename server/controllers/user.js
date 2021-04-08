@@ -46,4 +46,13 @@ module.exports = {
       }
     });
   },
+  putUpdateUserInfo(req, res) {
+    /*
+      {
+        update: 'banned',
+        value: true
+        userId: id,
+      }
+    */
+  },
 };

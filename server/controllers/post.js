@@ -4,16 +4,16 @@ module.exports = {
   getUserPost(req, res) {
     models.post.getUserPost(req.body.id, (result) => {
       if (result.length !== 0) {
-        res.status(200).send('Found');
+        res.status(200).send(result);
       } else {
         res.status(404).send('Not Found');
       }
     });
   },
   getUserReportedPosts(req, res) {
-    models.post.getUserReporetedPost(req.body.id, (result) => {
+    models.post.getUserReportedPost(req.body.id, (result) => {
       if (result.length !== 0) {
-        res.status(200).send('Found');
+        res.status(200).send(result);
       } else {
         res.status(404).send('Not Found');
       }
@@ -22,7 +22,7 @@ module.exports = {
   getUserPostStats(req, res) {
     models.post.getPostStats(req.body.pid, (result) => {
       if (result.length !== 0) {
-        res.status(200).send('Found');
+        res.status(200).send(result);
       } else {
         res.status(404).send('Not Found');
       }
@@ -31,7 +31,7 @@ module.exports = {
   getUserPostComments(req, res) {
     models.post.getPostComments(req.body.pid, (result) => {
       if (result.length !== 0) {
-        res.status(200).send('Found');
+        res.status(200).send(result);
       } else {
         res.status(404).send('Not Found');
       }
@@ -40,7 +40,7 @@ module.exports = {
   getUserPostReactions(req, res) {
     models.post.getPostReactions(req.body.pid, (result) => {
       if (result.length !== 0) {
-        res.status(200).send('Found');
+        res.status(200).send(result);
       } else {
         res.status(404).send('Not Found');
       }

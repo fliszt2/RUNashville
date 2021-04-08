@@ -23,6 +23,7 @@ CREATE TABLE user (
   image_url VARCHAR(1000),
   banner_url VARCHAR(1000),
   bio_description TEXT,
+  approved BOOLEAN,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (fk_user_type_id) REFERENCES user_type(id)
@@ -172,6 +173,33 @@ INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 1, 'c
 INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 2, 'WOWOW');
 
 INSERT INTO stats (fk_post_id, distance, time_hour, time_minutes, time_seconds, pace, heart_rate, steps, calories_burned) VALUES (2, 5.12, 1, 30, 15, 7.30, 120, 5151, 5.12);
+
+INSERT INTO user_type (name_user_type, description_user_type) VALUES ('Community Admin', 'Able to create official events and remove users/user posts');
+INSERT INTO user_type (name_user_type, description_user_type) VALUES ('Super Admin', 'Able to create official events and remove users/user posts');
+
+INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, created_at) VALUES ('Jack', 'McClane', 'password', 'Nashville', 'jack@nashville.com', 3, false, '2021-04-05');
+INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, created_at) VALUES ('Hans', 'Gruber', 'password', 'Nashville', 'hans@nashville.com', 2, false, '2021-04-05');
+
+INSERT INTO event_type (name_event_type, description_event_type) VALUES ('race', 'The big race');
+INSERT INTO event_type (name_event_type, description_event_type) VALUES ('daily_run', 'Just a daily run');
+INSERT INTO event_type (name_event_type, description_event_type) VALUES ('other', 'This could be a volunteer event or something else');
+
+INSERT INTO difficulty_level (name_difficulty_level, description_difficulty_level) VALUES ('beginner', 'You know, kid stuff');
+INSERT INTO difficulty_level (name_difficulty_level, description_difficulty_level) VALUES ('intermediate', 'No pain, no gain');
+INSERT INTO difficulty_level (name_difficulty_level, description_difficulty_level) VALUES ('advanced', 'Now we are talking');
+
+-- Races
+INSERT INTO events (fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, event_title, description_events, official, start_time, end_time, start_location, end_location, running_distance, link, attendees, promoted, created_at, updated_at) VALUES (1, 3, 2, 'Hilltop Half-Marathon', 'Test your endurance in the hills of Nashville.', true, '2021-04-25T08:30:00', '2021-04-25T10:30:00', 'The Hill Top at West 25th St', 'The Hill Top at West 25th St', 8.5, "https://www.runnash.com/races/music-city-july-4th-virtual-5k/", 150, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
+INSERT INTO events (fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, event_title, description_events, official, start_time, end_time, start_location, end_location, running_distance, link, attendees, promoted, created_at, updated_at) VALUES (1, 3, 2, 'Second Chance Half-Marathon', 'We know many of you have diligently trained for this very day, so we are excited to present another opportunity for you to chase your 13.1 mile goal in Nashville on 4/24! This is a live, in-person race! Your participation will provide hope for children aging out of orphanages in Haiti & Uganda.', true, '2021-04-30T11:30:00', '2021-04-30T13:00:00', 'Percy Warner Park', 'Percy Warner Park', 8.5, "https://www.runnash.com/races/music-city-july-4th-virtual-5k/", 50, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
+INSERT INTO events (fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, event_title, description_events, official, start_time, end_time, start_location, end_location, running_distance, link, attendees, promoted, created_at, updated_at) VALUES (1, 3, 2, 'Music City 5k', 'Kick off your Music City JULY 4TH celebration with a run through downtown Nashville! Bring the whole family to kick off your city celebrations with this traditional run/walk through downtown Nashville.', true, '2021-05-06T09:00:00', '2021-05-06T11:30:00', 'Cumberland Park', 'Cumberland Park', 8.5, "https://www.runnash.com/races/music-city-july-4th-virtual-5k/", 75, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
+-- Daily Runs (Official)
+INSERT INTO events (fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, description_events, official, start_time, end_time, start_location, end_location, running_distance, attendees, promoted, created_at, updated_at) VALUES (2, 1, 2, 'Join us for a lesiurely early morning 5k along the lake in beautiful Centennial Park', true, '2021-04-08T06:00:00', '2021-04-05T07:30:00', 'Centennial Park, West End Ave Entrance', 'Centennial Park, West End Ave Entrance', 3.1, 12, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
+INSERT INTO events (fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, description_events, official, start_time, end_time, start_location, end_location, running_distance, attendees, promoted, created_at, updated_at) VALUES (2, 1, 3, 'Meet at the park entrance for a late morning 5k', true, '2021-04-08T08:30:00', '2021-04-05T10:00:00', 'Fannie Mae Dees Park', 'Fannie Mae Dees Park', 3.1, 12, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
+INSERT INTO events (fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, description_events, official, start_time, end_time, start_location, end_location, running_distance, attendees, promoted, created_at, updated_at) VALUES (2, 1, 2, 'Meet at building entrance for an afternoon jog', true, '2021-04-08T17:00:00', '2021-04-05T19:00:00', 'Shelby Park Community Center', 'Shelby Park Community Center', 3.1, 8, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
+-- Daily Runs (Unofficial)
+-- Other
+INSERT INTO events (fk_event_type_id, event_title, description_events, official, start_time, end_time, start_location, end_location, running_distance, attendees, promoted, created_at, updated_at) VALUES (3, 'Join Our Weekly Newsletter', 'Learn how you can help make our community a better place!', true, '2021-04-08T06:00:00', '2021-04-05T07:30:00', 'Centennial Park, West End Ave Entrance', 'Centennial Park, West End Ave Entrance', 3.1, 12, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
+INSERT INTO events (fk_event_type_id, event_title, description_events, official, start_time, end_time, start_location, end_location, running_distance, attendees, promoted, created_at, updated_at) VALUES (3, 'Volunteer With Habitat for Humanity', 'Learn how you can help make our community a better place!', true, '2021-04-08T08:30:00', '2021-04-05T10:00:00', 'Fannie Mae Dees Park', 'Fannie Mae Dees Park', 3.1, 12, true, '2021-04-05 00:00:00', '2021-04-05 00:00:00');
 
 /* MOCK EMAIL: Jodi@21Jump.com
   MOCK PASSWORD: Jodi
