@@ -30,7 +30,8 @@ class AddEventForm extends React.Component {
     this.setState({ [name]: value });
   }
 
-  createMap(){
+  createMap(e){
+    e.preventDefault();
     const url = 'https://onthegomap.com/#/create';
     window.open(url, '_blank');
 }
@@ -98,7 +99,7 @@ class AddEventForm extends React.Component {
             <label>
               Add Map:&nbsp;
               <button onClick={this.createMap.bind(this)}>Create a map</button>
-              <input name="map_url" type="text" placeholder="paste map url here" value={this.state.map_url} onChange={this.handleInputChange} />
+              <input name="map_url" type="text" placeholder="paste map embed here" value={this.state.map_url} onChange={this.handleInputChange} />
             </label>
             <br />
             <label>

@@ -47,8 +47,10 @@ const EventInfoModal = ({event, onModalOpen}) => {
             </div>
             <div className="divider"></div>
           </div> */}
+          <div dangerouslySetInnerHTML={{__html: event.map_url}}>
+          </div>
 
-            <img className="thumbnail" src={event.map_url}></img>&nbsp;
+            {/* <img className="thumbnail" src={event.map_url}></img>&nbsp; */}
           </div>
           {/* right column */}
           <div style={{flexBasis: "50%", marginLeft: "10px", fontSize: "1.6rem", lineHeight: "3rem"}}>
