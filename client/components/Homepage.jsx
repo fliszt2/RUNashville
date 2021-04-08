@@ -12,7 +12,7 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventData: data,
+      eventData: data.events,
       feedData: feedData.posts,
       isModalOpen: false,
       apiData: '',
@@ -27,7 +27,13 @@ class Homepage extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchEvents();
+    axios.get('/api/events')
+    .then((apiData) => {
+      this.setState({ eventData: apiData.data });
+      console.log('apiData.data:', apiData.data);
+    })
+    .catch((err) => console.log(err));
+    // this.fetchEvents();
   }
 
   onModalOpen() {
@@ -37,8 +43,8 @@ class Homepage extends React.Component {
   fetchEvents() {
     axios.get('/api/events')
       .then((apiData) => {
+        this.setState({ eventData: apiData.data });
         console.log('apiData.data:', apiData.data);
-        this.setState({ apiData: apiData.data });
       })
       .catch((err) => console.log(err));
   }
@@ -47,7 +53,7 @@ class Homepage extends React.Component {
     const { eventData, feedData } = this.state;
     return (
       <>
-        <RaceJumbotron races={eventData.events.filter((event) => event.event_type === 'race')} />
+        <RaceJumbotron races={eventData.filter((event) => event.event_type === 'race')} />
 
         <div>
           <button style={{ display: "inline", width: "300px" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
@@ -56,9 +62,9 @@ class Homepage extends React.Component {
         <div className="homepage-body">
           <div className="events">
             <SectionTitle text="Daily" />
-            <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'daily_run')} />
+            <EventsCarousel events={eventData.filter((event) => event.event_type === 'daily_run')} />
             <SectionTitle text="Announcements and Other Events" />
-            <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'other')} />
+            <EventsCarousel events={eventData.filter((event) => event.event_type === 'other')} />
             {this.state.isModalOpen ? (<AddEventForm fetchEvents={this.fetchEvents} onModalOpen={this.onModalOpen} />) : null}
           </div>
           <div className="homepage-social-feed">
