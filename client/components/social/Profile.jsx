@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import SocialFeed from './SocialFeed';
-import CreatePostModal from './CreatePostModal';
+import CreatePost from './CreatePost';
 import friendCard from './friendCard';
 import SectionTitle from '../SectionTitle';
 import AddEventForm from '../Events/AddEventForm.jsx';
@@ -50,8 +50,8 @@ const Profile = class extends React.PureComponent {
         lifetimeRaces: 22,
         eventsAttended: 18,
       },
+      addEventActive: false,
       createPostActive: false,
-      addEventActive: false
     };
 
     this.updateDisplayedProfile = this.updateDisplayedProfile.bind(this);
@@ -81,12 +81,11 @@ const Profile = class extends React.PureComponent {
   }
 
   activateCreatePost(){
-    console.log('yo');
-    this.setState({createPostActive: true});
+    this.setState({createPostActive: !this.state.createPostActive});
   }
 
   activateAddEvent(){
-    this.setState({addEventActive: true});
+    this.setState({addEventActive: !this.state.addEventActive});
   }
 
   render() {
@@ -100,10 +99,12 @@ const Profile = class extends React.PureComponent {
       addEvent = <AddEventForm></AddEventForm>;
     }
     if(this.state.createPostActive){
-      createPost = <CreatePostModal></CreatePostModal>;
+      createPost = <CreatePost closeWindow={this.activateCreatePost.bind(this)}></CreatePost>;
     }
     return (
       <div>
+        {createPost}
+        {addEvent}
         <div className="social-profile-banner">
           <img className="social-profile-banner-img" src={banner_url} />
           <img className="social-profile-banner-profile-pic profile-pic-round" src={image_url} />
@@ -152,7 +153,7 @@ const Profile = class extends React.PureComponent {
           <div id="center-column">
             <div id="social-feed-buttons">
               <button className="social-button" onClick={()=>{this.activateCreatePost()}}>+ New Post</button>
-              <button className="social-button" onClick={()=>{this.activateAddEvent.bind(this)}}>+ Create Run</button>
+              <button className="social-button" onClick={()=>{this.activateAddEvent()}}>+ Create Run</button>
             </div>
             <SectionTitle text={`${name_user}'s Feed`}></SectionTitle>
             <div className="contentBox">
