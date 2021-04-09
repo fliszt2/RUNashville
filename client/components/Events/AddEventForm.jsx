@@ -51,13 +51,18 @@ class AddEventForm extends React.Component {
         return alert('Please fill in all fields.');
       }
     }
+    var linkToSend = link;
+    // add website URL validation
+    if (!(link.includes('http://') || link.includes('https://'))) {
+      linkToSend = 'http://' + link;
+    }
 
     var startTimeToSend = start_date.toISOString().slice(0, 10) + ' ' + start_time + ':00';
     console.log('startTimeToSend:', startTimeToSend);
     const data = {
       event_title: event_name,
       event_type_id: Number(event_type),
-      link: link,
+      link: linkToSend,
       start_time: startTimeToSend,
       start_location: start_location,
       map_url: map_url,
@@ -67,7 +72,7 @@ class AddEventForm extends React.Component {
       difficulty_level_id: Number(difficulty_level),
     };
 
-    if (event_type.toLowerCase() === 'race') {
+    if (event_type === '1') {
       data.image_url = image_url;
       data.thumbnail_url = null;
     } else {
