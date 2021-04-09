@@ -5,7 +5,7 @@ class ManageEvents extends React.Component {
     super(props);
 
     this.state = {
-
+      reportedEvents: ''
     };
 
 
@@ -16,6 +16,8 @@ class ManageEvents extends React.Component {
 
     return (
       <div>
+        ADD NEW EVENT
+        <br></br>
         MANAGE EVENTS
       </div>
     );
