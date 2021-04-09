@@ -15,7 +15,6 @@
   --red: rgb(247, 87, 38);
   --yellow: rgb(252, 216, 58);
 }
-
 body {
   font-size: 1.5rem !important;
   font-family: "Merriweather", "Helvetica", "Arial", serif !important;
@@ -891,4 +890,31 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   height: 2px;
   background-color: hsl(120, 60%, 65%);
   border-radius: 5px;
+}
+/* MANAGE AND  ITEMS =============================================================================== */
+.manage-check {
+  display: flex;
+}
+.manage {
+  margin-left: 40px;
+  margin-right: 40px;
+  color: var(--green);
+  font-size: 3rem;
+}
+.manage-heading {
+  margin-top: 20px;
+  color: var(--green);
+  font-size: 3rem;
+  text-align: center;
+}
+.manage-mytext {
+  font-size: 2rem;
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin-left: 200px;
+  margin-right: 200px;
+
 }
