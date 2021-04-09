@@ -21,7 +21,7 @@ class ManageUsers extends React.Component {
 
 
   getAllUsers() {
-    axios.get('api/users')
+    axios.get('http://54.173.19.52:3000/api/users')
       .then((res) => {
         this.setState({ allUsers: res.data });
       })
