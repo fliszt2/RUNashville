@@ -463,14 +463,19 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   /* color: var(--white-grey); */
 }
 
-.race-map {
+.race-map iframe {
   /* grid-column: 7 / 8; */
-  /* min-height: 10vh;
-  max-height: 10vh; */
-  justify-self: center;
+  min-height: 22vh !important;
+  max-height: 22vh !important;
+  /* justify-self: center; */
   flex-basis: 20%;
+  margin-right: 0;
   /* overflow: hidden; */
+}
 
+.race-map a {
+  color: var(--bright-grey) !important;
+  display: none;
 }
 
 .race-map img {

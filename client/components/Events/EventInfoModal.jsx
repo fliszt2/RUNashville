@@ -90,10 +90,10 @@ const EventInfoModal = ({event, onModalOpen}) => {
 
             <div><i style={{ 'color': 'var(--black)' }} className="fas fa-user-circle"></i>&nbsp;
               Host:&nbsp;
-              <span>{event.leader}</span>
+              <span>{event.name_user}</span>
             </div>
             <div>Description:&nbsp;
-              <span> {event.description}</span>
+              <span> {event.description_events}</span>
             </div>
             {/* <div className="mytextdiv">
               <div className="mytexttitle">

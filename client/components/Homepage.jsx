@@ -53,7 +53,7 @@ class Homepage extends React.Component {
     const { eventData, feedData } = this.state;
     return (
       <>
-        <RaceJumbotron races={eventData.filter((event) => event.event_type === 'race')} />
+        <RaceJumbotron races={eventData.filter((event) => event.name_event_type === 'race')} />
 
         <div>
           <button style={{ display: "inline", width: "300px" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>

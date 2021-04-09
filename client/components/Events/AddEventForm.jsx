@@ -17,8 +17,10 @@ class AddEventForm extends React.Component {
       map_url: '',
       description: '',
       image_url: '',
+      name_user: 'Daniel',
       running_distance: 0,
       difficulty_level: 'beginner',
+
 
     };
 
@@ -38,10 +40,10 @@ class AddEventForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     // if any field is empty, alert
-    const { event_name, event_type, link, start_time, start_date, start_location, map_url, description, image_url, running_distance, difficulty_level } = this.state;
+    const { event_name, event_type, link, start_time, start_date, start_location, map_url, description, name_user, image_url, running_distance, difficulty_level } = this.state;
     // start_date = start_date.toUTCString();
     // console.log('typeof start_date:', typeof start_date);
-    const stateValues = [event_name, event_type, link, start_time, start_date, start_location, map_url, description, image_url, running_distance, difficulty_level];
+    const stateValues = [event_name, event_type, link, start_time, start_date, start_location, map_url, description, name_user, image_url, running_distance, difficulty_level];
 
     for (let value of stateValues) {
       if (value === null) {
@@ -59,14 +61,24 @@ class AddEventForm extends React.Component {
       event_type: event_type,
       link: link,
       start_time: start_time,
-      start_date: start_date,
+      start_date: start_date.toISOString(),
       start_location: start_location,
       map_url: map_url,
-      description: description,
-      image_url: image_url,
+      description_events: description,
+      name_user: name_user,
       running_distance: running_distance,
       difficulty_level: difficulty_level,
     };
+
+    if (event_type.toLowerCase() === 'race') {
+      data.image_url = image_url;
+      data.thumbnail_url = null;
+    } else {
+      data.thumbnail_url = image_url;
+      data.image_url = null;
+    }
+
+    return console.log('data:', data);
 
     axios.post('/events', data)
       .then(() => {
@@ -123,6 +135,10 @@ class AddEventForm extends React.Component {
                 <option value="Daily Group Run">Daily Group Run</option>
                 <option value="Announcement">Announcement</option>
              </select>
+            </label>
+            <br />
+            <label>Event Leader:
+              <input name="name_user" type="text" placeholder="It's always Daniel" value={event_name} onChange={this.handleInputChange} />
             </label>
             <br />
             <label>

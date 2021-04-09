@@ -20,6 +20,12 @@ class RaceJumbotron extends React.Component {
     this.onModalOpen = this.onModalOpen.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.races !== prevProps.races) {
+      this.setState({ races: this.props.races });
+    }
+  }
+
   onModalOpen() {
     this.setState({ isModalOpen: !this.state.isModalOpen });
   }
@@ -30,8 +36,8 @@ class RaceJumbotron extends React.Component {
   //    this.setState({eventModal: true});
   //  }
 
-
   render() {
+
     return (
       <div className="move-to-back">
         <Carousel>
@@ -49,13 +55,13 @@ class RaceJumbotron extends React.Component {
                 <div className="carousel-text ">
                   <div className="race-description">
                     <div>
-                      <h1 onClick={this.onModalOpen} className="clickable-header">{race.name}</h1>
+                      <h1 onClick={this.onModalOpen} className="clickable-header">{race.event_title}</h1>
                     </div>
                     <div >
                       <span className="registration-text"><a href={race.link} target="blank">Click here to register!</a></span>
                     </div>
                     <br></br>
-                    <div><span className="race-description-text">{race.description}</span></div>
+                    <div><span className="race-description-text">{race.description_events}</span></div>
                   </div>
                   <div className="details-and-map">
                     <div className="race-details">
@@ -73,8 +79,9 @@ class RaceJumbotron extends React.Component {
                         </span>
                       </div>
                     </div>
-                    <div className="race-map">
-                      <img src="https://i2.wp.com/vincegray2014.com/wp-content/uploads/2020/01/printable-map-of-nashville-tn.jpg"></img>
+                      {/* <img src="https://i2.wp.com/vincegray2014.com/wp-content/uploads/2020/01/printable-map-of-nashville-tn.jpg"></img> */}
+                    <div className="race-map" >
+                      <div dangerouslySetInnerHTML={{__html: race.map_url}}></div>
                     </div>
                   </div>
                 </div>
