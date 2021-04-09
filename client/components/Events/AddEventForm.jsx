@@ -125,7 +125,7 @@ class AddEventForm extends React.Component {
   render() {
     const { event_name, event_type, link, start_time, start_location, map_url, image_url, name_user, running_distance, difficulty_level } = this.state;
     return (
-      <div className="form-modal-wrapper">
+      <div className="form-modal-wrapper add-event-form-modal">
         <div className="form-modal-backdrop" onClick={this.props.onModalOpen} />
         <div className="form-modal-box" style={{ fontSize: '1.6rem' }}>
           <i className="far fa-times-circle fa-2x" onClick={this.props.onModalOpen}></i>

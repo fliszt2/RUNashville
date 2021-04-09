@@ -361,6 +361,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .clickable-header {
   cursor: pointer;
+  font-size: 2.5rem;
 }
 
 .clickable-image {
@@ -391,6 +392,10 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .race-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   /* width: 50%; */
   /* margin-right: auto; */
 
@@ -402,19 +407,18 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   min-height: 10vh;
   max-height: 20vh; */
   overflow: hidden;
-  flex-basis: 50%
+  flex-basis: 40%;
 
   /* line-height: 250%; */
 
 }
 
 .registration-text {
-  font-size: 1.15em;
+  font-size: 1.5em;
 }
 
 .race-description-text {
-  font-size: 1.35em;
-
+  font-size: 1.75em;
 }
 
 .race-details {
@@ -422,8 +426,9 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   margin-left: auto;
   flex-basis: 1; */
 
-
-  /* grid-column: 5 / 7; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   text-align: left;
   /* min-height: 10vh;
   max-height: 10vh; */
@@ -437,16 +442,16 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .race-date-text {
   font-size: 1.5em;
-  color: var(--bright-grey);
+  color: var(--white);
 }
 
 .race-location-text {
-  font-size: 1.25em;
-  color: var(--bright-grey);
+  font-size: 1.5em;
+  color: var(--white);
 }
 
 .registration-text a {
-  /* text-decoration: underline; */
+  text-decoration: none;
   /* color: var(--white); */
   color: var(--bright-grey);
 }
@@ -605,6 +610,15 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 /************ EVENTS DETAILS MODAL **************/
 
 /* Main Page styling */
+
+/* .add-event-form-modal {
+  overflow: scroll;
+  margin-top: 10px;
+} */
+
+.other-event-photo {
+  height: 25rem;
+}
 
 /* Social Page styling*/
 .social-profile-banner {
@@ -945,7 +959,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   /* width: 100%;
   height: 65vh; */
   margin: auto;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .carousel-item {
@@ -961,6 +975,14 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
 }
 
+a.carousel-control-next {
+  display: none !important;
+}
+
+a.carousel-control-prev {
+  display: none !important;
+}
+
 .d-block {
   display: block !important;
 }
@@ -971,9 +993,9 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .carousel-caption {
   position: absolute;
-  right: 15%;
+  right: 2%;
   bottom: 20px;
-  left: 15%;
+  left: 6%;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;

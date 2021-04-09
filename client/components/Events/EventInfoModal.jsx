@@ -47,9 +47,12 @@ const EventInfoModal = ({event, onModalOpen}) => {
             </div>
             <div className="divider"></div>
           </div> */}
-          <div className="event-modal-map" dangerouslySetInnerHTML={{__html: event.map_url}}>
-          </div>
-
+          {event.name_event_type === 'other' ? (
+            <img className="other-event-photo" src={event.map_url}></img>
+          ) : (
+            <div className="event-modal-map" dangerouslySetInnerHTML={{__html: event.map_url}}>
+            </div>
+          )}
             {/* <img className="thumbnail" src={event.map_url}></img>&nbsp; */}
           </div>
           {/* right column */}
