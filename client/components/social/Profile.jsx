@@ -40,13 +40,13 @@ const Profile = class extends React.PureComponent {
 
   updateDisplayedProfile(userID) {
     this.setState({ currentUserID: userID }, () => {
-      axios.get(`/api/user/${this.state.currentUserID}`)
+      axios.get(`http://54.173.19.52:3000/api/user/${this.state.currentUserID}`)
         .then((newProfile) => {
-          axios.get(`/api/friends/${this.state.currentUserID}`)
+          axios.get(`http://54.173.19.52:3000/api/friends/${this.state.currentUserID}`)
             .then((newFriends) => {
-              axios.get(`/api/events/${this.state.currentUserID}`)
+              axios.get(`http://54.173.19.52:3000/api/events/${this.state.currentUserID}`)
                 .then((newEvents) => { 
-                  axios.get(`api/post?id=${this.state.currentUserID}`)
+                  axios.get(`http://54.173.19.52:3000/api/post?id=${this.state.currentUserID}`)
                   .then((newPosts) =>{
                     console.log('posts: ', newPosts.data);
                     this.setState({
