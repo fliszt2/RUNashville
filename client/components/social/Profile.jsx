@@ -63,26 +63,32 @@ const Profile = class extends React.PureComponent {
   }
 
   updateDisplayedProfile(userID) {
-    console.log(userID);
     this.setState({ currentUserID: userID }, () => {
       axios.get(`/api/user/${this.state.currentUserID}`)
         .then((newProfile) => {
           axios.get(`/api/friends/${this.state.currentUserID}`)
             .then((newFriends) => {
-              this.setState({
-                userProfile: newProfile.data[0],
-                friendsList: newFriends.data,
-              });
+              axios.get(`/api/events/${this.state.currentUserID}`)
+                .then((newEvents) => {
+                  this.setState({
+                    userProfile: newProfile.data[0] || {},
+                    friendsList: newFriends.data || [],
+                    userEvents: newEvents.data || [],
+                  });
+                });
             });
         });
     });
   }
+  // axios.get(`/api/post/id=${this.state.currentUserID}`)
+  // .then((newPosts) => {
+  //   console.log('posts: ', newPosts.data);
 
-  activateCreatePost(){
+  activateCreatePost() {
     this.setState({createPostActive: !this.state.createPostActive});
   }
 
-  activateAddEvent(){
+  activateAddEvent() {
     this.setState({addEventActive: !this.state.addEventActive});
   }
 
