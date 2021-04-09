@@ -11,6 +11,15 @@ module.exports = {
       }
     });
   },
+  getAllReportedEvents(req, res) {
+    models.events.getAllReportedEvents((result) => {
+      if (result.length !== 0) {
+        res.status(200).send(result);
+      } else {
+        res.status(404).send('No Events Found');
+      }
+    });
+  },
   getAllPromotedEvents(req, res) {
     models.events.getAllPromotedEvents((result) => {
       if (result.length !== 0) {
