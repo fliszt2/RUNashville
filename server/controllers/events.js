@@ -34,7 +34,7 @@ module.exports = {
       if (result.length !== 0) {
         res.status(200).send(result);
       } else {
-        res.status(404).send('No Events Found');
+        res.status(204).send('No Events Found');
       }
     });
   },

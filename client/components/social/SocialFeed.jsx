@@ -2,7 +2,6 @@ import React from 'react';
 import SocialPost from './SocialPost.jsx';
 
 const SocialFeed = (props) => {
-  console.log('props.posts:', props.posts);
   return(
     <div>
       {props.posts.map((post) => {

@@ -4,7 +4,8 @@ import SocialFeed from './SocialFeed';
 import CreatePost from './CreatePost';
 import friendCard from './friendCard';
 import SectionTitle from '../SectionTitle';
-import AddEventForm from '../Events/AddEventForm.jsx';
+import AddEventForm from '../Events/AddEventForm';
+import SmallEventCard from '../Events/SmallEventCard';
 
 const Profile = class extends React.PureComponent {
   constructor(props) {
@@ -50,6 +51,7 @@ const Profile = class extends React.PureComponent {
         lifetimeRaces: 22,
         eventsAttended: 18,
       },
+      userEvents: [],
       addEventActive: false,
       createPostActive: false,
     };
@@ -63,43 +65,49 @@ const Profile = class extends React.PureComponent {
   }
 
   updateDisplayedProfile(userID) {
-    console.log(userID);
     this.setState({ currentUserID: userID }, () => {
       axios.get(`/api/user/${this.state.currentUserID}`)
         .then((newProfile) => {
           axios.get(`/api/friends/${this.state.currentUserID}`)
             .then((newFriends) => {
-              this.setState({
-                userProfile: newProfile.data[0],
-                friendsList: newFriends.data,
-              });
+              axios.get(`/api/events/${this.state.currentUserID}`)
+                .then((newEvents) => {
+                  console.log(newEvents.data[0]);
+                  this.setState({
+                    userProfile: newProfile.data[0] || {},
+                    friendsList: newFriends.data || [],
+                    userEvents: newEvents.data || [],
+                  });
+                });
             });
         });
     });
   }
 
-  activateCreatePost(){
-    this.setState({createPostActive: !this.state.createPostActive});
+  activateCreatePost() {
+    this.setState({ createPostActive: !this.state.createPostActive });
   }
 
-  activateAddEvent(){
-    this.setState({addEventActive: !this.state.addEventActive});
+  activateAddEvent() {
+    this.setState({ addEventActive: !this.state.addEventActive });
   }
 
   render() {
-    const { userProfile, friendsList, milestones } = this.state;
+    const {
+      userProfile, friendsList, milestones, userEvents,
+    } = this.state;
     const {
       name_user, last_name, image_url, banner_url, bio_description,
     } = userProfile;
-    let addEvent = <div></div>;
-    let createPost = <div></div>;
-    if(this.state.addEventActive){
-      addEvent = <AddEventForm></AddEventForm>;
+    let addEvent = <div />;
+    let createPost = <div />;
+    if (this.state.addEventActive) {
+      addEvent = <AddEventForm />;
     }
-    if(this.state.createPostActive){
-      createPost = <CreatePost closeWindow={this.activateCreatePost.bind(this)}></CreatePost>;
+    if (this.state.createPostActive) {
+      createPost = <CreatePost closeWindow={this.activateCreatePost.bind(this)} />;
     }
-    if(userProfile.name_user){
+    if (userProfile.name_user) {
       return (
         <div>
           {createPost}
@@ -107,12 +115,16 @@ const Profile = class extends React.PureComponent {
           <div className="social-profile-banner">
             <img className="social-profile-banner-img" src={banner_url} />
             <img className="social-profile-banner-profile-pic profile-pic-round" src={image_url} />
-            <span className='social-profile-banner-name'>{name_user} {last_name}</span>
+            <span className="social-profile-banner-name">
+              {name_user}
+              {' '}
+              {last_name}
+            </span>
           </div>
           <div id="social-feeds">
             <div className="side-column">
               <div className="contentBox">
-                <SectionTitle text={`${name_user}'s Stats`}></SectionTitle>
+                <SectionTitle text={`${name_user}'s Stats`} />
                 <div className="statistics">
                   <div className="statLine">
                     <div className="statDescriptor">AVERAGE MILE PACE: </div>
@@ -141,47 +153,50 @@ const Profile = class extends React.PureComponent {
                 </div>
               </div>
               <div className="contentBox">
-                <SectionTitle text={`${name_user}'s Events`}></SectionTitle>
-                <div className="eventsFeed" />
-              </div>
-              <div className="contentBox">
-                <SectionTitle text={`${name_user}'s Recent Activities`}></SectionTitle>
-                <div className="recentActivityFeed" />
+                <SectionTitle text={`${name_user}'s Events`} />
+                <div className="eventsFeed">{userEvents.map((event) => (<SmallEventCard event={event} user={`${name_user} ${last_name}`} />))}</div>
+                <div className="contentBox">
+                  <SectionTitle text={`${name_user}'s Recent Activities`} />
+                  <div className="recentActivityFeed" />
+                </div>
               </div>
             </div>
             <div id="center-column">
               <div id="social-feed-buttons">
-                <button className="social-button" onClick={()=>{this.activateCreatePost()}}>+ New Post</button>
-                <button className="social-button" onClick={()=>{this.activateAddEvent()}}>+ Create Run</button>
+                <button className="social-button" onClick={() => { this.activateCreatePost(); }}>+ New Post</button>
+                <button className="social-button" onClick={() => { this.activateAddEvent(); }}>+ Create Run</button>
               </div>
-              <SectionTitle text={`${name_user}'s Feed`}></SectionTitle>
+              <SectionTitle text={`${name_user}'s Feed`} />
               <div className="contentBox">
                 <SocialFeed posts={this.state.userPosts} />
               </div>
             </div>
             <div className="side-column">
               <div className="contentBox">
-                <button className="social-follow-button">Follow {name_user}</button>
-                <SectionTitle text={`${name_user}'s Bio`}></SectionTitle>
+                <button className="social-follow-button">
+                  Follow
+                  {' '}
+                  {name_user}
+                </button>
+                <SectionTitle text={`${name_user}'s Bio`} />
                 <div className="userBio">{bio_description}</div>
               </div>
               <div className="contentBox">
-                <SectionTitle text={`${name_user}'s Friends`}></SectionTitle>
+                <SectionTitle text={`${name_user}'s Friends`} />
                 <div className="friendsList">
                   {friendsList.map((friend) => (friendCard(friend, this.updateDisplayedProfile)))}
                 </div>
               </div>
               <div className="contentBox">
-                <SectionTitle text={`${name_user}'s Friends Feed`}></SectionTitle>
+                <SectionTitle text={`${name_user}'s Friends Feed`} />
                 <div className="friendFeed" />
               </div>
             </div>
           </div>
         </div>
       );
-    } else {
-      return null;
     }
+    return null;
   }
 };
 
