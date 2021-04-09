@@ -30,8 +30,8 @@ class Homepage extends React.Component {
   componentDidMount() {
     axios.get('/api/events')
     .then((apiData) => {
-      this.setState({ eventData: apiData.data });
       console.log('apiData.data:', apiData.data);
+      this.setState({ eventData: apiData.data });
     })
     .catch((err) => console.log(err));
     // this.fetchEvents();

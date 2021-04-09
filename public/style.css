@@ -610,8 +610,8 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 /********ADD EVENT FORM MODAL *********/
 
 .add-event-form-modal-box {
-  margin-left: 30%;
-  margin-right: 30%;
+  /* margin-left: 30%;
+  margin-right: 30%; */
 }
 .add-event-form {
   display: flex;
@@ -624,7 +624,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .right-form-column {
-  font-size: 1.25 !important;
+  font-size: 1.25rem !important;
   line-height: 1rem;
 }
 
