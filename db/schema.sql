@@ -119,11 +119,7 @@ CREATE TABLE events (
   id INT AUTO_INCREMENT,
   event_title VARCHAR(40),
   description_events TEXT,
-<<<<<<< HEAD
   reported BOOLEAN DEFAULT false,
-=======
-  reported BOOLEAN,
->>>>>>> 295529750cef780e0e821405a91bbb4dc5ef90d5
   show_events BOOLEAN DEFAULT true,
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
