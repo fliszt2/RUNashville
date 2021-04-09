@@ -6,37 +6,7 @@ class SocialPostComments extends React.Component {
         super(props);
         this.state = {
             submitComment: null,
-            comments: [{
-                propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
-                name_user: 'Simba',
-                last_name: 'Mufasa',
-                message_comments: 'DAD UR EMBARRASSING ME IN FRONT OF MY FRIENDS!!'
-            },
-            {
-                propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
-                name_user: 'Scar',
-                last_name: 'Mufasa',
-                message_comments: 'lmao bro i cant even'
-            },
-            {
-                propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
-                name_user: 'Simba',
-                last_name: 'Mufasa',
-                message_comments: 'DAD UR EMBARRASSING ME IN FRONT OF MY FRIENDS!!'
-            },
-            {
-                propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
-                name_user: 'Simba',
-                last_name: 'Mufasa',
-                message_comments: 'DAD UR EMBARRASSING ME IN FRONT OF MY FRIENDS!!'
-            },
-            {
-                propic: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e78b0ee-7d21-4e35-badd-d148b5a2a5de/d4bv1o8-3fb388f6-4dcf-44b3-9fd9-be7ae75bba69.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2U3OGIwZWUtN2QyMS00ZTM1LWJhZGQtZDE0OGI1YTJhNWRlXC9kNGJ2MW84LTNmYjM4OGY2LTRkY2YtNDRiMy05ZmQ5LWJlN2FlNzViYmE2OS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vz3uHuj93dfqpwiETOYw8OUH5Bm3TtUIdflolxx8WfA',
-                name_user: 'Simba',
-                last_name: 'Mufasa',
-                message_comments: 'DAD UR EMBARRASSING ME IN FRONT OF MY FRIENDS!!'
-            }
-            ],
+            comments: null,
             componentActive: true            
         }
         this.updateComment = this.updateComment.bind(this);
@@ -44,10 +14,10 @@ class SocialPostComments extends React.Component {
     }
 
     componentDidMount(){
-        // axios.get(`/api/post/id=${this.props.postID}`)
-        //     .then((data) => {
-        //         this.setState({comments: data});
-        //     })
+        axios.get(`/api/post/${this.props.postId}/comments`)
+            .then((comments) => {
+                this.setState({comments: comments.data || null});
+            })
     }
 
     updateComment(e){
@@ -72,9 +42,9 @@ class SocialPostComments extends React.Component {
             userComments = <div className='social-post-comments-list'>
                 {this.state.comments.map((comment) => {
                     return(
-                        <div className='full-social-comment'>
+                        <div key={comment.id} className='full-social-comment'>
                             <div className='social-feed-post-profile'>
-                                <img className='profile-pic-round' alt='Profile' src={comment.propic} />
+                                <img className='profile-pic-round' alt='Profile' src={comment.image_url} />
                                 <div style={{'marginLeft': '5px', 'alignSelf': 'flex-start'}}>
                                     <span>{comment.name_user} </span>
                                     <span>{comment.last_name}</span>
@@ -89,8 +59,8 @@ class SocialPostComments extends React.Component {
         return(
             <div className='social-comment-component'>
                 {userComments}
-                <textarea className='submit-social-comment' style={{'background-color': 'var(--bg-white'}} name='submitComment' placeholder='Comment on this post...' onChange={this.updateComment}></textarea>
-                <button style={{'height': '50px', 'margin-bottom': '1rem'}} onClick={this.submitComment}>Submit</button>
+                <textarea className='submit-social-comment' style={{'backgroundColor': 'var(--bg-white'}} name='submitComment' placeholder='Comment on this post...' onChange={this.updateComment}></textarea>
+                <button style={{'height': '50px', 'marginBottom': '1rem'}} onClick={this.submitComment}>Submit</button>
             </div>
         );
     }

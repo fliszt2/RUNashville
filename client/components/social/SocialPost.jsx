@@ -14,7 +14,6 @@ class SocialPost extends React.Component {
   }
 
   toggleComments(){
-    console.log('here');
     this.setState({commentsActive: !this.state.commentsActive});
   }
 
@@ -27,7 +26,7 @@ class SocialPost extends React.Component {
     let runDetails = <div></div>;
     let userImage = <div></div>;
     if(this.state.commentsActive){
-      comments = <SocialPostComments toggleComments={this.toggleComments}></SocialPostComments>
+      comments = <SocialPostComments postId={this.props.id} toggleComments={this.toggleComments}></SocialPostComments>
     }
     if (this.props.run) {
       runDetails = <RunDetails name={this.props.name} run={this.props.run}></RunDetails>;
