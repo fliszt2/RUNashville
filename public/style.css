@@ -243,11 +243,14 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .event-info-card {
   display: inline-block;
-  height: 375px;
+  /* height: 375px;
   min-width: 250px;
-  max-width: 250px;
+  max-width: 250px; */
+  height: 400px;
+  min-width: 267;
+  max-width: 267;
   margin-right: 5px;
-  padding: 20px;
+  padding: 15px;
   background-color: rgb(250, 250, 250);
   /* border: .25px solid black; */
   flex-shrink: 0;

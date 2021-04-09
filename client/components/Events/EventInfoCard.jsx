@@ -82,7 +82,7 @@ class EventInfoCard extends React.Component {
               </div>
               <div>
                 <span className="event-card-icon"><i style={{ 'color': 'var(--black)' }} className="fas fa-user-circle fa-2x"></i></span>
-                <span className="low-priority-text">&nbsp;Hosted by: {event.name_user}</span>
+                <span className="low-priority-text">&nbsp;Host: {event.name_user}</span>
               </div>
             </div>
           </div>
