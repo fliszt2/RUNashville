@@ -607,6 +607,26 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   font-size: .65rem;
 }
 
+/********ADD EVENT FORM MODAL *********/
+.add-event-form {
+  display: flex;
+}
+
+.left-form-column {
+  margin-right: 35px;
+  font-size: 1rem !important;
+  line-height: 1.25rem;
+}
+
+.right-form-column {
+  font-size: 1.5 !important;
+  line-height: 1rem;
+}
+
+.right-form-column a {
+  display: none;
+}
+
 /************ EVENTS DETAILS MODAL **************/
 
 /* Main Page styling */
