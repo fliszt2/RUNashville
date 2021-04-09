@@ -132,6 +132,16 @@ a {
   border-radius: 5px;
 }
 
+.modal-exit-btn {
+    position: absolute;
+    left: 95%;
+    top: 1.5%; 
+    float: right;
+    margin: -1rem, 1rem, 0, 0; 
+    cursor: pointer;
+    color: var(--black);
+}
+
 .login-container,
 .signup-container {
   display: block;
@@ -331,12 +341,13 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   align-items: center;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  color: var(--black);
 }
 
 .section-title-text {
   flex-grow: 0;
   font-size: 1.8rem;
-  color: var(--black);
+  color: var(--jet-black);
 }
 
 .section-title-divider {
@@ -605,6 +616,11 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 /************ EVENTS DETAILS MODAL **************/
+.add-event-form {
+  margin-top: 30vh;
+  max-height: 90vh;
+  overflow: scroll;
+}
 
 /* Main Page styling */
 
@@ -713,6 +729,12 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 .social-feed-post-profile {
   display: flex;
   align-items: center;
+}
+
+.social-post-likes {
+  font-style: italic;
+  color: var(--gentle-black);
+  font-size: 1.4rem;
 }
 
 .social-follow-button {

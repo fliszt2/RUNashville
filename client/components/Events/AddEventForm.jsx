@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
+import SectionTitle from '../SectionTitle.jsx';
 
 class AddEventForm extends React.Component {
   constructor(props) {
@@ -64,9 +65,10 @@ class AddEventForm extends React.Component {
 
       <div  className="form-modal-wrapper">
         <div className="form-modal-backdrop" onClick={this.props.onModalOpen} />
-        <div className="form-modal-box" style={{fontSize: "1.6rem"}}>
-          <i className="far fa-times-circle fa-2x" onClick={this.props.onModalOpen}></i>
+        <div className="form-modal-box add-event-form" style={{fontSize: "1.6rem"}}>
+        <i className="fas fa-times fa-2x modal-exit-btn" onClick={this.props.onModalOpen}></i>
           <br></br>
+          <SectionTitle text={'Create An Event'}></SectionTitle>
           <form>
             <label>Event Name:
                 <input name="event_name" type="text" value={this.state.event_name} onChange={this.handleInputChange} />

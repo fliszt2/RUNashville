@@ -66,6 +66,7 @@ class SocialPost extends React.Component {
           <i className="fas fa-comment-dots feed-icon" style={{'cursor': 'pointer'}} onClick={()=>{this.toggleComments()}}></i>
           <i className="fas fa-plus-circle feed-icon" style={{'cursor': 'pointer'}}></i>
           <i className="fas fa-heartbeat feed-icon" style={{'cursor': 'pointer'}} onClick={()=>{this.likePost()}}></i>
+          <span className='social-post-likes'>({this.state.likes})</span>
           {/* {props.emotes.map((emote)=>{
             <img className='emote' src={emote}/>
           })} */}
