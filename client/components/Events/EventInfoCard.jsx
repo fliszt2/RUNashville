@@ -72,6 +72,7 @@ class EventInfoCard extends React.Component {
             <br></br>
             <span className="event-description">{event.description_events}</span>
             <br></br>
+            <br></br>
             <div className="event-card-details-container">
               <div>
                 <span className="low-priority-text">
