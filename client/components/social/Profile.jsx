@@ -100,7 +100,7 @@ const Profile = class extends React.PureComponent {
     let addEvent = <div></div>;
     let createPost = <div></div>;
     if(this.state.addEventActive){
-      addEvent = <AddEventForm></AddEventForm>;
+      addEvent = <AddEventForm onModalOpen={this.activateAddEvent.bind(this)}></AddEventForm>;
     }
     if(this.state.createPostActive){
       createPost = <CreatePost closeWindow={this.activateCreatePost.bind(this)}></CreatePost>;
