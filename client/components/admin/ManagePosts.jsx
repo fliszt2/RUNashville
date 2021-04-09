@@ -21,8 +21,10 @@ class ManagePosts extends React.Component {
 
 
   getAllPosts() {
-    axios.get('api/post/reported')
+    axios.get('http://54.173.19.52:3000/api/post/reported')
+    // axios.get('/api/post/reported')
       .then((res) => {
+        console.log('RES DATA ===', res.data)
         this.setState({ allPosts: res.data });
       })
       .catch((err) => console.log('ERROR GETTING POSTS: ', err));
@@ -51,6 +53,7 @@ class ManagePosts extends React.Component {
         <div className="listItems">
           <ul className="no-bullets">
             {allPosts.map((post) => (
+
             <li key={post.id}>
 
               <div className="mytextdiv">
@@ -58,7 +61,8 @@ class ManagePosts extends React.Component {
                   {post.name_user + " " + post.last_name}&nbsp;</div>
                 <div className="divider"></div>
               </div>
-                <input id={post.id} type="checkbox" value={post.id} onChange={this.handleChange} />
+
+                <input id={post.id} type="checkbox" value={post.id} defaultChecked={post.show_post ? "checked" : null} onChange={this.handleChange} />
                 <label htmlFor={post.id}>&nbsp;<span className="span-label">Hide Post?</span></label>
               <br></br>
               Post: {post.message_post}

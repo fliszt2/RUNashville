@@ -21,7 +21,7 @@ class ManageEvents extends React.Component {
 
 
   getAllEvents() {
-    axios.get('api/events/reported')
+    axios.get('http://54.173.19.52:3000/api/events/reported')
       .then((res) => {
         this.setState({ allEvents: res.data });
       })
