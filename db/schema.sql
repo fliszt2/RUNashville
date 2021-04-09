@@ -131,7 +131,7 @@ CREATE TABLE events (
   end_location VARCHAR(100),
   image_url VARCHAR(200),
   thumbnail_photo VARCHAR(200),
-  running_distance DECIMAL(3,2),
+  running_distance DECIMAL(5,2),
   link VARCHAR(200),
   map_url TEXT,
   attendees INT,

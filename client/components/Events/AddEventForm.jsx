@@ -3,6 +3,7 @@ import React from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+// import moment from 'moment';
 
 class AddEventForm extends React.Component {
   constructor(props) {
@@ -11,17 +12,16 @@ class AddEventForm extends React.Component {
       event_name: '',
       event_type: '',
       link: '',
-      start_time: 'MMDDYYYY',
+      start_time: '',
       start_date: new Date(),
       start_location: '',
       map_url: '',
       description: '',
       image_url: '',
-      name_user: 'Daniel',
+      name_user: '1',
       running_distance: 0,
       difficulty_level: 'beginner',
-
-
+      // users: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -39,10 +39,7 @@ class AddEventForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // if any field is empty, alert
     const { event_name, event_type, link, start_time, start_date, start_location, map_url, description, name_user, image_url, running_distance, difficulty_level } = this.state;
-    // start_date = start_date.toUTCString();
-    // console.log('typeof start_date:', typeof start_date);
     const stateValues = [event_name, event_type, link, start_time, start_date, start_location, map_url, description, name_user, image_url, running_distance, difficulty_level];
 
     for (let value of stateValues) {
@@ -50,24 +47,24 @@ class AddEventForm extends React.Component {
         value = '';
       }
       let valueAsString = value.toString();
-      if (valueAsString.length === 0 || valueAsString === 'Select' || valueAsString === 'MMDDYYYY') {
+      if (valueAsString.length === 0 || valueAsString === 'Select') {
         return alert('Please fill in all fields.');
       }
-      // also check that running distance is a number??
     }
 
+    var startTimeToSend = start_date.toISOString().slice(0, 10) + ' ' + start_time + ':00';
+    console.log('startTimeToSend:', startTimeToSend);
     const data = {
-      event_name: event_name,
-      event_type: event_type,
+      event_title: event_name,
+      event_type_id: Number(event_type),
       link: link,
-      start_time: start_time,
-      start_date: start_date.toISOString(),
+      start_time: startTimeToSend,
       start_location: start_location,
       map_url: map_url,
       description_events: description,
-      name_user: name_user,
+      leader_user_id: Number(name_user),
       running_distance: running_distance,
-      difficulty_level: difficulty_level,
+      difficulty_level_id: Number(difficulty_level),
     };
 
     if (event_type.toLowerCase() === 'race') {
@@ -78,22 +75,23 @@ class AddEventForm extends React.Component {
       data.image_url = null;
     }
 
-    return console.log('data:', data);
-
-    axios.post('/events', data)
-      .then(() => {
+    console.log('data:', data);
+    axios.post('/api/events', data)
+      .then((res) => {
+        console.log('res.data:', res.data);
         console.log('submitted');
         this.setState({
           event_name: '',
           event_type: '',
           link: '',
-          start_time: 'MMDDYYYY',
+          start_time: '',
           start_date: new Date(),
           start_location: '',
           map_url: '',
           description: '',
           image_url: '',
-          running_distance: null,
+          name_user: '1',
+          running_distance: 0,
           difficulty_level: 'beginner',
         });
         // also close the modal
@@ -115,7 +113,7 @@ class AddEventForm extends React.Component {
   }
 
   render() {
-    const { event_name, event_type, link, start_time, start_location, map_url, image_url, running_distance, difficulty_level } = this.state;
+    const { event_name, event_type, link, start_time, start_location, map_url, image_url, name_user, running_distance, difficulty_level } = this.state;
     return (
       <div className="form-modal-wrapper">
         <div className="form-modal-backdrop" onClick={this.props.onModalOpen} />
@@ -131,14 +129,20 @@ class AddEventForm extends React.Component {
               Type of Event:
               <select name="event_type" value={event_type} onChange={this.handleInputChange}>
                 <option value="Select">Select</option>
-                <option value="Race">Race</option>
-                <option value="Daily Group Run">Daily Group Run</option>
-                <option value="Announcement">Announcement</option>
+                <option value="1">Race</option>
+                <option value="2">Daily Group Run</option>
+                <option value="3">Announcement</option>
              </select>
             </label>
             <br />
             <label>Event Leader:
-              <input name="name_user" type="text" placeholder="It's always Daniel" value={event_name} onChange={this.handleInputChange} />
+            <select name="name_user" value={name_user} onChange={this.handleInputChange}>
+                <option value="1">Jodi Silverman</option>
+                <option value="2">Daniel Doyle</option>
+                <option value="3">Phil Teves</option>
+                <option value="4">Jack McClane</option>
+                <option value="5">Hans Gruber</option>
+             </select>
             </label>
             <br />
             <label>
@@ -187,14 +191,14 @@ class AddEventForm extends React.Component {
             <br />
             <label>
               Run Length:
-              <input name="running_distance" type="text" value={running_distance} onChange={this.handleInputChange} />
+              <input name="running_distance" type="number" value={running_distance} onChange={this.handleInputChange} />
             </label>
             <label>
               Run Difficulty:
               <select name="difficulty_level" value={difficulty_level} onChange={this.handleInputChange}>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate Group Run</option>
-                <option value="Expert">Expert</option>
+                <option value="1">Beginner</option>
+                <option value="2">Intermediate Group Run</option>
+                <option value="3">Expert</option>
              </select>
             </label>
             <br />
