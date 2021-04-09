@@ -15,6 +15,10 @@ router.get('/post', controller.post.getUserPost);
 router.get('/post/:id/reported', controller.post.getUserReportedPosts);
 router.get('/post/:postId/stats', controller.post.getUserPostStats);
 router.get('/post/:postId/comments', controller.post.getUserPostComments);
+<<<<<<< HEAD
+=======
+router.get('/posts/reported', controller.post.getAllReportedPost);
+>>>>>>> 295529750cef780e0e821405a91bbb4dc5ef90d5
 router.get('/events', controller.events.getAllEvents);
 router.get('/events/promoted', controller.events.getAllPromotedEvents);
 router.get('/events/hidden', controller.events.getHiddenEvents);
