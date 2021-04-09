@@ -10,11 +10,11 @@
   --black: hsl(0, 5%, 30%);
   --jet-black: hsl(0, 4%, 5%);
   --gentle-black: hsl(0, 5%, 45%);
+  --bright-grey: hsl(0, 1%, 76%);
   --border-grey: hsla(0, 0%, 50%, 20%);
   --red: rgb(247, 87, 38);
   --yellow: rgb(252, 216, 58);
 }
-
 body {
   font-size: 1.5rem !important;
   font-family: "Merriweather", "Helvetica", "Arial", serif !important;
@@ -243,11 +243,14 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .event-info-card {
   display: inline-block;
-  height: 375px;
+  /* height: 375px;
   min-width: 250px;
-  max-width: 250px;
+  max-width: 250px; */
+  height: 400px;
+  min-width: 267;
+  max-width: 267;
   margin-right: 5px;
-  padding: 20px;
+  padding: 15px;
   background-color: rgb(250, 250, 250);
   /* border: .25px solid black; */
   flex-shrink: 0;
@@ -358,6 +361,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .clickable-header {
   cursor: pointer;
+  font-size: 2.5rem;
 }
 
 .clickable-image {
@@ -388,6 +392,10 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .race-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   /* width: 50%; */
   /* margin-right: auto; */
 
@@ -399,19 +407,18 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   min-height: 10vh;
   max-height: 20vh; */
   overflow: hidden;
-  flex-basis: 50%
+  flex-basis: 40%;
 
   /* line-height: 250%; */
 
 }
 
 .registration-text {
-  font-size: 1.15em;
+  font-size: 1.5em;
 }
 
 .race-description-text {
-  font-size: 1.35em;
-
+  font-size: 1.75em;
 }
 
 .race-details {
@@ -419,8 +426,9 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   margin-left: auto;
   flex-basis: 1; */
 
-
-  /* grid-column: 5 / 7; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   text-align: left;
   /* min-height: 10vh;
   max-height: 10vh; */
@@ -438,28 +446,36 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .race-location-text {
-  font-size: 1.25em;
+  font-size: 1.5em;
   color: var(--white);
 }
 
 .registration-text a {
-  text-decoration: underline;
-  color: var(--gentle-black);
+  text-decoration: none;
+  /* color: var(--white); */
+  color: var(--bright-grey);
 }
 
 .registration-text a:hover {
   text-decoration: underline;
-  color: var(--white-grey);
+  color: var(--bright-grey);
+  /* font-style: italic; */
+  /* color: var(--white-grey); */
 }
 
-.race-map {
+.race-map iframe {
   /* grid-column: 7 / 8; */
-  /* min-height: 10vh;
-  max-height: 10vh; */
-  justify-self: center;
+  min-height: 22vh !important;
+  max-height: 22vh !important;
+  /* justify-self: center; */
   flex-basis: 20%;
+  margin-right: 0;
   /* overflow: hidden; */
+}
 
+.race-map a, .event-modal-map a {
+  color: var(--bright-grey) !important;
+  display: none;
 }
 
 .race-map img {
@@ -591,9 +607,43 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   font-size: .65rem;
 }
 
+/********ADD EVENT FORM MODAL *********/
+
+.add-event-form-modal-box {
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.add-event-form {
+  display: flex;
+}
+
+.left-form-column {
+  margin-right: 35px;
+  font-size: 1.25rem !important;
+  line-height: 1.25rem;
+}
+
+.right-form-column {
+  font-size: 1.25 !important;
+  line-height: 1rem;
+}
+
+.right-form-column a {
+  display: none;
+}
+
 /************ EVENTS DETAILS MODAL **************/
 
 /* Main Page styling */
+
+/* .add-event-form-modal {
+  overflow: scroll;
+  margin-top: 10px;
+} */
+
+.other-event-photo {
+  height: 25rem;
+}
 
 /* Social Page styling*/
 .social-profile-banner {
@@ -934,7 +984,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   /* width: 100%;
   height: 65vh; */
   margin: auto;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .carousel-item {
@@ -950,6 +1000,14 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
 }
 
+a.carousel-control-next {
+  display: none !important;
+}
+
+a.carousel-control-prev {
+  display: none !important;
+}
+
 .d-block {
   display: block !important;
 }
@@ -960,9 +1018,9 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 
 .carousel-caption {
   position: absolute;
-  right: 15%;
+  right: 2%;
   bottom: 20px;
-  left: 15%;
+  left: 6%;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;

@@ -36,7 +36,7 @@ const EventInfoModal = ({event, onModalOpen}) => {
           <div style={{flexBasis: "50%", marginRight: "10px"}}>
           <div className="mytextdiv">
             <div className="mytexttitle">
-              {event.name}
+              {event.event_title}
             </div>
             <div className="divider"></div>
           </div>
@@ -47,9 +47,12 @@ const EventInfoModal = ({event, onModalOpen}) => {
             </div>
             <div className="divider"></div>
           </div> */}
-          <div dangerouslySetInnerHTML={{__html: event.map_url}}>
-          </div>
-
+          {event.name_event_type === 'other' ? (
+            <img className="other-event-photo" src={event.map_url}></img>
+          ) : (
+            <div className="event-modal-map" dangerouslySetInnerHTML={{__html: event.map_url}}>
+            </div>
+          )}
             {/* <img className="thumbnail" src={event.map_url}></img>&nbsp; */}
           </div>
           {/* right column */}
@@ -90,10 +93,10 @@ const EventInfoModal = ({event, onModalOpen}) => {
 
             <div><i style={{ 'color': 'var(--black)' }} className="fas fa-user-circle"></i>&nbsp;
               Host:&nbsp;
-              <span>{event.leader}</span>
+              <span>{event.name_user}</span>
             </div>
             <div>Description:&nbsp;
-              <span> {event.description}</span>
+              <span> {event.description_events}</span>
             </div>
             {/* <div className="mytextdiv">
               <div className="mytexttitle">

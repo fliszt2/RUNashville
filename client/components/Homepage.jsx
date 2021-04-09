@@ -6,16 +6,19 @@ import SocialFeed from './social/SocialFeed';
 import data from '../resources/dummydata';
 import feedData from '../resources/dummyFeedData';
 import SectionTitle from './SectionTitle';
+import axios from 'axios';
 
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventData: data,
+      // eventData: data.events,
+      eventData: [],
       feedData: feedData.posts,
       isModalOpen: false,
+      apiData: '',
     };
-
+    this.fetchEvents = this.fetchEvents.bind(this);
     this.onModalOpen = this.onModalOpen.bind(this);
   }
 //click handlingfunctions for AddEventForm. These will get moved!
@@ -24,24 +27,45 @@ class Homepage extends React.Component {
     this.setState({addEvent: false});
   }
 
+  componentDidMount() {
+    axios.get('/api/events')
+    .then((apiData) => {
+      this.setState({ eventData: apiData.data });
+      console.log('apiData.data:', apiData.data);
+    })
+    .catch((err) => console.log(err));
+    // this.fetchEvents();
+  }
 
   onModalOpen() {
     this.setState({ isModalOpen: !this.state.isModalOpen });
   }
 
+  fetchEvents() {
+    axios.get('/api/events')
+      .then((apiData) => {
+        this.setState({ eventData: apiData.data });
+        console.log('apiData.data:', apiData.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   render() {
     const { eventData, feedData } = this.state;
+    // console.log('eventData:', eventData);
     return (
       <>
-        <RaceJumbotron races={eventData.events.filter((event) => event.event_type === 'race')} />
+        <RaceJumbotron races={eventData.filter((event) => event.name_event_type === 'race')} />
+        <div>
+          <button style={{ display: "inline", width: "300px" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
+        </div>
         <div className="homepage-body">
           <div className="events">
             <SectionTitle text="Daily" />
-            <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'daily_run')} />
+            <EventsCarousel events={eventData.filter((event) => event.name_event_type === 'daily_run')} />
             <SectionTitle text="Announcements and Other Events" />
-            <EventsCarousel events={eventData.events.filter((event) => event.event_type === 'other')} />
-            {this.state.isModalOpen ? (<AddEventForm onModalOpen={this.onModalOpen} />) : null}
+            <EventsCarousel events={eventData.filter((event) => event.name_event_type === 'other')} />
+            {this.state.isModalOpen ? (<AddEventForm fetchEvents={this.fetchEvents} onModalOpen={this.onModalOpen} />) : null}
           </div>
           <div className="homepage-social-feed">
             <SectionTitle text="Latest Posts" />

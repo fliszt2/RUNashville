@@ -7,7 +7,6 @@ function Event(props) {
       <h1>event!</h1>
     </div>
   );
-
 }
 
 export default Event;
