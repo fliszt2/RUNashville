@@ -119,12 +119,12 @@ CREATE TABLE events (
   id INT AUTO_INCREMENT,
   event_title VARCHAR(40),
   description_events TEXT,
-  reported BOOLEAN,
-  show_events BOOLEAN,
+  reported BOOLEAN DEFAULT false,
+  show_events BOOLEAN DEFAULT true,
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
   fk_leader_user_id INT,
-  official BOOLEAN,
+  official BOOLEAN DEFAULT true,
   start_time DATETIME,
   end_time DATETIME,
   start_location VARCHAR(100),
@@ -133,8 +133,9 @@ CREATE TABLE events (
   thumbnail_photo VARCHAR(200),
   running_distance DECIMAL(3,2),
   link VARCHAR(200),
+  map_url TEXT,
   attendees INT,
-  promoted BOOLEAN,
+  promoted BOOLEAN DEFAULT false,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
@@ -156,7 +157,7 @@ INSERT INTO user_type (name_user_type, description_user_type) VALUES ('Community
 
 /* Insert new users in USER table */
 
-INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, image_url, banner_url, bio_description) VALUES ('Jodi', 'Silverman', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, 'https://media-exp1.licdn.com/dms/image/C4D03AQGb2LV3vUqt6Q/profile-displayphoto-shrink_800_800/0/1616525518088?e=1623283200&v=beta&t=_HOXvWSGo6RP4IumxWAyUCYiTU7c3SMo5geGN2sqbNs', 'https://media-exp1.licdn.com/dms/image/C4E1BAQGNSXOpPD26mg/company-background_10000/0/1575402796522?e=1617915600&v=beta&t=Xb1fHhsUGHAqLGzJo7w_eWf0UATzIrrseB9UUGFI3q0', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, image_url, banner_url, bio_description) VALUES ('Jodi', 'Silverman', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'jodi@21Jump.com', 1, false, 'https://media-exp1.licdn.com/dms/image/C4D03AQGb2LV3vUqt6Q/profile-displayphoto-shrink_800_800/0/1616525518088?e=1623283200&v=beta&t=_HOXvWSGo6RP4IumxWAyUCYiTU7c3SMo5geGN2sqbNs', 'https://miro.medium.com/max/2750/1*0yBDbGpdgoLq-Ne5ceyidQ.jpeg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, image_url, banner_url, bio_description) VALUES ('Daniel', 'Doyle', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'daniel@21Jump.com', 1, false, 'https://media-exp1.licdn.com/dms/image/C4E03AQGFmWXduIV_Iw/profile-displayphoto-shrink_800_800/0/1533059495913?e=1623283200&v=beta&t=PnT8-NVJhqO6kl5rERys8mEb2mS1q_8BuaNF-kq7ovQ', 'https://media-exp1.licdn.com/dms/image/C5616AQEOKvd6zJjtlg/profile-displaybackgroundimage-shrink_200_800/0/1600785720704?e=1623283200&v=beta&t=Ndkcc-NglerNTm15iR8F3g8_a297MnPwhtZi8D1XY6k', 'This is my profile! It is a test, so no judgment please.');
 INSERT INTO user (name_user, last_name, password_user, address_user, email, fk_user_type_id, banned, image_url, banner_url, bio_description) VALUES ('Phil', 'Teves', '497daa66aebfefcccd1f3c46dcd59d64210b31ebb41b7a17acdfd4dc4cff367b', '21 Jump Street', 'phil@21Jump.com', 1, false, 'https://media-exp1.licdn.com/dms/image/C4E03AQE_LoUV3hoUGg/profile-displayphoto-shrink_800_800/0/1616439062777?e=1623283200&v=beta&t=imxyU2JdwSm2rFNAYSXCts9H2_srazLN_3s0XjUhWhQ', 'https://www.tbf.org/-/media/tbf/images/funds/boston-skyline-dusk-covid-banner.jpg?h=516&w=1290&la=en&hash=31E68F53D6A5A8934BFD2984CD91189014C7E801', 'You from Boston? I suppose you think you''re better than me?');
 
@@ -167,7 +168,9 @@ INSERT INTO friends (fk_source_user_id, fk_target_user_id, status_friends) VALUE
 
 INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, 'https://simplifaster.com/wp-content/uploads/2017/01/Seaside-Runner.jpg','I am such a fast runner, look how fast I can go wheeeee', false, true, 'Nashville');
 
-INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, null,'Gotta go fast', false, true, 'Shelby Bottom');
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (2, null,'Testing another post', true, true, 'The End of The World');
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, null,'Testing another post', true, true, 'These Runs Suck');
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (3, null,'I hate running', true, true, 'I hate Running');
 
 INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 1, 'cool story bro');
 INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 2, 'WOWOW');
@@ -206,5 +209,5 @@ INSERT INTO events (fk_event_type_id, event_title, description_events, official,
 */
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root -p < db/schema.sql
+ *    mysql -u root < db/schema.sql
  *  to create the database and the tables.*/

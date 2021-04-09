@@ -10,6 +10,15 @@ module.exports = {
       callback(result);
     });
   },
+  getAllReportedPosts(callback) {
+    const queryString = 'SELECT u.id, u.name_user, u.last_name, p.id, p.image_url, p.message_post, p.show_post, p.location_post, p.created_at FROM post AS p LEFT JOIN user AS u ON p.fk_user_id = u.id WHERE p.reported = 1';
+    db.connection.query(queryString, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      callback(result);
+    });
+  },
   getUserReportedPost(id, callback) {
     const queryString = 'SELECT u.id, p.id, u.name_user, u.last_name, p.image_url, p.message_post, p.show_post, p.location_post, p.created_at FROM post AS p LEFT JOIN user AS u ON p.fk_user_id = u.id WHERE p.fk_user_id = ? AND p.reported = true';
     db.connection.query(queryString, [id], (err, result) => {
@@ -29,7 +38,7 @@ module.exports = {
     });
   },
   getPostComments(id, callback) {
-    const queryString = 'SELECT p.id, c.id, u.name_user, u.lastname, c.message_comments, c.created_at, c.updated_at FROM comments AS c LEFT JOIN post AS p ON c.fk_post_id = p.id LEFT JOIN user AS u ON c.fk_user_id = u.id WHERE c.fk_post_id = ?';
+    const queryString = 'SELECT p.id, c.id, u.name_user, u.last_name, c.message_comments, c.created_at, c.updated_at FROM comments AS c LEFT JOIN post AS p ON c.fk_post_id = p.id LEFT JOIN user AS u ON c.fk_user_id = u.id WHERE c.fk_post_id = ?';
     db.connection.query(queryString, [id], (err, result) => {
       if (err) {
         console.log(err);
