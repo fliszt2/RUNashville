@@ -42,6 +42,11 @@ class AddEventForm extends React.Component {
     const { event_name, event_type, link, start_time, start_date, start_location, map_url, description, name_user, image_url, running_distance, difficulty_level } = this.state;
     const stateValues = [event_name, event_type, link, start_time, start_date, start_location, map_url, description, name_user, image_url, running_distance, difficulty_level];
 
+    var runningDistanceToSend = running_distance;
+    if (Number(runningDistanceToSend) > 99) {
+      return alert('Distance must be below 100.');
+    }
+
     for (let value of stateValues) {
       if (value === null) {
         value = '';
@@ -196,7 +201,7 @@ class AddEventForm extends React.Component {
             <br />
             <label>
               Run Length:
-              <input name="running_distance" type="number" value={running_distance} onChange={this.handleInputChange} />
+              <input name="running_distance" type="number" min="1" max="99" value={running_distance} onChange={this.handleInputChange} />
             </label>
             <label>
               Run Difficulty:
