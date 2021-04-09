@@ -212,6 +212,8 @@ class AddEventForm extends React.Component {
              </select>
             </label>
             <br />
+            <div dangerouslySetInnerHTML={{__html: '<iframe src="https://giphy.com/embed/sknjyzbCmPmyfl5bG3" width="480" height="292" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sknjyzbCmPmyfl5bG3">via GIPHY</a></p>'}}></div>
+
             <button style={{width: "100px"}}onClick={this.handleSubmit}>SUBMIT</button>
           </form>
         </div>
