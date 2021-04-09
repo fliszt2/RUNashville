@@ -90,7 +90,7 @@ class Modal extends React.Component {
       <div className="form-modal-wrapper">
         <div className="form-modal-backdrop" onClick={this.props.closeWindow} />
         <div className="form-modal-box">
-          <i className="fas fa-times fa-2x" style={{'position': 'absolute', 'left': '95%', 'top': '1.5%', 'float': 'right', 'margin': '-1rem, 1rem, 0, 0', 'cursor': 'pointer'}} onClick={this.props.closeWindow}></i>
+          <i className="fas fa-times fa-2x modal-exit-btn" onClick={this.props.closeWindow}></i>
           <SectionTitle text={'Message'}></SectionTitle>
           <br></br>
           <div id='add-social-post'>
