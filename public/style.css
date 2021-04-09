@@ -6,6 +6,7 @@
   --bg-white: hsl(28, 52%, 99%);
   --bg-supplemental: hsl(46, 40%, 92%);
   --white-grey: hsl(0, 0%, 95%);
+  --dark-grey: hsl(0, 0%, 66%);
   --white: hsl(0, 0%, 98%);
   --black: hsl(0, 5%, 30%);
   --jet-black: hsl(0, 4%, 5%);
@@ -14,10 +15,11 @@
   --red: rgb(247, 87, 38);
   --yellow: rgb(252, 216, 58);
 }
+
 body {
   font-size: 1.5rem !important;
   font-family: "Merriweather", "Helvetica", "Arial", serif !important;
-  color: hsl(0, 5%, 30%);
+  color: var(--black) !important;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -27,7 +29,7 @@ body {
 /* To slightly de-emphasize less essential text, such as event descriptions */
 .low-priority-text {
   font-size: 1.2rem;
-  color: hsl(0, 5%, 45%);
+  color: var(--gentle-black);
 }
 
 .clickable {
@@ -85,7 +87,7 @@ textarea {
   box-sizing: border-box;
   outline: 0;
   background: var(--white-grey);
-  border: 1px solid hsla(0, 0%, 50%, 20%);
+  border: 1px solid var(--border-grey);
   width: 100%;
   border-radius: 3px;
 }
@@ -122,12 +124,12 @@ a {
 .mytexttitle {
   flex-grow: 0;
   font-size: 20px;
-  color: hsl(120, 60%, 65%);
+  color: var(--green);
 }
 .divider {
   flex-grow: 1;
   height: 2px;
-  background-color: hsl(120, 60%, 65%);
+  background-color: var(--green);
   border-radius: 5px;
 }
 
@@ -860,7 +862,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 .sidebar {
   flex-basis: 10rem;
   flex-grow: 1;
-  background-color: darkgray;
+  background-color: var(--dark-grey);
   color: white;
   align-items: center;
   text-align: center;
@@ -934,13 +936,13 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 .mytexttitle {
   flex-grow: 0;
   font-size: 20px;
-  color: hsl(120, 60%, 65%);
+  color: var(--green);
 }
 
 .divider {
   flex-grow: 1;
   height: 2px;
-  background-color: hsl(120, 60%, 65%);
+  background-color: var(--green);
   border-radius: 5px;
 }
 /* MANAGE AND  ITEMS =============================================================================== */
