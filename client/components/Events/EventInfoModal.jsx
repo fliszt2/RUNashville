@@ -36,7 +36,7 @@ const EventInfoModal = ({event, onModalOpen}) => {
           <div style={{flexBasis: "50%", marginRight: "10px"}}>
           <div className="mytextdiv">
             <div className="mytexttitle">
-              {event.name}
+              {event.event_title}
             </div>
             <div className="divider"></div>
           </div>
@@ -47,7 +47,7 @@ const EventInfoModal = ({event, onModalOpen}) => {
             </div>
             <div className="divider"></div>
           </div> */}
-          <div dangerouslySetInnerHTML={{__html: event.map_url}}>
+          <div className="event-modal-map" dangerouslySetInnerHTML={{__html: event.map_url}}>
           </div>
 
             {/* <img className="thumbnail" src={event.map_url}></img>&nbsp; */}

@@ -12,7 +12,8 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventData: data.events,
+      // eventData: data.events,
+      eventData: [],
       feedData: feedData.posts,
       isModalOpen: false,
       apiData: '',
@@ -62,9 +63,9 @@ class Homepage extends React.Component {
         <div className="homepage-body">
           <div className="events">
             <SectionTitle text="Daily" />
-            <EventsCarousel events={eventData.filter((event) => event.event_type === 'daily_run')} />
+            <EventsCarousel events={eventData.filter((event) => event.name_event_type === 'daily_run')} />
             <SectionTitle text="Announcements and Other Events" />
-            <EventsCarousel events={eventData.filter((event) => event.event_type === 'other')} />
+            <EventsCarousel events={eventData.filter((event) => event.name_event_type === 'other')} />
             {this.state.isModalOpen ? (<AddEventForm fetchEvents={this.fetchEvents} onModalOpen={this.onModalOpen} />) : null}
           </div>
           <div className="homepage-social-feed">

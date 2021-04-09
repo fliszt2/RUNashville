@@ -472,7 +472,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   /* overflow: hidden; */
 }
 
-.race-map a {
+.race-map a, .event-modal-map a {
   color: var(--bright-grey) !important;
   display: none;
 }
