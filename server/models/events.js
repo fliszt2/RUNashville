@@ -38,12 +38,21 @@ module.exports = {
     });
   },
   postNewEvent(data, callback) {
-    const queryString = 'INSERT INTO events (event_title, description_events, fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, start_time, end_time, start_location, end_location, image_url, thumbnail_photo, running_distance, link, map_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    console.log('data:', data);
+    // const { event_title, description_events, event_type_id, difficulty_level_id, leader_user_id, start_time, end_time, start_location, end_location, image_url, thumbnail_photo, running_distance, link, map_url } = data;
+    const queryString = `INSERT INTO events (event_title, description_events, fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, start_time, end_time, start_location, end_location, image_url, thumbnail_photo, running_distance, link, map_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     db.connection.query(queryString, data, (err, result) => {
       if (err) {
-        callback(err, null);
+        console.log('err:', err);
+        return callback(err, null);
       }
       callback(null, result);
     });
   },
 };
+
+
+// event_title, description_events, fk_event_type_id, fk_difficulty_level_id, fk_leader_user_id, start_time, end_time, start_location, end_location, image_url, thumbnail_photo, running_distance, link, map_url
+// const data = [event_title, description_events, event_type, difficulty_level,
+// leader_user, start_time, end_time, start_location, end_location,
+// image_url, thumbnail_photo, running_distance, link, map_url];
