@@ -12,7 +12,7 @@ const Profile = class extends React.PureComponent {
     super(props);
     this.state = {
       currentUserID: 1,
-      userPosts: null,
+      userPosts: [],
       userProfile: {
       },
       friendsList: [
@@ -45,8 +45,7 @@ const Profile = class extends React.PureComponent {
           axios.get(`/api/friends/${this.state.currentUserID}`)
             .then((newFriends) => {
               axios.get(`/api/events/${this.state.currentUserID}`)
-                .then((newEvents) => {
-<<<<<<< HEAD
+                .then((newEvents) => { 
                   axios.get(`api/post?id=${this.state.currentUserID}`)
                   .then((newPosts) =>{
                     console.log('posts: ', newPosts.data);
@@ -54,17 +53,9 @@ const Profile = class extends React.PureComponent {
                       userProfile: newProfile.data[0] || {},
                       friendsList: newFriends.data || [],
                       userEvents: newEvents.data || [],
-                      userPosts: newPosts.data || null
+                      userPosts: newPosts.data || []
                     });
                   })
-=======
-                  console.log(newEvents.data[0]);
-                  this.setState({
-                    userProfile: newProfile.data[0] || {},
-                    friendsList: newFriends.data || [],
-                    userEvents: newEvents.data || [],
-                  });
->>>>>>> 295529750cef780e0e821405a91bbb4dc5ef90d5
                 });
             });
         });
@@ -75,19 +66,11 @@ const Profile = class extends React.PureComponent {
   //   console.log('posts: ', newPosts.data);
 
   activateCreatePost() {
-<<<<<<< HEAD
-    this.setState({createPostActive: !this.state.createPostActive});
-  }
-
-  activateAddEvent() {
-    this.setState({addEventActive: !this.state.addEventActive});
-=======
     this.setState({ createPostActive: !this.state.createPostActive });
   }
 
   activateAddEvent() {
     this.setState({ addEventActive: !this.state.addEventActive });
->>>>>>> 295529750cef780e0e821405a91bbb4dc5ef90d5
   }
 
   render() {
@@ -97,17 +80,10 @@ const Profile = class extends React.PureComponent {
     const {
       name_user, last_name, image_url, banner_url, bio_description,
     } = userProfile;
-<<<<<<< HEAD
-    let addEvent = <div></div>;
-    let createPost = <div></div>;
-    if(this.state.addEventActive){
-      addEvent = <AddEventForm onModalOpen={this.activateAddEvent.bind(this)}></AddEventForm>;
-=======
     let addEvent = <div />;
     let createPost = <div />;
     if (this.state.addEventActive) {
-      addEvent = <AddEventForm />;
->>>>>>> 295529750cef780e0e821405a91bbb4dc5ef90d5
+      addEvent = <AddEventForm onModalOpen={this.activateAddEvent.bind(this)}/>;
     }
     if (this.state.createPostActive) {
       createPost = <CreatePost closeWindow={this.activateCreatePost.bind(this)} />;
