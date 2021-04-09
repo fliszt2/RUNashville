@@ -119,12 +119,12 @@ CREATE TABLE events (
   id INT AUTO_INCREMENT,
   event_title VARCHAR(40),
   description_events TEXT,
-  reported BOOLEAN,
+  reported BOOLEAN DEFAULT false,
   show_events BOOLEAN DEFAULT true,
   fk_event_type_id INT,
   fk_difficulty_level_id INT,
   fk_leader_user_id INT,
-  official BOOLEAN,
+  official BOOLEAN DEFAULT true,
   start_time DATETIME,
   end_time DATETIME,
   start_location VARCHAR(100),
@@ -135,7 +135,7 @@ CREATE TABLE events (
   link VARCHAR(200),
   map_url TEXT,
   attendees INT,
-  promoted BOOLEAN,
+  promoted BOOLEAN DEFAULT false,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
@@ -168,7 +168,9 @@ INSERT INTO friends (fk_source_user_id, fk_target_user_id, status_friends) VALUE
 
 INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, 'https://simplifaster.com/wp-content/uploads/2017/01/Seaside-Runner.jpg','I am such a fast runner, look how fast I can go wheeeee', false, true, 'Nashville');
 
-INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, null,'Gotta go fast', false, true, 'Shelby Bottom');
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (2, null,'Testing another post', true, true, 'The End of The World');
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (1, null,'Testing another post', true, true, 'These Runs Suck');
+INSERT INTO post (fk_user_id, image_url, message_post, reported, show_post, location_post) VALUES (3, null,'I hate running', true, true, 'I hate Running');
 
 INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 1, 'cool story bro');
 INSERT INTO comments (fk_post_id, fk_user_id, message_comments) VALUES (1, 2, 'WOWOW');
@@ -207,5 +209,5 @@ INSERT INTO events (fk_event_type_id, event_title, description_events, official,
 */
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root -p < db/schema.sql
+ *    mysql -u root < db/schema.sql
  *  to create the database and the tables.*/
