@@ -137,9 +137,9 @@ a {
 .modal-exit-btn {
     position: absolute;
     left: 95%;
-    top: 1.5%; 
+    top: 1.5%;
     float: right;
-    margin: -1rem, 1rem, 0, 0; 
+    margin: -1rem, 1rem, 0, 0;
     cursor: pointer;
     color: var(--black);
 }
@@ -911,15 +911,25 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   margin-bottom: 40px;
   margin-top: 5px;
 }
-
+.sidebar-contents {
+  margin-top: 10vh;
+}
+.sidebar-icon {
+  cursor: pointer;
+}
 .not-sidebar {
   /* ↓ grow from nothing */
   flex-basis: 0;
   flex-grow: 999;
   min-width: calc(50% - 1rem);
+  margin-top: 10vh;
 }
 .future {
   color: lightgray;
+}
+.groupText {
+  color: green;
+  font-weight: 600;
 }
 
 /* MODAL INFORMATION ==================================================================== */
