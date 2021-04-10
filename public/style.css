@@ -117,17 +117,10 @@ a {
 
 .modal-exit-btn {
     position: absolute;
-<<<<<<< HEAD
     right: 1rem;
     top: 1.5%; 
     float: right;
     margin: -1rem, 0, 0, 1rem; 
-=======
-    left: 95%;
-    top: 1.5%;
-    float: right;
-    margin: -1rem, 1rem, 0, 0;
->>>>>>> bob
     cursor: pointer;
     color: var(--black);
 }
