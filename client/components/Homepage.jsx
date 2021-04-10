@@ -58,7 +58,7 @@ class Homepage extends React.Component {
   }
 
   updateDisplayedProfile() {
-    axios.get(`http://54.173.19.52:3000/api/postsAll`)
+    axios.get(`http://54.173.19.52:3000/api/posts/all`)
       // axios.get(`http://54.173.19.52:3000/api/post?id=${this.state.currentUserID}`)
       .then((newPosts) => {
         console.log('posts: ', newPosts.data);
