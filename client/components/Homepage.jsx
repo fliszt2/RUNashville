@@ -56,9 +56,6 @@ class Homepage extends React.Component {
     return (
       <>
         <RaceJumbotron races={eventData.filter((event) => event.name_event_type === 'race')} />
-        <div>
-          <button style={{ display: "inline", width: "300px" }} onClick={this.onModalOpen}>NEW EVENT FORM</button>
-        </div>
         <div className="homepage-body">
           <div className="events">
             <SectionTitle text="Daily" />

@@ -11,12 +11,12 @@ const SocialFeed = (props) => {
           id={post.id}
           name={post.name_user} 
           lastName={post.last_name} 
-          propic={post.image_url} 
+          propic={post.user_image_url} 
           date={post.created_at} 
           location={post.location_post} 
-          image={post.image_url} 
-          post={post.message_post}>
-          run={post.run}  //FIX ME!!!!
+          image={post.post_image_url} 
+          post={post.message_post} >
+          {/* // run={post.run}>//FIX ME!!!! */}
         </SocialPost>
         );
       })}

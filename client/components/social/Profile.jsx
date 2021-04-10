@@ -86,7 +86,7 @@ const Profile = class extends React.PureComponent {
       addEvent = <AddEventForm onModalOpen={this.activateAddEvent.bind(this)}/>;
     }
     if (this.state.createPostActive) {
-      createPost = <CreatePost closeWindow={this.activateCreatePost.bind(this)} />;
+      createPost = <CreatePost userId={this.state.currentUserID} closeWindow={this.activateCreatePost.bind(this)} />;
     }
     if (userProfile.name_user) {
       return (

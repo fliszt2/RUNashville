@@ -115,31 +115,12 @@ a {
   background-repeat: no-repeat;
 }
 
-.mytextdiv {
-  display:flex;
-  flex-direction:row;
-   align-items: center;
-   margin-top: 20px;
-   margin-bottom: 10px;
-}
-.mytexttitle {
-  flex-grow: 0;
-  font-size: 20px;
-  color: var(--green);
-}
-.divider {
-  flex-grow: 1;
-  height: 2px;
-  background-color: var(--green);
-  border-radius: 5px;
-}
-
 .modal-exit-btn {
     position: absolute;
-    left: 95%;
+    right: 1rem;
     top: 1.5%; 
     float: right;
-    margin: -1rem, 1rem, 0, 0; 
+    margin: -1rem, 0, 0, 1rem; 
     cursor: pointer;
     color: var(--black);
 }
@@ -358,7 +339,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 .section-title-divider {
   flex-grow: 1;
   height: 2px;
-  background-color: var(--black);
+  background-color: var(--jet-black);
   border-radius: 5px;
   margin-left: 1rem;
 }
@@ -668,7 +649,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin-top: 7.5vh;
 }
 .social-profile-banner-img {
   height: 30vh;
@@ -725,7 +706,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   margin-bottom: 0.5rem;
 }
 
-.social-run-details-pane {
+#social-run-details-pane {
   background: var(--bg-supplemental);
   border: 1px solid var(--border-grey);
   border-radius: 3px;
@@ -733,8 +714,33 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   font-size: 1.2rem;
   color: var(--gentle-black);
   margin-bottom: 1.5rem;
+  /* display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 3rem 3rem; */
+  display: flex;
+  justify-content: space-between;
 }
 
+.add-run-left {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+.add-run-center {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+.add-run-right {
+  grid-column-start: 3;
+  grid-column-end: 3;
+}
+.add-run-top {
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.add-run-bottom {
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
 .social-run-details-row {
   display: flex;
   justify-content: space-between;
@@ -832,6 +838,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   display: inline-block;
   width: 15px;
   margin: 1rem 1rem 0 0;
+  filter: grayscale(1);
 }
 
 .add-social-post-options {
@@ -841,12 +848,14 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .social-camera-button {
-  background-color: var(--bg-supplemental);
+  background-color: var(--white-grey);
   width: fit-content;
   padding: 0.8rem;
-  border: 1px solid var(--black);
+  border: 1px solid var(--border-grey);
   border-radius: 3px;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .social-comment-component {
@@ -881,6 +890,19 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   margin-top: 10px;
 }
 
+.add-run-data {
+  width: 30%;
+  height: 2rem;
+  margin-left: 1rem;
+}
+
+.social-post-add-image {
+  display: inline;
+  width: 80%;
+  height: 2rem;
+  margin-left: 1rem;
+  margin-top: 1.2rem;
+}
 /* MAIN JSX ==================================================================== */
 /* ↓ targets the intermediary wrapper */
 .with-sidebar > * {
@@ -905,6 +927,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   align-items: center;
   text-align: center;
   height: 100vh;
+  padding: 10px;
 }
 .sidebarText {
   font-size: 14px;
@@ -912,8 +935,17 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   margin-top: 5px;
 }
 
+.sidebar-contents {
+  margin-top: 10vh;
+}
+
+.sidebar-icon {
+  cursor: pointer;
+}
+
 .not-sidebar {
   /* ↓ grow from nothing */
+  margin-top: 10vh;
   flex-basis: 0;
   flex-grow: 999;
   min-width: calc(50% - 1rem);
@@ -967,21 +999,25 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 .mytextdiv {
   display:flex;
   flex-direction:row;
-   align-items: center;
-   margin-top: 20px;
-   margin-bottom: 10px;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: 2px;
+  border-radius: 5px;
+  background-color: var(---jet-black);
 }
 .mytexttitle {
   flex-grow: 0;
-  font-size: 20px;
-  color: var(--green);
+  font-size: 1.8rem;
+  color: var(--jet-black);
 }
 
 .divider {
   flex-grow: 1;
   height: 2px;
-  background-color: var(--green);
+  background-color: var(--jet-black);
   border-radius: 5px;
+  margin-left: 1rem;
 }
 /* MANAGE AND  ITEMS =============================================================================== */
 .manage-check {
