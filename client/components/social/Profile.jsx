@@ -172,7 +172,9 @@ const Profile = class extends React.PureComponent {
             </div>
             <div className="contentBox">
               <SectionTitle text={`${name_user}'s Friends Feed`} />
-              <div className="friendFeed" />
+              <div className="friendFeed">
+              <SocialFeed posts={this.state.userPosts} />
+                </div>
             </div>
           </div>
         </div>
