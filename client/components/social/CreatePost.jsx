@@ -76,7 +76,7 @@ class Modal extends React.Component {
       alert('Cannot submit a post without message text');
     } else {
       console.log('post: ', this.state.message, 'img: ', this.state.image, 'loc: ', this.state.location, 'id: ', this.props.userId);
-      axios.post('/http://54.173.19.52:3000/api/post/', {
+      axios.post('http://54.173.19.52:3000/api/post', {
         message_post: this.state.message,
         image_url: this.state.image,
         location_post: this.state.location,
@@ -84,7 +84,11 @@ class Modal extends React.Component {
       })
       .then((result)=>{
         console.log(result);
-        console.log(result.insertId);
+        console.log('post_id returned: ', result.data.insertId);
+        console.log('Now do run data');
+        console.log('Then do refresh feed');
+        console.log('Then close modal');
+        
       });
     }
   }

@@ -38,6 +38,7 @@ const Profile = class extends React.PureComponent {
     this.updateDisplayedProfile(currentUserID);
   }
 
+  
   updateDisplayedProfile(userID) {
     this.setState({ currentUserID: userID }, () => {
       axios.get(`http://54.173.19.52:3000/api/user/${this.state.currentUserID}`)
