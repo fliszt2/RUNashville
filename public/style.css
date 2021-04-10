@@ -949,9 +949,14 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   flex-basis: 0;
   flex-grow: 999;
   min-width: calc(50% - 1rem);
+  margin-top: 10vh;
 }
 .future {
   color: lightgray;
+}
+.groupText {
+  color: green;
+  font-weight: 600;
 }
 
 /* MODAL INFORMATION ==================================================================== */

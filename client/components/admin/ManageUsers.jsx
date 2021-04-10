@@ -8,10 +8,11 @@ class ManageUsers extends React.Component {
 
     this.state = {
       allUsers: [],
-      reportedUsers: [],
+      toggledUsers: [],
     };
     this.getAllUsers = this.getAllUsers.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmitManageUser = this.handleSubmitManageUser.bind(this);
 
   }
 
@@ -22,59 +23,94 @@ class ManageUsers extends React.Component {
 
   getAllUsers() {
     axios.get('http://54.173.19.52:3000/api/users')
+    // axios.get('/api/User/reported')
       .then((res) => {
+        console.log('RES DATA ===', res.data)
         this.setState({ allUsers: res.data });
       })
-      .catch((err) => console.log('ERROR GETTING Users: ', err));
+      .catch((err) => console.log('ERROR GETTING USERS: ', err));
   }
 
   handleChange(event) {
     const value = event.target.value;
-    let tempArr = this.state.reportedUsers;
+    let tempArr = this.state.toggledUsers;
 
     if (tempArr.indexOf(value) === -1) {
       tempArr.push(value);
     } else {
       tempArr.splice(tempArr.indexOf(value), 1);
     }
-    this.setState({ reportedUsers: tempArr });
+    this.setState({ toggledUsers: tempArr });
+  }
+
+  handleSubmitManageUser(event) {
+    console.log('CLICKED')
+    event.preventDefault();
+    var body = {
+      "toggleHideUsers": this.state.toggledUsers
+    };
+    return axios.put('http://54.173.19.52:3000/api/users', body)
+      .then(() => {
+        alert('Users have been Updated!');
+      })
+      .then(() => {
+        this.setState({
+          toggledUsers:[]
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {
     const allUsers = this.state.allUsers;
-    console.log('ALL Users', allUsers, 'REPORTED Users', this.state.reportedUsers);
+    console.log('ALL USERS', allUsers, 'UPDATED USERS', this.state.toggledUsers);
 
     return (
       <div>
-        <div className="manage-heading">MANAGE Users</div>
+        <div className="manage-heading">MANAGE USERS</div>
+
+
 
         <div className="listItems">
-          {/* <ul className="no-bullets">
+          <ul className="no-bullets">
             {allUsers.map((user) => (
+
             <li key={user.id}>
 
               <div className="mytextdiv">
                 <div className="mytexttitle manage-mytext">
                   {user.name_user + " " + user.last_name}&nbsp;</div>
-                <div className="divider"></div>
-              </div>
-                <input id={user.id} type="checkbox" value={user.id} onChange={this.handleChange} />
-                <label htmlFor={user.id}>&nbsp;<span className="span-label">Hide user?</span></label>
-              <br></br>
-              user: {user.message_user}
-              <br></br>
-              user Name: {user.name}
-              <br></br>
-              Created: {user.created_at}
-              <br></br>
-              Location: {user.location_user}
-              <br></br>
+                    <div className="divider"></div>
+                </div>
+                {user.address_user}
+                <br></br>
+                {user.email}
+                <br></br>
+                <br></br>
+                <input id={`${user.id}-SupAdmin`} type="checkbox" value={`${user.id}-SupAdmin`} onChange={this.handleChange} />
+                <label htmlFor={`${user.id}-SupAdmin`}>&nbsp;<span className="span-label">Is Super Admin?</span></label>
 
-              {user.image_url}
-              {user.run}
+                <span className='groupText'>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <input id={`${user.id}-ComAdmin`} type="checkbox" value={`${user.id}-ComAdmin`} onChange={this.handleChange} />
+                <label htmlFor={`${user.id}-ComAdmin`}>&nbsp;<span className="span-label">Is Community Admin?</span></label>
+
+                <span className='groupText'>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <input id={`${user.id}-Prospect`} type="checkbox" value={`${user.id}-Prospect`} onChange={this.handleChange} />
+                <label htmlFor={`${user.id}-Prospect`}>&nbsp;<span className="span-label">Is Prospect?</span></label>
+
+                <span className='groupText'>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <input id={`${user.id}-Member`} type="checkbox" value={`${user.id}-Member`} onChange={this.handleChange} />
+                <label htmlFor={`${user.id}-Member`}>&nbsp;<span className="span-label">Is Member?</span></label>
+
+                <span className='groupText'>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <input id={`${user.id}-Banned`} type="checkbox" value={`${user.id}-Banned`} defaultChecked={user.banned ? "checked" : null} onChange={this.handleChange} />
+                <label htmlFor={`${user.id}-Banned`}>&nbsp;<span className="span-label">Is Banned?</span></label>
             </li>
             ))}
-          </ul> */}
+          </ul>
+          <button onClick={this.handleSubmitManageUser}>SUBMIT CHANGES</button>
         </div>
       </div>
     );
