@@ -1,11 +1,6 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
-<<<<<<< HEAD
-const router = require('./routes');
-const axios = require('axios');
-=======
->>>>>>> main
 
 const app = express();
 const port = 3000;
