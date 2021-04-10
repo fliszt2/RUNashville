@@ -117,10 +117,17 @@ a {
 
 .modal-exit-btn {
     position: absolute;
+<<<<<<< HEAD
     right: 1rem;
     top: 1.5%; 
     float: right;
     margin: -1rem, 0, 0, 1rem; 
+=======
+    left: 95%;
+    top: 1.5%;
+    float: right;
+    margin: -1rem, 1rem, 0, 0;
+>>>>>>> bob
     cursor: pointer;
     color: var(--black);
 }
@@ -613,11 +620,12 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 /********ADD EVENT FORM MODAL *********/
 
 .add-event-form-modal-box {
-  margin-left: 30%;
-  margin-right: 30%;
+  /* margin-left: 30%;
+  margin-right: 30%; */
 }
 .add-event-form {
   display: flex;
+  margin-top: 0 !important;
 }
 
 .left-form-column {
@@ -627,12 +635,17 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 .right-form-column {
-  font-size: 1.25 !important;
+  font-size: 1.25rem !important;
   line-height: 1rem;
 }
 
 .right-form-column a {
   display: none;
+}
+
+.add-event-modal-box {
+  height: 900px;
+  width: 900px;
 }
 
 /************ EVENTS DETAILS MODAL **************/
