@@ -16,6 +16,7 @@ class SocialPostComments extends React.Component {
     componentDidMount(){
         axios.get(`http://54.173.19.52:3000/api/post/${this.props.postId}/comments`)
             .then((comments) => {
+                console.log('comments: ', comments);
                 this.setState({comments: comments.data || null});
             })
     }

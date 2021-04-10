@@ -45,16 +45,18 @@ const Admin = class extends React.Component {
           <div>
             {/* <!-- intermediary wrapper --> */}
 
-              <div className="sidebar">
+            <div className="sidebar">
                 <br />
-              <i className="fas fa-running fa-3x"  onClick={this.handleUsersClick} />
-              <div className="sidebarText">Manage Users</div>
-                <i className="fas fa-exclamation-triangle fa-3x" onClick={this.handlePostsClick} />
-                <div className="sidebarText">Report Posts</div>
-                <i className="fas fa-clipboard-list fa-3x" onClick={this.handleEventsClick} />
-                <div className="sidebarText">Manage Events</div>
-                <i className="fas fa-envelope-open-text fa-3x future" />
-                <div className="sidebarText future">Email Members</div>
+                <div className="sidebar-contents">
+                  <i className="fas fa-running fa-3x sidebar-icon"  onClick={this.handleUsersClick} />
+                  <div className="sidebarText">Manage Users</div>
+                  <i className="fas fa-exclamation-triangle fa-3x sidebar-icon" onClick={this.handlePostsClick} />
+                  <div className="sidebarText">Report Posts</div>
+                  <i className="fas fa-clipboard-list fa-3x sidebar-icon" onClick={this.handleEventsClick} />
+                  <div className="sidebarText">Manage Events</div>
+                  <i className="fas fa-envelope-open-text fa-3x future" />
+                  <div className="sidebarText future">Email Members</div>
+                </div>
               </div>
 
 
