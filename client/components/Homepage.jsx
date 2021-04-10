@@ -13,13 +13,17 @@ class Homepage extends React.Component {
     super(props);
     this.state = {
       // eventData: data.events,
+      currentUserID: 2,
+      userPosts: feedData.posts,
       eventData: [],
-      feedData: feedData.posts,
+      // feedData: feedData.posts,
       isModalOpen: false,
       apiData: '',
+
     };
     this.fetchEvents = this.fetchEvents.bind(this);
     this.onModalOpen = this.onModalOpen.bind(this);
+    this.updateDisplayedProfile = this.updateDisplayedProfile.bind(this);
   }
 //click handlingfunctions for AddEventForm. These will get moved!
 
@@ -32,6 +36,8 @@ class Homepage extends React.Component {
     .then((apiData) => {
       console.log('apiData.data:', apiData.data);
       this.setState({ eventData: apiData.data });
+      const { currentUserID } = this.state;
+      this.updateDisplayedProfile(currentUserID);
     })
     .catch((err) => console.log(err));
     // this.fetchEvents();
@@ -50,8 +56,21 @@ class Homepage extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  updateDisplayedProfile(userID) {
+    this.setState({ currentUserID: userID }, () => {
+      // axios.get(`http://54.173.19.52:3000/api/post`)
+      axios.get(`http://54.173.19.52:3000/api/post?id=${this.state.currentUserID}`)
+        .then((newPosts) => {
+          console.log('posts: ', newPosts.data);
+          this.setState({
+            userPosts: newPosts.data || feedData.posts,
+          });
+        })
+    });
+  }
+
   render() {
-    const { eventData, feedData } = this.state;
+    const { eventData, userPosts } = this.state;
     // console.log('eventData:', eventData);
     return (
       <>
@@ -69,7 +88,7 @@ class Homepage extends React.Component {
           </div>
           <div className="homepage-social-feed">
             <SectionTitle text="Latest Posts" />
-            <SocialFeed posts={feedData} />
+            <SocialFeed posts={userPosts} />
           </div>
         </div>
       </>
