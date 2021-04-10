@@ -47,7 +47,7 @@ class SocialPost extends React.Component {
           <div style={{float: 'right', 'alignSelf': 'center'}}>
             <div className='feed-event-info' style={{'marginBottom': '0.5rem'}}>
               <i className="fas fa-clock feed-icon"></i>
-              <span className='low-priority-text'>{this.props.date}</span>
+              <time dateTime={this.props.date} className='low-priority-text'></time>
             </div>
             <div>
               <div className='feed-event-info'>

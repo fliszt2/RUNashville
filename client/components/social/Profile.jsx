@@ -38,6 +38,7 @@ const Profile = class extends React.PureComponent {
     this.updateDisplayedProfile(currentUserID);
   }
 
+  
   updateDisplayedProfile(userID) {
     this.setState({ currentUserID: userID }, () => {
       axios.get(`http://54.173.19.52:3000/api/user/${this.state.currentUserID}`)
@@ -45,17 +46,17 @@ const Profile = class extends React.PureComponent {
           axios.get(`http://54.173.19.52:3000/api/friends/${this.state.currentUserID}`)
             .then((newFriends) => {
               axios.get(`http://54.173.19.52:3000/api/events/${this.state.currentUserID}`)
-                .then((newEvents) => { 
+                .then((newEvents) => {
                   axios.get(`http://54.173.19.52:3000/api/post?id=${this.state.currentUserID}`)
-                  .then((newPosts) =>{
-                    console.log('posts: ', newPosts.data);
-                    this.setState({
-                      userProfile: newProfile.data[0] || {},
-                      friendsList: newFriends.data || [],
-                      userEvents: newEvents.data || [],
-                      userPosts: newPosts.data || []
-                    });
-                  })
+                    .then((newPosts) => {
+                      console.log('posts: ', newPosts.data);
+                      this.setState({
+                        userProfile: newProfile.data[0] || {},
+                        friendsList: newFriends.data || [],
+                        userEvents: newEvents.data || [],
+                        userPosts: newPosts.data || []
+                      });
+                    })
                 });
             });
         });
@@ -83,10 +84,10 @@ const Profile = class extends React.PureComponent {
     let addEvent = <div />;
     let createPost = <div />;
     if (this.state.addEventActive) {
-      addEvent = <AddEventForm onModalOpen={this.activateAddEvent.bind(this)}/>;
+      addEvent = <AddEventForm onModalOpen={this.activateAddEvent.bind(this)} />;
     }
     if (this.state.createPostActive) {
-      createPost = <CreatePost closeWindow={this.activateCreatePost.bind(this)} />;
+      createPost = <CreatePost userId={this.state.currentUserID} closeWindow={this.activateCreatePost.bind(this)} />;
     }
     if (userProfile.name_user) {
       return (
@@ -136,48 +137,52 @@ const Profile = class extends React.PureComponent {
               <div className="contentBox">
                 <SectionTitle text={`${name_user}'s Events`} />
                 <div className="eventsFeed">{userEvents.map((event) => (<SmallEventCard event={event} user={`${name_user} ${last_name}`} />))}</div>
-                <div className="contentBox">
-                  <SectionTitle text={`${name_user}'s Recent Activities`} />
-                  <div className="recentActivityFeed" />
-                </div>
+              </div>
+              <div className="contentBox">
+                <SectionTitle text={`${name_user}'s Recent Activities`} />
+                <div className="recentActivityFeed" />
               </div>
             </div>
-            <div id="center-column">
-              <div id="social-feed-buttons">
-                <button className="social-button" onClick={() => { this.activateCreatePost(); }}>+ New Post</button>
-                <button className="social-button" onClick={() => { this.activateAddEvent(); }}>+ Create Run</button>
-              </div>
-              <SectionTitle text={`${name_user}'s Feed`} />
-              <div className="contentBox">
-                <SocialFeed posts={this.state.userPosts} />
-              </div>
+          <div id="center-column">
+            <div id="social-feed-buttons">
+              <button className="social-button" onClick={() => { this.activateCreatePost(); }}>+ New Post</button>
+              <button className="social-button" onClick={() => { this.activateAddEvent(); }}>+ Create Run</button>
             </div>
-            <div className="side-column">
-              <div className="contentBox">
-                <button className="social-follow-button">
-                  Follow
+            <SectionTitle text={`${name_user}'s Feed`} />
+            <div className="contentBox">
+              <SocialFeed posts={this.state.userPosts} />
+            </div>
+          </div>
+          <div className="side-column">
+            <div className="contentBox"
+            // height="fit-content" max-height="40vh"
+            >
+              <button className="social-follow-button">
+                Follow
                   {' '}
-                  {name_user}
-                </button>
-                <SectionTitle text={`${name_user}'s Bio`} />
-                <div className="userBio">{bio_description}</div>
+                {name_user}
+              </button>
+              <SectionTitle text={`${name_user}'s Bio`} />
+              <div className="userBio">{bio_description}</div>
+            </div>
+            <div className="contentBox">
+              <SectionTitle text={`${name_user}'s Friends`} />
+              <div className="friendsList">
+                {friendsList.map((friend) => (friendCard(friend, this.updateDisplayedProfile)))}
               </div>
-              <div className="contentBox">
-                <SectionTitle text={`${name_user}'s Friends`} />
-                <div className="friendsList">
-                  {friendsList.map((friend) => (friendCard(friend, this.updateDisplayedProfile)))}
+            </div>
+            <div className="contentBox">
+              <SectionTitle text={`${name_user}'s Friends Feed`} />
+              <div className="friendFeed">
+              <SocialFeed posts={this.state.userPosts} />
                 </div>
-              </div>
-              <div className="contentBox">
-                <SectionTitle text={`${name_user}'s Friends Feed`} />
-                <div className="friendFeed" />
-              </div>
             </div>
           </div>
         </div>
+        </div >
       );
     }
-    return null;
+return null;
   }
 };
 
