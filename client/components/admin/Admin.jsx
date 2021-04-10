@@ -28,7 +28,7 @@ const Admin = class extends React.Component {
 
 
   getAllUsers() {
-    axios.get('/posts')
+    axios.get('http://54.173.19.52:3000/api/posts')
       .then(res => {
         this.setState({ allPosts: res.data });
       })
@@ -59,14 +59,16 @@ const Admin = class extends React.Component {
 
 
             <div className="not-sidebar">
-             {toRender === 'users'
-            ? <ManageUsers />
-                : toRender === 'posts'
-                ? <ManagePosts />
-                  : toRender === 'events'
-                  ? <ManageEvents />
-                  : null
-            }
+              <div>
+                {toRender === 'users' ? <ManageUsers /> : null}
+              </div>
+              <div>
+                {toRender === 'posts' ? <ManagePosts /> : null}
+              </div>
+              <div>
+                {toRender === 'events' ? <ManageEvents /> : null}
+              </div>
+
             </div>
           </div>
         </div>

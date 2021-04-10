@@ -28,7 +28,7 @@ class Homepage extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/events')
+    axios.get('http://54.173.19.52:3000/api/events')
     .then((apiData) => {
       console.log('apiData.data:', apiData.data);
       this.setState({ eventData: apiData.data });
@@ -42,7 +42,7 @@ class Homepage extends React.Component {
   }
 
   fetchEvents() {
-    axios.get('/api/events')
+    axios.get('http://54.173.19.52:3000/api/events')
       .then((apiData) => {
         this.setState({ eventData: apiData.data });
         console.log('apiData.data:', apiData.data);

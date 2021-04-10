@@ -6,6 +6,7 @@
   --bg-white: hsl(28, 52%, 99%);
   --bg-supplemental: hsl(46, 40%, 92%);
   --white-grey: hsl(0, 0%, 95%);
+  --dark-grey: hsl(0, 0%, 66%);
   --white: hsl(0, 0%, 98%);
   --black: hsl(0, 5%, 30%);
   --jet-black: hsl(0, 4%, 5%);
@@ -15,10 +16,11 @@
   --red: rgb(247, 87, 38);
   --yellow: rgb(252, 216, 58);
 }
+
 body {
   font-size: 1.5rem !important;
   font-family: "Merriweather", "Helvetica", "Arial", serif !important;
-  color: hsl(0, 5%, 30%);
+  color: var(--black) !important;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -28,7 +30,7 @@ body {
 /* To slightly de-emphasize less essential text, such as event descriptions */
 .low-priority-text {
   font-size: 1.2rem;
-  color: hsl(0, 5%, 45%);
+  color: var(--gentle-black);
 }
 
 .clickable {
@@ -86,7 +88,7 @@ textarea {
   box-sizing: border-box;
   outline: 0;
   background: var(--white-grey);
-  border: 1px solid hsla(0, 0%, 50%, 20%);
+  border: 1px solid var(--border-grey);
   width: 100%;
   border-radius: 3px;
 }
@@ -123,13 +125,23 @@ a {
 .mytexttitle {
   flex-grow: 0;
   font-size: 20px;
-  color: hsl(120, 60%, 65%);
+  color: var(--green);
 }
 .divider {
   flex-grow: 1;
   height: 2px;
-  background-color: hsl(120, 60%, 65%);
+  background-color: var(--green);
   border-radius: 5px;
+}
+
+.modal-exit-btn {
+    position: absolute;
+    left: 95%;
+    top: 1.5%; 
+    float: right;
+    margin: -1rem, 1rem, 0, 0; 
+    cursor: pointer;
+    color: var(--black);
 }
 
 .login-container,
@@ -334,12 +346,13 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   align-items: center;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  color: var(--black);
 }
 
 .section-title-text {
   flex-grow: 0;
   font-size: 1.8rem;
-  color: var(--black);
+  color: var(--jet-black);
 }
 
 .section-title-divider {
@@ -633,6 +646,11 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 }
 
 /************ EVENTS DETAILS MODAL **************/
+.add-event-form {
+  margin-top: 30vh;
+  max-height: 90vh;
+  overflow: scroll;
+}
 
 /* Main Page styling */
 
@@ -752,6 +770,12 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   align-items: center;
 }
 
+.social-post-likes {
+  font-style: italic;
+  color: var(--gentle-black);
+  font-size: 1.4rem;
+}
+
 .social-follow-button {
   float: right;
   margin: -0.5rem -1rem 0 1rem;
@@ -824,6 +848,39 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
   border-radius: 3px;
   margin-bottom: 1rem;
 }
+
+.social-comment-component {
+  border: 1px solid var(--border-grey);
+  border-radius: 3px;
+  margin-top: 1rem;
+  padding: 0 2rem;
+  background-color: var(--bg-supplemental);
+  color: var(--gentle-black);
+}
+
+.social-post-comments-list {
+  overflow: scroll;
+  width: 100%;
+  max-height: 33vh;
+  background-color: var(--bg-white);
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-radius: 3px;
+  border: 1px solid var(--border-grey);
+}
+.social-post-comment-text {
+  margin: -20px 0 10px 60px;
+}
+
+.full-social-comment {
+  margin-top: 10px;
+  border-bottom: 1px solid var(--border-grey);
+}
+
+.submit-social-comment {
+  margin-top: 10px;
+}
+
 /* MAIN JSX ==================================================================== */
 /* ↓ targets the intermediary wrapper */
 .with-sidebar > * {
@@ -843,7 +900,7 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 .sidebar {
   flex-basis: 10rem;
   flex-grow: 1;
-  background-color: darkgray;
+  background-color: var(--dark-grey);
   color: white;
   align-items: center;
   text-align: center;
@@ -917,14 +974,40 @@ background: radial-gradient(circle, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,2
 .mytexttitle {
   flex-grow: 0;
   font-size: 20px;
-  color: hsl(120, 60%, 65%);
+  color: var(--green);
 }
 
 .divider {
   flex-grow: 1;
   height: 2px;
-  background-color: hsl(120, 60%, 65%);
+  background-color: var(--green);
   border-radius: 5px;
+}
+/* MANAGE AND  ITEMS =============================================================================== */
+.manage-check {
+  display: flex;
+}
+.manage {
+  margin-left: 40px;
+  margin-right: 40px;
+  color: var(--green);
+  font-size: 3rem;
+}
+.manage-heading {
+  margin-top: 20px;
+  color: var(--green);
+  font-size: 3rem;
+  text-align: center;
+}
+.manage-mytext {
+  font-size: 2rem;
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 /* CAROUSEL =============================================================================== */
@@ -1128,3 +1211,20 @@ li {
 .carousel-item-next, .carousel-item-prev, .carousel-item.active {
   display: block;
 }
+
+/* CHECKBOXES USING FONT AWESOME================================================================ */
+.span-label {
+  color: var(--red);
+}
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  color:var(--red);
+}
+
+input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
