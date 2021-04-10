@@ -8,10 +8,11 @@ class ManagePosts extends React.Component {
 
     this.state = {
       allPosts: [],
-      reportedPosts: [],
+      toggledPosts: [],
     };
     this.getAllPosts = this.getAllPosts.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmitManagePost = this.handleSubmitManagePost.bind(this);
 
   }
 
@@ -32,19 +33,39 @@ class ManagePosts extends React.Component {
 
   handleChange(event) {
     const value = event.target.value;
-    let tempArr = this.state.reportedPosts;
+    let tempArr = this.state.toggledPosts;
 
     if (tempArr.indexOf(value) === -1) {
       tempArr.push(value);
     } else {
       tempArr.splice(tempArr.indexOf(value), 1);
     }
-    this.setState({ reportedPosts: tempArr });
+    this.setState({ toggledPosts: tempArr });
+  }
+
+  handleSubmitManagePost(event) {
+    console.log('CLICKED')
+    event.preventDefault();
+    var body = {
+      "toggleHidePosts": this.state.toggledPosts
+    };
+    return axios.put('http://54.173.19.52:3000/api/post/reported', body)
+      .then(() => {
+        alert('Posts have been Updated!');
+      })
+      .then(() => {
+        this.setState({
+          toggledPosts:[]
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {
     const allPosts = this.state.allPosts;
-    console.log('ALL POSTS', allPosts, 'REPORTED POSTS', this.state.reportedPosts);
+    console.log('ALL POSTS', allPosts, 'REPORTED POSTS', this.state.toggledPosts);
 
     return (
       <div>
@@ -59,26 +80,26 @@ class ManagePosts extends React.Component {
               <div className="mytextdiv">
                 <div className="mytexttitle manage-mytext">
                   {post.name_user + " " + post.last_name}&nbsp;</div>
-                <div className="divider"></div>
-              </div>
+                    <div className="divider"></div>
+                </div>
 
-                <input id={post.id} type="checkbox" value={post.id} defaultChecked={post.show_post ? "checked" : null} onChange={this.handleChange} />
+                <input id={post.id} type="checkbox" value={post.id} defaultChecked={post.hide_post ? "checked" : null} onChange={this.handleChange} />
                 <label htmlFor={post.id}>&nbsp;<span className="span-label">Hide Post?</span></label>
               <br></br>
-              Post: {post.message_post}
+                <strong>Post:</strong> {post.message_post}
               <br></br>
-              Post Name: {post.name}
+                <strong>Post Name: </strong>{post.name}
               <br></br>
-              Created: {post.created_at}
+                <strong>Created:</strong> {post.created_at}
               <br></br>
-              Location: {post.location_post}
+                <strong>Location: </strong>{post.location_post}
               <br></br>
-
               {post.image_url}
               {post.run}
             </li>
             ))}
           </ul>
+          <button onClick={this.handleSubmitManagePost}>SUBMIT CHANGES</button>
         </div>
       </div>
     );
