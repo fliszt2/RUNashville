@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());

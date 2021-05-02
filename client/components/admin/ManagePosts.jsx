@@ -22,7 +22,7 @@ class ManagePosts extends React.Component {
 
 
   getAllPosts() {
-    axios.get('http://54.173.19.52:3000/api/post/reported')
+    axios.get('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/post/reported')
     // axios.get('/api/post/reported')
       .then((res) => {
         console.log('RES DATA ===', res.data)
@@ -49,7 +49,7 @@ class ManagePosts extends React.Component {
     var body = {
       "toggleHidePosts": this.state.toggledPosts
     };
-    return axios.put('http://54.173.19.52:3000/api/post/reported', body)
+    return axios.put('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/post/reported', body)
       .then(() => {
         alert('Posts have been Updated!');
       })

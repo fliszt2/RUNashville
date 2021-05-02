@@ -34,7 +34,7 @@ class Homepage extends React.Component {
 
   componentDidMount() {
     this.updateDisplayedProfile();
-    axios.get('http://54.173.19.52:3000/api/events')
+    axios.get('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/events')
     .then((apiData) => {
       console.log('apiData.data:', apiData.data);
       this.setState({ eventData: apiData.data });
@@ -49,7 +49,7 @@ class Homepage extends React.Component {
   }
 
   fetchEvents() {
-    axios.get('http://54.173.19.52:3000/api/events')
+    axios.get('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/events')
       .then((apiData) => {
         this.setState({ eventData: apiData.data });
         console.log('apiData.data:', apiData.data);
@@ -58,7 +58,7 @@ class Homepage extends React.Component {
   }
 
   updateDisplayedProfile() {
-    axios.get(`http://54.173.19.52:3000/api/posts/all`)
+    axios.get(`http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/posts/all`)
       // axios.get(`http://54.173.19.52:3000/api/post?id=${this.state.currentUserID}`)
       .then((newPosts) => {
         console.log('posts: ', newPosts.data);

@@ -23,7 +23,7 @@ class Modal extends React.Component {
     this.updateMessage = this.updateMessage.bind(this);
     // this.handleSubmitLinks = this.handleSubmitLinks.bind(this);
   }
-  
+
   updateMessage(e) {
     console.log('e:', e.target.value);
     this.setState({message: e.target.value});
@@ -76,7 +76,7 @@ class Modal extends React.Component {
       alert('Cannot submit a post without message text');
     } else {
       console.log('post: ', this.state.message, 'img: ', this.state.image, 'loc: ', this.state.location, 'id: ', this.props.userId);
-      axios.post('http://54.173.19.52:3000/api/post', {
+      axios.post('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/post', {
         message_post: this.state.message,
         image_url: this.state.image,
         location_post: this.state.location,
@@ -88,7 +88,7 @@ class Modal extends React.Component {
         console.log('Now do run data');
         console.log('Then do refresh feed');
         console.log('Then close modal');
-        
+
       });
     }
   }

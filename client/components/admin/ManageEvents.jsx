@@ -22,7 +22,7 @@ class ManageEvents extends React.Component {
 
 
   getAllEvents() {
-    axios.get('http://54.173.19.52:3000/api/events/reported')
+    axios.get('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/events/reported')
     // axios.get('/api/post/reported')
       .then((res) => {
         console.log('RES DATA ===', res.data)
@@ -49,7 +49,7 @@ class ManageEvents extends React.Component {
     var body = {
       "toggleHideEvents": this.state.toggledEvents
     };
-    return axios.put('http://54.173.19.52:3000/api/post/reported', body)
+    return axios.put('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/post/reported', body)
       .then(() => {
         alert('Events have been Updated!');
       })

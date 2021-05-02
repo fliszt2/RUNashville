@@ -22,7 +22,7 @@ class ManageUsers extends React.Component {
 
 
   getAllUsers() {
-    axios.get('http://54.173.19.52:3000/api/users')
+    axios.get('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/users')
     // axios.get('/api/User/reported')
       .then((res) => {
         console.log('RES DATA ===', res.data)
@@ -49,7 +49,7 @@ class ManageUsers extends React.Component {
     var body = {
       "toggleHideUsers": this.state.toggledUsers
     };
-    return axios.put('http://54.173.19.52:3000/api/users', body)
+    return axios.put('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/users', body)
       .then(() => {
         alert('Users have been Updated!');
       })

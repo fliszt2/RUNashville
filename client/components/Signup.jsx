@@ -42,7 +42,7 @@ const Signup = class extends React.PureComponent {
         const newUser = {
           name, lastname, address, password, email, created_at: moment().format('YYYY/MM/DD'),
         };
-        axios.post('http://54.173.19.52:3000/api/signup', newUser)
+        axios.post('http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/signup', newUser)
           .then((result) => {
             const { status } = result;
             if (status === 201) {

@@ -7,14 +7,14 @@ class SocialPostComments extends React.Component {
         this.state = {
             submitComment: null,
             comments: null,
-            componentActive: true            
+            componentActive: true
         }
         this.updateComment = this.updateComment.bind(this);
         this.submitComment = this.submitComment.bind(this);
     }
 
     componentDidMount(){
-        axios.get(`http://54.173.19.52:3000/api/post/${this.props.postId}/comments`)
+        axios.get(`http://ec2-18-218-172-21.us-east-2.compute.amazonaws.com:3000/api/post/${this.props.postId}/comments`)
             .then((comments) => {
                 console.log('comments: ', comments);
                 this.setState({comments: comments.data || null});
