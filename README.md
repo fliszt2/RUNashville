@@ -1,9 +1,6 @@
 # RUNashville
 RUNashville for community runs
 
-To see a live version of this site, navigate to:
-http://ec2-3-129-58-126.us-east-2.compute.amazonaws.com:3001/
-
 Initialize Project:
 
 npm install : Install all the dependencies.
