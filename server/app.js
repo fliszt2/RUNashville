@@ -14,5 +14,6 @@ app.use('/*', (req, res) => {
 });
 
 app.listen(port, () => {
+  // console.log({ __dirname });
   console.log('listening on port ', port);
 });
